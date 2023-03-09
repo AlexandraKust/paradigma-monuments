@@ -176,7 +176,7 @@ form {
 	justify-content: center;
 	min-height: 3.90625vw;
 	overflow: hidden;
-	background: url('../media/svg/btn.svg') 0 0 / 100% 100% no-repeat;
+	background: url('../media/img/btn.png') 0 0 / 100% 100% no-repeat;
 	transition-property: background, transform;
 	transition: 0.3s ease-in-out;
 	// box-shadow: inset 0 0 1.09375vw rgba(255, 255, 255, 0.45);
@@ -292,6 +292,65 @@ form {
 			fill: #AEAEAE;
 		}
 	}
+}
+
+// кнопка показать еще
+.btn-more {
+	display: block;
+	font-weight: 600;
+	font-size: 1.04166vw;
+	line-height: 50%;
+	letter-spacing: 0.03em;
+	cursor: pointer;
+	margin: 0 auto;
+
+	svg {
+		width: 0.98958vw;
+		height: 1.197916vw;
+	}
+
+	path {
+		fill: var(--accent-color);
+	}
+
+	.flex {
+		align-items: center;
+		gap: 0.677vw;
+	}
+
+	&.hidden {
+		display: none;
+	}
+}
+
+// input
+.input {
+	padding: 1.95vw 2.55vw;
+	border: none;
+	border-radius: 26vw;
+	font-family: 'Euclid Flex';
+	font-weight: 400;
+	font-size: 0.833vw;
+	line-height: 156%;
+	letter-spacing: -0.04em;
+	text-transform: uppercase;
+	color: var(--main-black);
+	background-color: #fff;
+}
+
+// label
+.label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5vw;
+	flex: 0 0 21.35vw;
+	height: fit-content;
+	font-family: 'Euclid Flex';
+	font-weight: 400;
+	font-size: 0.73vw;
+	line-height: 157%;
+	letter-spacing: 0.03em;
+	color: var(--main-black);
 }
 
 // шапка
@@ -869,46 +928,21 @@ form {
 		}
 	}
 
-	&__list {
+	&__content-item {
 		display: none;
-		font-size: 0;
-		flex-wrap: wrap;
 
 		&.active {
-			display: flex;
+			display: block;
 		}
 	}
 
-	&__btn {
-		width: 100%;
-		text-align: center;
-
-		&.hidden {
-			display: none;
-		}
+	&__list {
+		font-size: 0;
+		flex-wrap: wrap;
 	}
 
-	&__add {
-		font-weight: 600;
-		font-size: 1.04166vw;
-		line-height: 50%;
-		letter-spacing: 0.03em;
-		cursor: pointer;
+	&__btn-more {
 		margin-top: -0.5vw;
-
-		svg {
-			width: 0.98958vw;
-			height: 1.197916vw;
-		}
-
-		path {
-			fill: var(--accent-color);
-		}
-
-		.flex {
-			align-items: center;
-			gap: 0.677vw;
-		}
 	}
 }
 
@@ -926,7 +960,7 @@ form {
 		margin-right: var(--gap);
 	}
 
-	&:nth-last-child(-n + 7) {
+	&:nth-child(n + 7) {
 		display: none;
 	}
 
@@ -1049,13 +1083,7 @@ form {
 	&__btn-basket {
 		flex: 0 0 10.989vw;
 		font-size: 0.78125vw;
-		line-height: 180%;
-		text-align: center;
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-		color: #fff;
-		cursor: pointer;
-		background: url('../media/svg/btn-small.svg') 0 0 / 100% 100% no-repeat;
+		background-image: url('../media/img/btn-small.png');
 	}
 
 	&__btn-calc {
@@ -1129,20 +1157,6 @@ form {
 	align-items: end;
 	justify-content: space-between;
 	row-gap: 1.3vw;
-
-	&__label {
-		font-family: 'Euclid Flex';
-		font-weight: 400;
-		gap: 0.5vw;
-		height: fit-content;
-		flex: 0 0 21.35vw;
-		font-size: 0.73vw;
-		line-height: 157%;
-		display: flex;
-		flex-direction: column;
-		letter-spacing: 0.03em;
-		color: var(--main-black);
-	}
 
 	&__select {
 		width: 100%;
@@ -1224,18 +1238,7 @@ form {
 	}
 
 	&__input {
-		padding: 1.95vw 2.55vw;
-		border: none;
-		border-radius: 26vw;
-		font-family: 'Euclid Flex';
-		font-weight: 400;
-		font-size: 0.833vw;
-		line-height: 156%;
-		letter-spacing: -0.04em;
-		text-transform: uppercase;
-		color: var(--main-black);
 		margin-top: -0.15vw;
-		background-color: #fff;
 	}
 
 	&__btn {
@@ -1284,6 +1287,7 @@ form {
 .work {
 	position: relative;
 	padding-top: 5.25vw;
+	padding-bottom: 3.33vw;
 
 	&__decor {
 		position: absolute;
@@ -1352,14 +1356,18 @@ form {
 			position: absolute;
 			top: 0;
 			left: 0;
+			bottom: 0.1vw;
 			width: 100%;
-			height: 99.7%;
+			// height: 100%;
+			border-radius: 1.3vw;
+			overflow: hidden;
 			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 24.21%, rgba(0, 0, 0, 0.6) 89.64%);
 		}
 
 		img {
 			width: 100%;
 			height: 100%;
+			object-fit: cover;
 		}
 
 		&:hover {
@@ -1435,6 +1443,7 @@ form {
 	}
 }
 
+// пагинация
 .main-pagination {
 	text-align: center;
 
@@ -1499,7 +1508,225 @@ form {
 	}
 }
 
+// дизайн
+.design {
+	padding-top: 3.33vw;
+	padding-bottom: 4.74vw;
+	background: url('../media/img/default-bg.jpg') 0 7vw / 100% auto no-repeat;
 
+	&__row {
+		justify-content: space-between;
+	}
+
+	&__col-left {
+		flex: 0 0 30.4vw;
+		position: relative;
+	}
+
+	&__col-right {
+		flex: 0 0 45.6256vw;
+	}
+
+	&__title {
+		position: sticky;
+		top: 1.5vw;
+		left: 0;
+		text-align: left;
+		line-height: 156%;
+		margin-top: -0.75vw;
+	}
+
+	&__list {
+		font-size: 0;
+	}
+
+	&__item {
+		align-items: center;
+		gap: 2.86vw;
+
+		&:not(:last-child) {
+			margin-bottom: 3.7vw;
+		}
+
+		&:nth-child(even) {
+			flex-direction: row-reverse;
+		}
+	}
+
+	&__img {
+		flex-shrink: 0;
+		width: 15.625vw;
+		height: 15.625vw;
+		border-radius: 50%;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__text {
+		flex-direction: column;
+	}
+
+	&__number {
+		margin-bottom: 1.615vw;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1.25vw;
+		line-height: 1.82vw;
+		color: var(--accent-color);
+	}
+
+	&__name {
+		margin-bottom: 1.2vw;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1.875vw;
+		line-height: 2.76vw;
+		color: var(--main-black);
+	}
+
+	&__descr {
+		font-size: 1.25vw;
+		line-height: 146%;
+		color: var(--main-black);
+	}
+}
+
+// форма обратного звонка 
+.callback {
+	padding-top: 4.8vw;
+	padding-bottom: 4.375vw;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: -9.6vw;
+		bottom: -11.35vw;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+		background: linear-gradient(180deg, rgba(247, 247, 247, 0) 90.88%, #F7F7F7 100%), linear-gradient(180deg, #F7F7F7 0%, rgba(247, 247, 247, 0) 8%);
+	}
+
+	&__content {
+		position: relative;
+		padding: 5.9vw 0 5.1vw 6vw;
+		background: url('../media/img/callback.png') 0 0 / 100% 100% no-repeat;
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: 2vw;
+			top: 0.25vw;
+			z-index: -1;
+			width: 38.28125vw;
+			height: 32.65625vw;
+			background: #fff;
+			box-shadow: 0px 0px 5.2vw rgba(0, 0, 0, 0.1);
+			border-radius: 1.82vw;
+			transform: rotate(-1.5deg);
+		}
+	}
+
+	&__title {
+		margin-bottom: 2.96vw;
+		width: 43vw;
+		text-align: left;
+
+		span {
+			display: block;
+			margin-bottom: 1.1vw;
+		}
+	}
+
+	&__row {
+		align-items: end;
+		gap: 1.66vw;
+		margin-bottom: 1.7vw;
+	}
+
+	&__btn {
+		width: 17.16vw;
+		height: 5.2vw;
+	}
+}
+
+// отзывы
+.comment {
+	position: relative;
+	padding-top: 4.6vw;
+
+	&__decor {
+		position: absolute;
+		top: 1.8vw;
+		left: 50%;
+		z-index: -1;
+		transform: translateX(-50%);
+	}
+
+	&__title {
+		margin-bottom: 7vw;
+	}
+
+	& .container {
+		position: relative;
+	}
+
+	&__content {
+		width: 92.7vw;
+		padding-right: 21.615vw;
+		overflow: hidden;
+	}
+
+	&__btn {
+		position: absolute;
+		top: 42%;
+		transform: translateY(-50%);
+		z-index: 2;
+	}
+
+	&__btn-prev {
+		left: 0;
+		transform: translateX(-50%);
+	}
+
+	&__btn-next {
+		right: 0;
+		transform: translateX(57%) rotate(180deg);
+	}
+
+	&__swiper {
+		overflow: visible;
+	}
+
+	&__wrapper {
+		margin-bottom: 2.1vw;
+	}
+
+	&__item {
+		flex: 0 0 22.14vw;
+		border-radius: 1.3vw;
+		overflow: hidden;
+		opacity: 0.5;
+
+		&:not(:last-child) {
+			margin-right: 2.34375vw;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+
+		&.swiper-slide-visible {
+			opacity: 1;
+		}
+	}
+}
 
 
 

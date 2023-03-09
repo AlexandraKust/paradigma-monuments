@@ -24,6 +24,10 @@
 		display: flex;
 	}
 
+	.desktop {
+		display: none;
+	}
+
 	.main-btn span {
 		font-size: 1rem;
 		line-height: 150%;
@@ -64,6 +68,61 @@
 			font-size: 0.8rem;
 			line-height: 162%;
 		}
+	}
+
+	.agree {
+		&__checkbox {
+			flex-basis: 1.5rem;
+			height: 1.5rem;
+			margin-right: 1.1rem;
+			border-radius: 0.5rem;
+			border-width: 0.1rem;
+
+			&::after {
+				width: 0.6rem;
+				height: 0.45rem;
+			}
+		}
+
+		&__text {
+			max-width: 100%;
+			padding-right: 3rem;
+		}
+
+		&__text,
+		&__link {
+			font-size: 0.8rem;
+			line-height: 150%;
+		}
+	}
+
+	.btn-more {
+		font-size: 1.5rem;
+		line-height: 200%;
+
+		svg {
+			width: 1.3rem;
+			height: 1.5rem;
+		}
+
+		.flex {
+			gap: 0.4rem;
+		}
+	}
+
+	.input {
+		padding: 1.6rem 2.9rem 1.9rem;
+		font-size: 1rem;
+		line-height: 250%;
+		border-radius: 50rem;
+		margin-top: -0.35rem;
+	}
+
+	.label {
+		font-size: 1rem;
+		line-height: 220%;
+		gap: 0.7rem;
+		width: 100%;
 	}
 
 	.popup {
@@ -715,20 +774,6 @@
 
 
 		}
-
-		&__add {
-			font-size: 1.5rem;
-			line-height: 200%;
-
-			svg {
-				width: 1.3rem;
-				height: 1.5rem;
-			}
-
-			.flex {
-				gap: 0.4rem;
-			}
-		}
 	}
 
 	.catalog-card {
@@ -744,7 +789,7 @@
 			margin-right: 0;
 		}
 
-		&:nth-last-child(-n + 9) {
+		&:nth-child(n + 5) {
 			display: none;
 		}
 
@@ -811,6 +856,7 @@
 @media (max-width: 768px) {
 	.get-catalog {
 		padding-top: 4.6rem;
+		padding-bottom: 1.55rem;
 
 		&__bg {
 			top: -7.6rem;
@@ -844,10 +890,7 @@
 		gap: 1rem;
 
 		&__label {
-			font-size: 1rem;
-			line-height: 220%;
 			gap: 0.7rem;
-			width: 100%;
 		}
 
 		&__select {
@@ -900,14 +943,6 @@
 
 		}
 
-		&__input {
-			padding: 1.6rem 2.9rem 1.9rem;
-			font-size: 1rem;
-			line-height: 250%;
-			border-radius: 50rem;
-			margin-top: -0.35rem;
-		}
-
 		&__btn {
 			width: 100%;
 			height: 5.833rem;
@@ -936,65 +971,273 @@
 			}
 		}
 	}
-
-	.agree {
-
-		&__checkbox {
-			flex-basis: 1.5rem;
-			height: 1.5rem;
-			margin-right: 1.1rem;
-			border-radius: 0.5rem;
-			border-width: 0.1rem;
-
-			&::after {
-				width: 0.6rem;
-				height: 0.45rem;
-			}
-		}
-
-		&__text {
-			max-width: 100%;
-			padding-right: 3rem;
-		}
-
-		&__text,
-		&__link {
-			font-size: 0.8rem;
-			line-height: 150%;
-		}
-	}
-
 }
 
 // работа бригад
 @media (max-width: 768px) {
 	.work {
+		padding-top: 1.55rem;
+		padding-bottom: 2.8rem;
 
-		&__decor {}
+		&__decor {
+			display: none;
+		}
 
-		&__title {}
+		&__title {
+			margin: 0 auto;
+		}
 
-		&__subtitle {}
+		&__subtitle {
+			margin-bottom: 1rem;
+			font-size: 1rem;
+			line-height: 200%;
+		}
 
-		&__btn {}
+		&__hint {
+			width: 17.4rem;
+			margin-bottom: 1.4rem;
+		}
 
-		&__btn-prev {}
+		&__btn {
+			display: none;
+		}
 
-		&__btn-next {}
+		&__wrapper {
+			width: 100%;
+			flex-direction: column;
+			gap: 2.3rem;
+			transform: translate3d(0px, 0px, 0px) !important;
+		}
 
-		&__swiper {}
+		&__slide {
+			flex-basis: 100%;
+			border-radius: 2.5rem;
 
-		&__slide {}
+			&::after {
+				border-radius: 2.5rem;
+				bottom: 0.15rem;
+			}
 
-		&__descr {}
+			&:nth-child(n + 5) {
+				display: none;
+			}
 
-		&__slide-title {}
+			&.visible {
+				display: block;
+			}
 
-		&__text {}
+			// сбрасывание стилей при ховере
+			&:hover {
+				.work__descr {
+					transform: translateY(9.5rem);
+				}
 
-		&__pagination {}
+				.work__text {
+					opacity: 0;
+				}
+
+				.work__slide-title {
+					margin-bottom: 0;
+				}
+
+				&::after {
+					background: linear-gradient(180deg, rgba(0, 0, 0, 0) 24.21%, rgba(0, 0, 0, 0.6) 89.64%);
+				}
+			}
+
+			&.active {
+				.work__descr {
+					transform: translateY(0);
+				}
+
+				.work__text {
+					opacity: 1;
+				}
+
+				.work__slide-title {
+					margin-bottom: 1.4rem;
+				}
+
+				&::after {
+					background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(196, 158, 94, 0.9) 60.92%);
+				}
+			}
+		}
+
+		&__slide-btn {
+			right: 3rem;
+			bottom: 3.4rem;
+			width: 2.985rem;
+			height: 2.985rem;
+			transform: scale(1);
+
+			svg {
+				transform: scale(1);
+				width: 0.643rem;
+				height: 0.641rem;
+			}
+		}
+
+		&__descr {
+			padding: 0 9.6rem 3.4rem 3.1rem;
+			transform: translateY(9.5rem);
+		}
+
+		&__slide-title {
+			font-size: 2rem;
+			line-height: 140%;
+		}
+
+		&__text {
+			font-size: 1rem;
+			line-height: 150%;
+		}
+
+		&__pagination {
+			display: none;
+		}
 	}
 }
+
+// design
+@media (max-width: 768px) {
+	.design {
+		padding-top: 2.8rem;
+		padding-bottom: 2.4rem;
+
+		&__row {
+			flex-direction: column;
+		}
+
+		&__col-left {
+			width: 100%;
+		}
+
+		&__title {
+			text-align: center;
+			margin-bottom: 1.75rem;
+			position: static;
+			top: 0;
+			margin-top: 0;
+		}
+
+		&__col-right {
+			width: 100%;
+		}
+
+		&__item {
+			gap: 2.2rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1.9rem;
+			}
+
+			&:nth-child(even) {
+				flex-direction: row;
+			}
+		}
+
+		&__img {
+			width: 9rem;
+			height: 9rem;
+		}
+
+		&__number {
+			margin-bottom: 1.2rem;
+			font-size: 1.2rem;
+			line-height: 1.8rem;
+		}
+
+		&__name {
+			margin-bottom: 1.3rem;
+			font-size: 1.4rem;
+			line-height: 1;
+		}
+
+		&__descr {
+			font-size: 0.9rem;
+			line-height: 144%;
+		}
+	}
+}
+
+// форма обратного звонка
+@media (max-width: 768px) {
+	.callback {
+		padding-top: 2.4rem;
+		padding-bottom: 2.6rem;
+
+		&__content {
+			padding: 3.4rem 1.5rem 31rem;
+			background: url('../media/img/callback-mobile.png') center bottom / 100% auto no-repeat,
+				url('../media/img/get-catalog-bg-mobile.png') 0 0 / 100% 100% no-repeat;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		&__title {
+			width: 100%;
+
+			span {
+				margin: 0;
+			}
+		}
+
+		&__row {
+			flex-direction: column;
+			gap: 1.4rem;
+			margin-bottom: 1.9rem;
+		}
+
+		&__btn {
+			width: 100%;
+			height: 5.833rem;
+		}
+	}
+}
+
+// отзывы
+@media (max-width: 768px) {
+	.comment {
+		padding-top: 2.2rem;
+		padding-bottom: 2.8rem;
+
+		&__title {
+			max-width: 100%;
+			margin-bottom: 1.2rem;
+		}
+
+		&__hint {
+			margin-bottom: 2rem;
+		}
+
+		&__content {
+			overflow-x: scroll;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+
+		&__item {
+			flex-basis: 20.1rem;
+			border-radius: 2rem;
+			opacity: 1;
+
+			&:not(:last-child) {
+				margin-right: 2.3rem;
+			}
+		}
+
+	}
+}
+
+
+
 
 
 // popup Заказать звонок

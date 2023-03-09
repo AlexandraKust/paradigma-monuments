@@ -115,12 +115,24 @@ window.addEventListener('scroll', function () {
 	}
 });
 
+// кнопка-стрелка в разделе благоустройство
 let improvenentItem = document.querySelectorAll('.improvement__item');
 
 improvenentItem.forEach(function (item) {
 	let improvementBtn = item.querySelector('.improvement__btn');
 	improvementBtn.addEventListener('click', function () {
 		improvementBtn.classList.toggle('active');
+		item.classList.toggle('active');
+	})
+})
+
+// кнопка-стрелка в разделе благоустройство
+let workSlide = document.querySelectorAll('.work__slide');
+
+workSlide.forEach(function (item) {
+	let workBtn = item.querySelector('.work__slide-btn');
+	workBtn.addEventListener('click', function () {
+		workBtn.classList.toggle('active');
 		item.classList.toggle('active');
 	})
 })
@@ -133,7 +145,7 @@ document.querySelectorAll('.catalog__tab').forEach(function (tabsBtn) {
 			btn.classList.remove('active')
 		});
 		e.currentTarget.classList.add('active');
-		document.querySelectorAll('.catalog__list').forEach(function (tabsBtn) {
+		document.querySelectorAll('.catalog__content-item').forEach(function (tabsBtn) {
 			tabsBtn.classList.remove('active')
 		});
 		document.querySelector(`[data-target="${path}"]`).classList.add('active');
@@ -141,20 +153,23 @@ document.querySelectorAll('.catalog__tab').forEach(function (tabsBtn) {
 });
 
 // показать еще
-let btnAdd = document.querySelector('.catalog__add');
-let catalogItem = document.querySelectorAll('.catalog__item');
-btnAdd.addEventListener('click', function () {
-	catalogItem.forEach(function (item) {
-		item.classList.add('visible');
+let btnMore = document.querySelectorAll('.btn-more');
+btnMore.forEach(function (item) {
+	let btnParent = item.parentNode.querySelector('ul');
+	let listItem = btnParent.querySelectorAll('li');
+
+	item.addEventListener('click', function () {
+		listItem.forEach(function (li) {
+			li.classList.add('visible');
+		})
+		item.classList.add('hidden');
 	})
-	btnAdd.closest('.catalog__btn').classList.add('hidden');
-})
+});
 
-// select
+// select catalog
 customSelect(document.querySelectorAll('select'));
-
 document.getElementById('select-catalog').addEventListener('change', function () {
-	document.querySelectorAll('.catalog__list').forEach((n, i) => {
+	document.querySelectorAll('.catalog__content-item').forEach((n, i) => {
 		n.classList.toggle('active', i === this.selectedIndex);
 	});
 });
@@ -179,35 +194,58 @@ selectSocial.addEventListener('change', function () {
 });
 
 // checkbox 
-let checkbox = document.querySelector('.agree__checkbox');
-let mainBtn = checkbox.closest('form').querySelector('.main-btn');
-checkbox.classList.add('check');
+let checkbox = document.querySelectorAll('.agree__checkbox');
+checkbox.forEach(function (item) {
+	let mainBtn = item.closest('form').querySelector('.main-btn');
+	item.classList.add('check');
 
-checkbox.addEventListener('click', function () {
-	checkbox.classList.toggle('check');
-	mainBtn.classList.toggle('disabled');
+	item.addEventListener('click', function () {
+		item.classList.toggle('check');
+		mainBtn.classList.toggle('disabled');
+	})
 })
+
+
 
 
 // слайдер в блоке работа
 window.addEventListener('resize', function () {
 	if (window.innerWidth > 767.98) {
-		const workSwiper = new Swiper('.work__swiper', {
-			loop: false,
-			speed: 600,
-			centeredSlides: false,
-			touchRatio: 1,
-			slidesPerView: "auto",
 
-			pagination: {
-				el: '.work__pagination',
-			},
-
-			navigation: {
-				nextEl: '.work__btn-next',
-				prevEl: '.work__btn-prev',
-			},
-		});
 	}
 });
 
+const workSwiper = new Swiper('.work__swiper', {
+	loop: false,
+	speed: 600,
+	centeredSlides: false,
+	touchRatio: 1,
+	slidesPerView: "auto",
+
+	pagination: {
+		el: '.work__pagination',
+	},
+
+	navigation: {
+		nextEl: '.work__btn-next',
+		prevEl: '.work__btn-prev',
+	},
+});
+
+const commentSwiper = new Swiper('.comment__swiper', {
+	loop: false,
+	speed: 600,
+	centeredSlides: false,
+	touchRatio: 1,
+	slidesPerView: "auto",
+	watchSlidesProgress: true,
+
+	pagination: {
+		el: '.comment__pagination',
+	},
+
+	navigation: {
+		nextEl: '.comment__btn-next',
+		prevEl: '.comment__btn-prev',
+	},
+});
