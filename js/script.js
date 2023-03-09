@@ -115,25 +115,12 @@ window.addEventListener('scroll', function () {
 	}
 });
 
-// кнопка-стрелка в разделе благоустройство
-let improvenentItem = document.querySelectorAll('.improvement__item');
-
-improvenentItem.forEach(function (item) {
-	let improvementBtn = item.querySelector('.improvement__btn');
-	improvementBtn.addEventListener('click', function () {
-		improvementBtn.classList.toggle('active');
-		item.classList.toggle('active');
-	})
-})
-
-// кнопка-стрелка в разделе благоустройство
-let workSlide = document.querySelectorAll('.work__slide');
-
-workSlide.forEach(function (item) {
-	let workBtn = item.querySelector('.work__slide-btn');
-	workBtn.addEventListener('click', function () {
-		workBtn.classList.toggle('active');
-		item.classList.toggle('active');
+// кнопка-стрелка внутри карточки
+let arrBtn = document.querySelectorAll('.arrow-btn');
+arrBtn.forEach(function (arrow) {
+	arrow.addEventListener('click', function () {
+		arrow.classList.toggle('active');
+		arrow.closest('li').classList.toggle('active');
 	})
 })
 
@@ -215,7 +202,7 @@ window.addEventListener('resize', function () {
 	}
 });
 
-const workSwiper = new Swiper('.work__swiper', {
+const portfolioSwiper = new Swiper('.portfolio__swiper', {
 	loop: false,
 	speed: 600,
 	centeredSlides: false,
@@ -223,12 +210,12 @@ const workSwiper = new Swiper('.work__swiper', {
 	slidesPerView: "auto",
 
 	pagination: {
-		el: '.work__pagination',
+		el: '.portfolio__pagination',
 	},
 
 	navigation: {
-		nextEl: '.work__btn-next',
-		prevEl: '.work__btn-prev',
+		nextEl: '.portfolio__btn-next',
+		prevEl: '.portfolio__btn-prev',
 	},
 });
 
@@ -247,5 +234,39 @@ const commentSwiper = new Swiper('.comment__swiper', {
 	navigation: {
 		nextEl: '.comment__btn-next',
 		prevEl: '.comment__btn-prev',
+	},
+});
+
+const aboutGallery = new Swiper('.about__gallery', {
+	loop: false,
+	speed: 600,
+	centeredSlides: false,
+	touchRatio: 1,
+	slidesPerView: "auto",
+
+	pagination: {
+		el: '.about__gall-pagination',
+	},
+
+	navigation: {
+		nextEl: '.about__btn-gall-next',
+		prevEl: '.about__btn-gall-prev',
+	},
+});
+
+const aboutCertificates = new Swiper('.about__certificates', {
+	loop: false,
+	speed: 600,
+	centeredSlides: false,
+	touchRatio: 1,
+	slidesPerView: 'auto',
+
+	pagination: {
+		el: '.about__cert-pagination',
+	},
+
+	navigation: {
+		nextEl: '.about__btn-cert-next',
+		prevEl: '.about__btn-cert-prev',
 	},
 });

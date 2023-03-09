@@ -294,6 +294,24 @@ form {
 	}
 }
 
+// пагинация
+.main-pagination {
+	text-align: center;
+
+	& .swiper-pagination-bullet {
+		flex-shrink: 0;
+		flex-grow: 0;
+		width: 0.365vw;
+		height: 0.365vw;
+		margin: 0 0.24vw;
+		background: #dfdfdf;
+	}
+
+	& .swiper-pagination-bullet-active {
+		background: var(--accent-color);
+	}
+}
+
 // кнопка показать еще
 .btn-more {
 	display: block;
@@ -773,6 +791,8 @@ form {
 
 		img {
 			width: 100%;
+			height: 100%;
+			display: block;
 		}
 
 		&::after {
@@ -1284,7 +1304,7 @@ form {
 }
 
 // работа бригад
-.work {
+.portfolio {
 	position: relative;
 	padding-top: 5.25vw;
 	padding-bottom: 3.33vw;
@@ -1356,34 +1376,33 @@ form {
 			position: absolute;
 			top: 0;
 			left: 0;
-			bottom: 0.1vw;
+			bottom: 0;
 			width: 100%;
-			// height: 100%;
 			border-radius: 1.3vw;
 			overflow: hidden;
 			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 24.21%, rgba(0, 0, 0, 0.6) 89.64%);
 		}
 
 		img {
+			display: block;
 			width: 100%;
 			height: 100%;
-			object-fit: cover;
 		}
 
 		&:hover {
-			.work__descr {
+			.portfolio__descr {
 				transform: translateY(0);
 			}
 
-			.work__text {
+			.portfolio__text {
 				opacity: 1;
 			}
 
-			.work__slide-title {
+			.portfolio__slide-title {
 				margin-bottom: 0.7vw;
 			}
 
-			.work__slide-btn {
+			.portfolio__slide-btn {
 				background: #fff;
 
 				path {
@@ -1440,22 +1459,6 @@ form {
 		letter-spacing: 0.05em;
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out;
-	}
-}
-
-// пагинация
-.main-pagination {
-	text-align: center;
-
-	& .swiper-pagination-bullet {
-		width: 0.365vw;
-		height: 0.365vw;
-		margin: 0 0.24vw;
-		background: #dfdfdf;
-	}
-
-	& .swiper-pagination-bullet-active {
-		background: var(--accent-color);
 	}
 }
 
@@ -1659,6 +1662,7 @@ form {
 .comment {
 	position: relative;
 	padding-top: 4.6vw;
+	padding-bottom: 3.88vw;
 
 	&__decor {
 		position: absolute;
@@ -1677,7 +1681,7 @@ form {
 	}
 
 	&__content {
-		width: 92.7vw;
+		width: 91.5vw;
 		padding-right: 21.615vw;
 		overflow: hidden;
 	}
@@ -1718,6 +1722,7 @@ form {
 		}
 
 		img {
+			display: block;
 			width: 100%;
 			height: 100%;
 		}
@@ -1728,6 +1733,161 @@ form {
 	}
 }
 
+// о производстве
+.about {
+	padding-top: 3.58vw;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: -19.245vw;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background: url('../media/img/about.png') 0 0 / 100% auto no-repeat;
+	}
+
+	&__content {
+		margin-bottom: 2.5vw;
+		justify-content: space-between;
+		color: #fff;
+	}
+
+	&__title {
+		width: 33.23vw;
+		margin-bottom: 2.8vw;
+		text-align: left;
+		color: #fff;
+	}
+
+	&__descr {
+		margin-bottom: 1.25vw;
+		font-size: 0;
+	}
+
+	&__descr-item {
+		width: 40vw;
+		font-size: 1.25vw;
+		line-height: 144%;
+
+		&:not(:last-child) {
+			margin-bottom: 0.65vw;
+		}
+
+		&:nth-child(n+3) {
+			display: none;
+		}
+
+		&.visible {
+			display: block;
+		}
+	}
+
+	&__btn-more {
+		margin-left: 0;
+	}
+
+	&__sliders {
+		justify-content: space-between;
+		padding-right: 1.56vw;
+	}
+
+	&__slider {
+		position: relative;
+	}
+
+	&__btn {
+		position: absolute;
+		top: 44%;
+		z-index: 2;
+		transform: translateY(-50%);
+	}
+
+	&__btn-gall-prev,
+	&__btn-cert-prev {
+		left: 0;
+		transform: translateX(-50%);
+	}
+
+	&__btn-gall-next,
+	&__btn-cert-next {
+		right: 0;
+		transform: translateX(50%) rotate(180deg);
+	}
+
+	&__gallery {
+		width: 37.9vw;
+	}
+
+	&__gallery-slide {
+		border-radius: 1.3vw;
+		overflow: hidden;
+		width: 37.9vw;
+		height: 27.2vw;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__certificates {
+		width: 39.69vw;
+	}
+
+	&__certificates-slide {
+		overflow: hidden;
+		width: 19vw;
+		height: 27.2vw;
+		border-radius: 1.3vw;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		&:not(:last-child) {
+			margin-right: 1.77vw;
+		}
+
+	}
+}
+
+.results {
+	padding-right: 1.56vw;
+	padding-top: 0.4vw;
+
+	&__item {
+		text-align: right;
+
+		&:not(:last-child) {
+			margin-bottom: 5.9375vw;
+		}
+	}
+
+	&__number {
+		margin-bottom: 0.5vw;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 5vw;
+		line-height: 1;
+		letter-spacing: 0.02em;
+
+		span {
+			font-size: 2.5vw;
+		}
+	}
+
+	&__descr {
+		font-size: 1vw;
+		line-height: 150%;
+		letter-spacing: 0.02em;
+	}
+}
 
 
 
