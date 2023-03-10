@@ -219,6 +219,7 @@ form {
 	letter-spacing: 0.02em;
 	text-transform: uppercase;
 	color: var(--main-black);
+	cursor: default;
 
 	span {
 		color: var(--accent-color);
@@ -772,7 +773,7 @@ form {
 
 // услуги по благоустройству
 .improvement {
-	padding-bottom: 5.4vw;
+	padding-bottom: 5.65vw;
 
 	&__title {
 		max-width: 63.645833vw;
@@ -1403,6 +1404,7 @@ form {
 			}
 
 			.portfolio__slide-btn {
+				cursor: default;
 				background: #fff;
 
 				path {
@@ -1478,6 +1480,7 @@ form {
 		border-radius: 0.26vw;
 		background: transparent;
 		border: 0.05vw solid var(--accent-color);
+		cursor: pointer;
 
 		&::after {
 			content: '';
@@ -1501,6 +1504,7 @@ form {
 		font-size: 0.67vw;
 		line-height: 131%;
 		color: var(--main-black);
+		cursor: default;
 	}
 
 	&__link {
@@ -1522,8 +1526,8 @@ form {
 	}
 
 	&__col-left {
-		flex: 0 0 30.4vw;
 		position: relative;
+		flex: 0 0 30.4vw;
 	}
 
 	&__col-right {
@@ -1716,6 +1720,7 @@ form {
 		border-radius: 1.3vw;
 		overflow: hidden;
 		opacity: 0.5;
+		cursor: pointer;
 
 		&:not(:last-child) {
 			margin-right: 2.34375vw;
@@ -1735,8 +1740,9 @@ form {
 
 // о производстве
 .about {
-	padding-top: 3.58vw;
 	position: relative;
+	padding-top: 3.58vw;
+	padding-bottom: 3.64vw;
 
 	&::after {
 		content: '';
@@ -1826,6 +1832,7 @@ form {
 		overflow: hidden;
 		width: 37.9vw;
 		height: 27.2vw;
+		cursor: pointer;
 
 		img {
 			display: block;
@@ -1843,6 +1850,7 @@ form {
 		width: 19vw;
 		height: 27.2vw;
 		border-radius: 1.3vw;
+		cursor: pointer;
 
 		img {
 			display: block;
@@ -1889,10 +1897,570 @@ form {
 	}
 }
 
+// контроль качества
+.control {
+	padding-top: 3.64vw;
+	padding-bottom: 3.15vw;
 
+	&__content {
+		position: relative;
 
+		padding: 6.3vw 33.65vw 5.4vw 6vw;
+		background: url('../media/img/phone.png') right bottom / auto 100% no-repeat,
+			url('../media/img/get-catalog-bg.png') 0 0 / 100% 100% no-repeat;
 
+		&::after {
+			content: '';
+			position: absolute;
+			right: 2vw;
+			top: 0.1875vw;
+			z-index: -1;
+			width: 38.28125vw;
+			height: 80%;
+			background: #fff;
+			box-shadow: 0px 0px 5.2vw rgba(0, 0, 0, 0.1);
+			border-radius: 1.82vw;
+			transform: rotate(-1deg);
+		}
+	}
 
+	&__row {
+		align-items: end;
+		justify-content: space-between;
+		margin-bottom: 2.3vw;
+	}
+
+	&__title {
+		width: 22vw;
+		text-align: left;
+	}
+
+	&__descr {
+		width: 22vw;
+		padding-bottom: 0.8vw;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1.25vw;
+		line-height: 1.823vw;
+		color: var(--main-black);
+	}
+
+	&__list {
+		justify-content: space-between;
+	}
+
+	&__item {
+		flex: 0 0 14vw;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1.25vw;
+		line-height: 1.823vw;
+		color: var(--main-black);
+	}
+
+	&__number {
+		margin-bottom: 1.4vw;
+		color: var(--accent-color);
+	}
+
+	&__name {
+		margin-bottom: 1.1vw;
+	}
+
+	&__text {
+		font-family: 'Euclid Flex';
+		font-size: 0.833vw;
+		line-height: 162%;
+		padding-right: 1.5625vw;
+	}
+}
+
+// гарантии
+.warranty {
+	padding-top: 3.15vw;
+	padding-bottom: 3.4375vw;
+
+	&__title {
+		max-width: 50vw;
+		margin: 0 auto 1vw;
+	}
+
+	&__subtitle {
+		margin-bottom: 3vw;
+		font-size: 1.5625vw;
+		line-height: 150%;
+		text-align: center;
+		letter-spacing: 0.02em;
+		color: var(--main-black);
+	}
+
+	&__list {
+		width: 100%;
+		font-size: 0;
+		overflow: hidden;
+	}
+
+	&__item {
+		position: relative;
+		flex: 0 0 25vw;
+		overflow: hidden;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 24.21%, rgba(0, 0, 0, 0.5) 89.64%);
+		}
+	}
+
+	&__number {
+		position: absolute;
+		top: 2.55vw;
+		right: 2.45vw;
+		z-index: 2;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 0.9375vw;
+		line-height: 1.35vw;
+		text-align: right;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+	&__label {
+		position: absolute;
+		top: 8.1vw;
+		left: 0.3vw;
+		z-index: 2;
+		font-weight: 500;
+		font-size: 0.520833vw;
+		line-height: 0.6770833vw;
+		letter-spacing: 0.75em;
+		text-transform: uppercase;
+		color: #fff;
+		transform: rotate(-90deg);
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: -3.3vw;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 2.6042vw;
+			height: 0.0521vw;
+			border-top: 0.0521vw solid #fff;
+		}
+	}
+
+	&__name {
+		position: absolute;
+		left: 2.55vw;
+		right: 6.5625vw;
+		bottom: 2.4vw;
+		z-index: 2;
+		height: 9.11vw;
+		display: flex;
+		align-items: center;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1vw;
+		line-height: 157%;
+		letter-spacing: 0.09em;
+		text-transform: uppercase;
+		color: #fff;
+	}
+}
+
+// преимущества
+.benefits {
+	position: relative;
+	padding-top: 3.4375vw;
+	padding-bottom: 4.74vw;
+	overflow: hidden;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 14vw;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		transform: scale(-1, 1);
+		background: url('../media/img/default-bg.jpg') 0 0 / 100% auto no-repeat;
+	}
+
+	&__row {
+		justify-content: space-between;
+	}
+
+	&__col-left {
+		position: relative;
+		flex: 0 0 30.4vw;
+	}
+
+	&__col-right {
+		flex: 0 0 42.6256vw;
+	}
+
+	&__title {
+		position: sticky;
+		top: 1.5vw;
+		left: 0;
+		text-align: left;
+		line-height: 156%;
+		margin-top: -0.35vw;
+	}
+
+	&__list {
+		font-size: 0;
+	}
+
+	&__list {
+		flex-wrap: wrap;
+		column-gap: 2vw;
+		row-gap: 3.125vw;
+	}
+
+	&__item {
+		flex-direction: column;
+		flex: 0 0 45%;
+	}
+
+	&__icon {
+		position: relative;
+		width: 2.5vw;
+		height: 2.5vw;
+		border-radius: 50%;
+		margin-bottom: 1.51vw;
+		background: var(--accent-color);
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 2;
+			width: 0.625vw;
+			height: 0.46875vw;
+			transform: translate(-50%, -50%);
+			background: url('../media/svg/check.svg') 0 0 / 100% 100% no-repeat;
+		}
+	}
+
+	&__name {
+		margin-bottom: 0.59vw;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1.66vw;
+		line-height: 131%;
+		color: var(--main-black);
+	}
+
+	&__descr {
+		font-weight: 300;
+		font-size: 1.25vw;
+		line-height: 142%;
+	}
+}
+
+// консультация
+.consultation {
+	padding-top: 4.5vw;
+	padding-bottom: 2.7vw;
+	color: #fff;
+
+	&__content {
+		position: relative;
+		padding: 6.1vw 0 5.1vw 6vw;
+		background: url('../media/img/consultation-man.png') right 0 / 100% 100% no-repeat,
+			url('../media/img/consultation.png') 0 0 / 100% 100% no-repeat;
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: 2vw;
+			top: 0.25vw;
+			z-index: -1;
+			width: 38.28125vw;
+			height: 50%;
+			background: #fff;
+			box-shadow: 0px 0px 5.2vw rgba(0, 0, 0, 0.1);
+			border-radius: 1.82vw;
+			transform: rotate(-1.5deg);
+		}
+	}
+
+	&__text {
+		position: relative;
+		width: 43.3vw;
+		flex-direction: column;
+		margin-bottom: 2.3vw;
+	}
+
+	&__title {
+		width: 23vw;
+		margin-bottom: 1.5vw;
+		text-align: left;
+		color: #fff;
+	}
+
+	&__subtitle {
+		width: 23vw;
+		font-size: 1.25vw;
+		line-height: 142%;
+		letter-spacing: 0.02em;
+	}
+
+	&__col {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 17vw;
+	}
+
+	&__about {
+		margin-bottom: 0.3vw;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1vw;
+		line-height: 170%;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	&__list {
+		padding-left: 1.5vw;
+	}
+
+	&__list-item {
+		list-style-type: disc;
+		font-size: 0.9375vw;
+		line-height: 190%;
+		letter-spacing: 0.02em;
+	}
+
+	&__row {
+		gap: 1.7vw;
+		align-items: end;
+		margin-bottom: 1.8vw;
+	}
+
+	&__label {
+		color: #fff;
+		flex-basis: 24vw;
+	}
+
+	&__btn {
+		width: 17.17vw;
+		height: 5.2vw;
+	}
+
+	&__agree {
+
+		.agree__text,
+		.agree__link {
+			color: #fff;
+		}
+	}
+}
+
+// контакты
+.contacts {
+	position: relative;
+	padding-top: 2.7vw;
+	padding-bottom: 1.67vw;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: -15vw;
+		left: 0;
+		bottom: -8vw;
+		z-index: -1;
+		width: 100%;
+		background: url('../media/img/contacts-bg.jpg') 0 0 / 100% auto no-repeat;
+	}
+
+	&__row {
+		gap: 4.16vw;
+	}
+
+	&__shop {
+		flex: 0 0 14.32vw;
+	}
+
+	&__title {
+		margin-bottom: 1.146vw;
+		font-weight: 500;
+		font-size: 1.2vw;
+		line-height: 130%;
+		letter-spacing: 0.02em;
+		color: var(--main-black);
+	}
+
+	&__img {
+		width: 14.32vw;
+		height: 9.9vw;
+		border-radius: 1vw;
+		overflow: hidden;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+
+		&:first-child {
+			margin-bottom: 0.833vw;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__map {
+		flex: 1 1 auto;
+		border-radius: 1.3vw;
+		overflow: hidden;
+		height: 23.34vw;
+
+		iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+	}
+}
+
+.address {
+	flex-direction: column;
+	gap: 1.72vw;
+	flex: 0 0 11.4vw;
+	font-style: normal;
+	color: var(--main-black);
+	cursor: default;
+	margin-left: -0.3vw;
+	margin-right: 0.6vw;
+
+	&__icon {
+		width: 1vw;
+		height: 1vw;
+		margin-bottom: 0.42vw;
+
+		path {
+			fill: #bb955c;
+		}
+	}
+
+	&__name {
+		font-weight: 700;
+		font-size: 0.73vw;
+		line-height: 150%;
+	}
+
+	a.contacts__descr {
+		cursor: pointer;
+	}
+
+	&__descr {
+		font-size: 0.73vw;
+		line-height: 150%;
+		color: var(--main-black);
+	}
+
+	&__social {
+		.social__item {
+			width: 2.1875vw;
+			height: 2.1875vw;
+
+			&:not(:last-child) {
+				margin-right: 0.3125vw;
+			}
+		}
+	}
+}
+
+// footer
+.footer {
+	padding-top: 1.5vw;
+	padding-bottom: 2.55vw;
+
+	&__row {
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		align-items: center;
+	}
+
+	&__logo-img {
+		width: 10.41vw;
+		height: 2.476vw;
+		margin-right: 1.5625vw;
+		flex-shrink: 0;
+		flex-grow: 0;
+		display: flex;
+		align-items: center;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__logo-descr {
+		width: 11.3vw;
+		font-size: .78125vw;
+		line-height: 133%;
+		letter-spacing: 0.03em;
+		color: var(--main-color);
+		cursor: default;
+
+		b {
+			font-weight: 600;
+		}
+	}
+
+	a.footer__item {
+		color: var(--accent-color);
+		text-decoration: underline;
+		cursor: pointer;
+		font-weight: 500;
+	}
+
+	&__item {
+		font-size: 0.52vw;
+		line-height: 170%;
+		text-align: center;
+		cursor: default;
+
+		&:nth-child(even) {
+			flex: 0 0 6.25vw
+		}
+
+		a {
+			color: var(--main-black);
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
 
 
 
