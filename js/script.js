@@ -162,6 +162,30 @@ document.getElementById('select-catalog').addEventListener('change', function ()
 });
 
 // select с соцсетями в форме заказать каталог
+// let selectSocial = document.querySelectorAll('.select-social');
+// selectSocial.forEach(function (selectWrap) {
+// 	let select = selectWrap.querySelector('.select');
+// 	let selectImg = selectWrap.querySelector('.select-social__img');
+// 	console.log(selectImg)
+
+// 	select.addEventListener('click', function () {
+// 		selectImg.classList.toggle('active');
+// 	})
+
+// 	select.addEventListener('change', function () {
+// 		let socialItem = selectImg.querySelectorAll('.social__item');
+// 		socialItem.forEach((item) => {
+// 			item.classList.remove('active');
+// 		})
+// 		if (select.value == "whats app") {
+// 			selectImg.querySelector('.social__item-whatsapp').classList.add('active');
+// 		}
+// 		if (select.value == "telegram") {
+// 			selectImg.querySelector('.social__item-telegram').classList.add('active');
+// 		}
+// 	});
+// })
+
 let selectSocial = document.getElementById('select-social');
 let selectImg = document.querySelector('.select-social__img');
 selectSocial.addEventListener('click', function () {

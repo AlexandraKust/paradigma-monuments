@@ -7,9 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Мастерская гранита</title>
 	<link rel="icon" type="image/x-icon" href="media/img/favicon.png">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/custom-select.css">
 	<link rel="stylesheet" href="css/swiper-bundle.min.css">
+	<link rel="stylesheet" href="css/jquery.fancybox.min.css">
+	<!-- <link rel="stylesheet" href="css/quiz.css"> -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/mediaquerys.css">
 </head>
@@ -177,38 +180,765 @@
 
 	<main class="main">
 		<!-- квиз -->
-		<section class="quiz">
+		<section class="quiz" id="quiz">
+			<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg"
+				version="1.1">
+				<defs>
+					<filter id="round">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" />
+						<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+							result="goo" />
+						<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+					</filter>
+				</defs>
+			</svg>
 			<div class="container">
 				<div class="quiz__body">
-					<div class="quiz__text">
-						<p class="quiz__subtitle">Всего за 1 минуту</p>
-						<h2 class="quiz__title section-title">Получите бесплатно подборку из
-							5 вариантов памятника под ваш бюджет</h2>
-						<p class="quiz__subtitle">и 1 из 3х подарков на выбор</p>
-					</div>
 					<div class="quiz__content">
-						<div class="quiz__main main">
-							<div class="main__load">
-								<span class="main__progress"></span>
-								<span class="main__load-text"><b>Вопрос 1</b> из 4</span>
-							</div>
-							<h3 class="main__title">Какой тип памятника вам нужен?</h3>
-							<div class="main__questions">
-								<!-- варианты ответов -->
-							</div>
-							<div class="main__footer">
-								<p class="main__hint">Выберите вариант ответа
-									и нажмите кнопку “Далее”</p>
-								<button class="main__btn">далее</button>
-							</div>
+						<p class="quiz__subtitle">Всего за 1 минуту</p>
+						<h2 class="quiz__title section-title fade_in">
+							Получите бесплатно подборку из
+							5&nbsp;вариантов памятника под ваш бюджет
+						</h2>
+						<p class="quiz__subtitle">и 1 из 3х подарков на выбор</p>
 
-						</div>
-						<div class="quiz__img">
-							<p class="quiz__img-text">
-								Отвечайте на вопросы и получите подборку из
-								5 вариантов памятника
-								под ваш бюджет + подарок
-							</p>
+						<div class="quiz__inner flex">
+							<form class="quiz__form">
+								<div class="quiz__progress">
+									<div class="quiz__progress-bar">
+										<div class="quiz__progress-inner" style="width: 14%;"></div>
+									</div>
+									<p class="quiz__progress-text">
+										<b>Вопрос <span class="js-quiz">1</span></b> из 7
+									</p>
+								</div>
+								<div class="quiz-items">
+									<div class="quiz-item">
+										<h3 class="quiz-item__title fade_in">
+											Какой тип памятника вам нужен?
+										</h3>
+										<div class="quiz-options flex quiz-options--checkbox quiz-options--img">
+											<label for="quiz1-1" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz1[]" id="quiz1-1"
+													value="Одинарный">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q1-1.jpg" alt="одинарный памятник">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Одинарный
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz1-2" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz1[]" id="quiz1-2"
+													value="Двойной">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q1-2.jpg" alt="Двойной памятник">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Двойной
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz1-3" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz1[]" id="quiz1-3"
+													value="Комплекс">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q1-3.jpg" alt="Комплекс">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Комплекс
+														</p>
+													</div>
+												</div>
+											</label>
+										</div>
+									</div>
+									<div class="quiz-item" style="display:none;">
+										<h3 class="quiz-item__title fade_in">
+											Выберите материал памятника
+										</h3>
+										<div class="quiz-options flex quiz-options--checkbox quiz-options--img">
+											<label for="quiz2-1" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz2[]" id="quiz2-1"
+													value="Гранит">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q2-1.jpg" alt="Гранит">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Гранит
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz2-2" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz2[]" id="quiz2-2"
+													value="Мрамор">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q2-2.jpg" alt="Мрамор">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg width="12" height="9" viewBox="0 0 12 9" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z"
+																	fill="#D8D8D8" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Мрамор
+														</p>
+													</div>
+												</div>
+											</label>
+										</div>
+									</div>
+									<div class="quiz-item" style="display:none;">
+										<h3 class="quiz-item__title fade_in">
+											Выберите вид художественного оформления
+										</h3>
+										<div class="quiz-options flex quiz-options--inline quiz-options--checkbox">
+											<label for="quiz3-1" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz3[]" id="quiz3-1"
+													value="Гравировка">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Гравировка
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz3-2" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz3[]" id="quiz3-2"
+													value="Медальон">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Медальон
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz3-3" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz3[]" id="quiz3-3"
+													value="Скульптура">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Скульптура
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz3-4" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz3[]" id="quiz3-4"
+													value="Религиозная символика">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Религиозная символика
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz3-5" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz3[]" id="quiz3-5"
+													value="Художественная резка">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Художественная резка
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz3-6" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz3[]" id="quiz3-6"
+													value="Нужна консультация">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Нужна консультация
+														</p>
+													</div>
+												</div>
+											</label>
+
+										</div>
+									</div>
+									<div class="quiz-item" style="display:none;">
+										<h3 class="quiz-item__title fade_in">
+											Выберите вид благоустройства
+										</h3>
+										<div class="quiz-options flex quiz-options--inline quiz-options--checkbox">
+											<label for="quiz4-1" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz4[]" id="quiz4-1"
+													value="Заливка фундамента">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Заливка фундамента
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz4-2" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz4[]" id="quiz4-2"
+													value="Укладка плитки">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Укладка плитки
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz4-3" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz4[]" id="quiz4-3"
+													value="Укладка брусчатки">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Укладка брусчатки
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz4-4" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz4[]" id="quiz4-4"
+													value="Декоративный щебень">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Декоративный щебень
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz4-5" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz4[]" id="quiz4-5"
+													value="Комбинированное оформление">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Комбинированное оформление
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz4-6" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz4[]" id="quiz4-6"
+													value="Столы и скамейки">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															Столы и скамейки
+														</p>
+													</div>
+												</div>
+											</label>
+
+										</div>
+									</div>
+									<div class="quiz-item" style="display:none;">
+										<h3 class="quiz-item__title fade_in">
+											Выберите ограду для участка
+										</h3>
+										<div class="quiz-options flex quiz-options--checkbox quiz-options--img-inline">
+											<label for="quiz5-1" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz5[]" id="quiz5-1"
+													value="Без ограды">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M16.9999 20.8297L4.21769 33.9997L0 29.654L12.7822 16.4841L1.00147 4.34595L5.21916 0.000297689L16.9999 12.1384L28.7808 0L32.9985 4.34566L21.2176 16.4841L34 29.6543L29.7823 34L16.9999 20.8297Z" />
+														</svg>
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Без ограды
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz5-2" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz5[]" id="quiz5-2"
+													value="Металлическая">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q5-1.jpg" alt="Металлическая ограда">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg width="12" height="9" viewBox="0 0 12 9" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z"
+																	fill="#D8D8D8" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Металлическая
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz5-3" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz5[]" id="quiz5-3"
+													value="Гранитная">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q5-2.jpg" alt="Гранитная ограда">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg width="12" height="9" viewBox="0 0 12 9" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z"
+																	fill="#D8D8D8" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Гранитная
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz5-4" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz5[]" id="quiz5-4"
+													value="Кованная">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q5-3.jpg" alt="Кованная ограда">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg width="12" height="9" viewBox="0 0 12 9" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z"
+																	fill="#D8D8D8" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Кованная
+														</p>
+													</div>
+												</div>
+											</label>
+										</div>
+									</div>
+									<div class="quiz-item" style="display:none;">
+										<h3 class="quiz-item__title fade_in">
+											Какой ваш бюджет?
+										</h3>
+										<div class="quiz-options flex quiz-options--inline quiz-options--checkbox">
+											<label for="quiz6-1" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz6[]" id="quiz6-1"
+													value="до 30 000 руб">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															до 30 000 руб
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz6-2" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz6[]" id="quiz6-2"
+													value="30 000 - 50 000 руб">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															30 000 - 50 000 руб
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz6-3" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz6[]" id="quiz6-3"
+													value="50 000 - 70 000 руб">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															50 000 - 70 000 руб
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz6-4" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz6[]" id="quiz6-4"
+													value="70 000 - 90 000 руб">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															70 000 - 90 000 руб
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz6-5" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz6[]" id="quiz6-5"
+													value="больше 90 000 руб">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+
+														<p class="quiz-option__label">
+															больше 90 000 руб
+														</p>
+													</div>
+												</div>
+											</label>
+										</div>
+									</div>
+									<div class="quiz-item" style="display:none;">
+										<h3 class="quiz-item__title fade_in">
+											Выберите подарок
+										</h3>
+										<div class="quiz-options flex quiz-options--checkbox quiz-options--img">
+											<label for="quiz7-1" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz7[]" id="quiz7-1"
+													value="Ваза стоимость до 4000 руб">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q7-1.jpg" alt="ваза из камня">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Ваза стоимость до&nbsp;4000 руб
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz7-2" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz7[]" id="quiz7-2" value="Благоустройство
+													стоимость до 4000 руб">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q7-2.jpg" alt="Благоустройство">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Благоустройство
+															стоимость до&nbsp;4000 руб
+														</p>
+													</div>
+												</div>
+											</label>
+											<label for="quiz7-3" class="quiz-option">
+												<input type="checkbox" class="quiz-option__input" name="quiz7[]" id="quiz7-3"
+													value="Покраска ограды">
+
+												<div class="quiz-option__wrapper">
+													<div class="quiz-option__img">
+														<img src="media/img/quiz-q7-3.jpg" alt="Покраска ограды">
+													</div>
+													<div class="quiz-option__wrap">
+														<div class="quiz-option__checkbox">
+															<svg viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M11.597 1.4142L10.6401 0.477729C10.5111 0.351463 10.3498 0.28833 10.167 0.28833C9.98427 0.28833 9.823 0.351463 9.69399 0.477729L5.09241 4.98121L3.0389 2.96096C2.90989 2.83469 2.74862 2.77156 2.56585 2.77156C2.38307 2.77156 2.2218 2.83469 2.09279 2.96096L1.13592 3.89743C0.996149 4.02369 0.931641 4.18153 0.931641 4.3604C0.931641 4.53928 0.996149 4.69711 1.12516 4.82338L3.66248 7.3066L4.61935 8.24307C4.74837 8.36934 4.90964 8.43247 5.09241 8.43247C5.27518 8.43247 5.43645 8.36934 5.56547 8.24307L6.52234 7.3066L11.597 2.34015C11.726 2.21388 11.7905 2.05605 11.7905 1.87717C11.7905 1.6983 11.726 1.54047 11.597 1.4142Z" />
+															</svg>
+														</div>
+														<p class="quiz-option__label">
+															Покраска ограды
+														</p>
+													</div>
+												</div>
+											</label>
+										</div>
+									</div>
+									<div class="quiz-item quiz-item--semifinal" style="display:none;">
+										<h3 class="quiz-item__title fade_in">
+											Отлично!
+										</h3>
+										<p class="quiz-item__subtitle">
+											Инженер уже приступил к расчёту стоимости
+										</p>
+										<div class="quiz-item__form quiz-catalog flex">
+											<label class="quiz-catalog__label label">
+												Куда прислать каталог?
+												<div class="select-social">
+													<div class="quiz-catalog__select">
+														<select id="select-social-quiz">
+															<option value="whats app">
+																whats app
+															</option>
+															<option value="telegram">
+																telegram
+															</option>
+														</select>
+													</div>
+													<!-- <div class="select-social__img social">
+														<div class="social__item social__item-telegram" aria-label="telegram">
+															<svg viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M5.20148 7.81348L4.98922 10.7108C5.29137 10.7108 5.42372 10.5843 5.58104 10.4311L6.99941 9.11012L9.93852 11.2071C10.4779 11.499 10.8575 11.3458 11.0023 10.723L12.9326 1.91417C13.1049 1.14057 12.6454 0.836486 12.121 1.02867L0.779073 5.25914C0.00496463 5.55107 0.0174502 5.97193 0.646725 6.16168L3.54589 7.03988L10.2806 2.93348C10.5978 2.72913 10.8849 2.84104 10.6477 3.04782L5.20148 7.81348Z" />
+															</svg>
+														</div>
+														<div class="social__item social__item-whatsapp active" aria-label="WhatsApp">
+															<svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M7.17844 0.376953C3.42917 0.376953 0.387085 3.41622 0.387085 7.16203C0.387085 8.66193 0.873029 10.0434 1.69479 11.1683L0.82957 13.7261L3.52794 12.8853C4.58279 13.5563 5.83519 13.9471 7.17844 13.9471C10.9277 13.9471 13.9698 10.9078 13.9698 7.16203C13.9698 3.41622 10.9277 0.376953 7.17844 0.376953ZM10.2877 10.8013C9.05506 11.2946 7.58537 10.817 5.97741 9.59739C4.36945 8.37774 3.31065 6.66075 3.23953 5.38583C3.16842 4.11092 4.20747 3.46754 4.77243 3.47148C5.33739 3.47543 5.95766 5.27926 5.96556 5.55556C5.97346 5.8358 5.27418 6.33314 5.24652 6.56996C5.21887 6.80679 6.19866 7.97513 6.61349 8.2909C7.02436 8.60272 7.87378 9.20268 8.31231 9.14742C8.7469 9.08822 9.0353 8.21591 9.31186 8.16065C9.58841 8.10539 11.0976 8.85534 11.2477 9.04875C11.3979 9.2461 11.3821 10.3671 10.2877 10.8013Z" />
+															</svg>
+														</div>
+													</div> -->
+												</div>
+											</label>
+											<label class="quiz-catalog__label label">
+												Введите номер Вашего телефона
+												<input class="quiz-catalog__input input" type="tel"
+													placeholder="+ 7 (_ _ _) _ _ _ - _ _ - _ _" data-validate-field="phone"
+													name="phone">
+											</label>
+											<button class="quiz-catalog__btn main-btn">
+												<span class="btn-blick"></span>
+												<span>получить каталог сейчас</span>
+											</button>
+											<div class="quiz-catalog__agree agree flex">
+												<div class="agree__checkbox">
+
+												</div>
+												<div class="agree__text">
+													Нажимая кнопку вы соглашаетесь с условиями <a href="#"
+														class="agree__link">Политики
+														конфиденциальности</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="quiz__bottom flex">
+									<div class="quiz__bottom-descr">
+										<b>Выберите вариант ответа</b>
+										и&nbsp;нажмите кнопку “Далее”
+									</div>
+									<div class="quiz__btns flex">
+										<button class="btn quiz-btn quiz-btn--prev" style="display:none;">
+											<span class="btn-text">Назад</span>
+										</button>
+										<!-- <button class="btn quiz-btn quiz-btn--next" disabled="">
+									<span class="btn-blick"></span>
+									<div class="quiz-btn__hint">Ответьте на вопрос выше</div>
+									<span class="btn-text">Далее</span>
+								</button> -->
+										<button class="quiz__btn main-btn quiz-btn--next" disabled="">
+											<span class="btn-blick"></span>
+											<span>Далее</span>
+										</button>
+									</div>
+								</div>
+							</form>
+							<div class="quiz__right">
+								<p class="quiz__right-text">
+									Отвечайте на вопросы и получите подборку из
+									5&nbsp;вариантов памятника
+									под ваш бюджет + подарок
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1677,6 +2407,9 @@
 		src="https://rawcdn.githack.com/RobinHerbots/Inputmask/a95afe64e7467eb14eb8aa8ccbfb6340a46fb8e3/dist/inputmask.min.js"></script>
 	<script src="js/custom-select.min.js"></script>
 	<script src="js/swiper-bundle.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.fancybox.min.js"></script>
+	<script src="js/quiz.js"></script>
 	<script src="js/script.js"></script>
 </body>
 

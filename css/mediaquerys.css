@@ -544,9 +544,6 @@
     -ms-flex-preferred-size: 22.3rem;
         flex-basis: 22.3rem;
   }
-  .improvement__item:nth-child(2) .improvement__item-title, .improvement__item:nth-child(4) .improvement__item-title {
-    padding-top: 3rem;
-  }
   .improvement__item:hover .improvement__descr {
     -webkit-transform: translateY(71%);
         -ms-transform: translateY(71%);
@@ -554,6 +551,10 @@
   }
   .improvement__item:hover .improvement__text {
     opacity: 0;
+    height: 15.5rem;
+  }
+  .improvement__item:hover .improvement__item-title {
+    height: 6.5rem;
   }
   .improvement__item:hover::after {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(24.21%, rgba(0, 0, 0, 0)), color-stop(89.64%, rgba(0, 0, 0, 0.3)));
@@ -567,9 +568,11 @@
   }
   .improvement__item.active .improvement__text {
     opacity: 1;
+    height: auto;
   }
   .improvement__item.active .improvement__item-title {
     margin-bottom: 0.8rem;
+    height: auto;
   }
   .improvement__item.active::after {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(53.57%, rgba(0, 0, 0, 0.7)));
@@ -642,6 +645,7 @@
   }
   .improvement__text {
     font-size: 0.9rem;
+    height: 15.5rem;
   }
   .improvement__text ul {
     padding-left: 1.2rem;

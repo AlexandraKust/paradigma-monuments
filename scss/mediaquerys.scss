@@ -583,13 +583,6 @@
 		&__item {
 			flex-basis: 22.3rem;
 
-			&:nth-child(2),
-			&:nth-child(4) {
-				.improvement__item-title {
-					padding-top: 3rem;
-				}
-			}
-
 			// сбрасывание стилей при ховере
 			&:hover {
 				.improvement__descr {
@@ -598,6 +591,11 @@
 
 				.improvement__text {
 					opacity: 0;
+					height: 15.5rem;
+				}
+
+				.improvement__item-title {
+					height: 6.5rem;
 				}
 
 				&::after {
@@ -612,10 +610,12 @@
 
 				.improvement__text {
 					opacity: 1;
+					height: auto;
 				}
 
 				.improvement__item-title {
 					margin-bottom: 0.8rem;
+					height: auto;
 				}
 
 				&::after {
@@ -685,6 +685,7 @@
 
 		&__text {
 			font-size: 0.9rem;
+			height: 15.5rem;
 
 			ul {
 				padding-left: 1.2rem;
