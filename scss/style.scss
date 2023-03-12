@@ -1103,7 +1103,7 @@ form {
 			border-radius: 26vw;
 			background-color: var(--accent-color);
 			animation: loadingBg 10s infinite linear;
-			background-image: url(../media/svg/load.svg)
+			background-image: url(../media/svg/load.svg);
 		}
 
 		&-text {
@@ -1197,12 +1197,22 @@ form {
 		justify-content: space-between;
 		row-gap: 1.51vw;
 
-		.quiz-option {
-			flex: 0 0 47%;
+		.quiz-option__wrapper {
+			border: 0.052vw solid #eee;
 		}
 
-		.quiz-option__wrapper {
-			border: 0.052vw solid #EEEEEE;
+		.quiz-option {
+			flex: 0 0 47%;
+
+			&:hover {
+				.quiz-option__wrapper {
+					border-color: var(--accent-color);
+				}
+
+				.quiz-option__checkbox {
+					outline: 0;
+				}
+			}
 		}
 
 		.quiz-option__wrap {
@@ -1228,7 +1238,6 @@ form {
 
 		.quiz-option {
 			flex: 0 0 15.1vw;
-			width: 15.1vw;
 		}
 
 		.quiz-option__wrapper {
@@ -1322,7 +1331,6 @@ form {
 }
 
 .quiz-option {
-	cursor: pointer;
 	position: relative;
 
 	&__wrapper {
@@ -1334,7 +1342,8 @@ form {
 		overflow: hidden;
 		width: 100%;
 		height: 100%;
-		border: 0.052vw solid #EEEEEE;
+		// border: 0.052vw solid #EEEEEE;
+		border: 0.15vw solid #eee;
 
 		img {
 			display: block;
@@ -1381,6 +1390,11 @@ form {
 		svg path {
 			fill: var(--accent-color);
 		}
+
+		.quiz-option__checkbox {
+			outline: 0.15vw solid var(--accent-color);
+			outline-offset: -0.15vw;
+		}
 	}
 
 	&__input {
@@ -1390,6 +1404,7 @@ form {
 		height: 100%;
 		opacity: 0;
 		z-index: 5;
+		cursor: pointer;
 
 		&:checked~.quiz-option__wrapper {
 			.quiz-option__img {
@@ -1416,10 +1431,7 @@ form {
 		flex-basis: auto;
 	}
 
-	.select-social {
-		margin-bottom: 1.4vw;
-	}
-
+	.select-social,
 	&__input {
 		margin-bottom: 1.4vw;
 	}
@@ -1435,7 +1447,6 @@ form {
 		}
 	}
 }
-
 
 // услуги по благоустройству
 .improvement {

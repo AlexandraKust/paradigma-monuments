@@ -188,6 +188,11 @@
 						<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
 						<feComposite in="SourceGraphic" in2="goo" operator="atop" />
 					</filter>
+					<filter id="round-mobile">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+						<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+						<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+					</filter>
 				</defs>
 			</svg>
 			<div class="container">
@@ -196,7 +201,7 @@
 						<p class="quiz__subtitle">Всего за 1 минуту</p>
 						<h2 class="quiz__title section-title fade-in">
 							Получите бесплатно подборку из
-							5&nbsp;вариантов памятника под ваш бюджет
+							5&nbsp;вариантов памятника под ваш&nbsp;бюджет
 						</h2>
 						<p class="quiz__subtitle">и 1 из 3х подарков на выбор</p>
 
@@ -906,7 +911,7 @@
 									</div>
 									<div class="quiz__btns flex">
 										<button class="btn quiz-btn quiz-btn--prev" style="display:none;">
-											<span class="btn-text">Назад</span>
+											<span>Назад</span>
 										</button>
 										<button class="quiz__btn main-btn quiz-btn--next" disabled="">
 											<span class="btn-blick"></span>
@@ -1760,6 +1765,7 @@
 		<!-- форма обратного звонка -->
 		<section class="callback">
 			<div class="container">
+				<div class="callback__bg"></div>
 				<div class="callback__content">
 					<h2 class="callback__title section-title">
 						<span>Не знаете что именно<br class="mobile">
@@ -2009,6 +2015,7 @@
 		<!-- контроль качества -->
 		<section class="control">
 			<div class="container">
+				<div class="content__bg"></div>
 				<div class="control__content">
 					<div class="control__row flex">
 						<h2 class="control__title section-title">Тройной контроль качества</h2>
@@ -2194,6 +2201,7 @@
 		<!-- форма обратного звонка консультация -->
 		<section class="consultation">
 			<div class="container">
+				<div class="consultation__bg"></div>
 				<div class="consultation__content">
 					<div class="consultation__text flex">
 						<h2 class="consultation__title section-title">
