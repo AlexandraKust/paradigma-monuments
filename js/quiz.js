@@ -99,12 +99,12 @@ function anime(anim) {
     var thisTitle = $(this);
     var offsetTop = thisTitle.offset().top - $(window).height() - 10;
     if ($(document).scrollTop() > offsetTop) {
-        thisTitle.addClass('fade_in');
+        thisTitle.addClass('fade-in');
     }
     $(window).scroll(function (event) {
         offsetTop = thisTitle.offset().top - $(window).height() - 10;
         if ($(document).scrollTop() > offsetTop) {
-            thisTitle.addClass('fade_in');
+            thisTitle.addClass('fade-in');
         }
     });
 }
@@ -205,47 +205,34 @@ btnClick();
 
 $('input[name="quiz1[]"]').on('change', function () {
     setTimeout(function () {
-        // ym(90200723, 'reachGoal', 'quiz_start');
-        // ym(90200723, 'reachGoal', 'quiz_1');
         btnNext.click();
     }, 500);
 });
 $('input[name="quiz2[]"]').on('change', function () {
     setTimeout(function () {
-        // ym(90200723, 'reachGoal', 'quiz_2');
         btnNext.click();
     }, 500);
 });
 $('input[name="quiz3"]').on('change', function () {
     setTimeout(function () {
-        // ym(90200723, 'reachGoal', 'quiz_3');
-        // btnNext.click();
     }, 500);
 });
 $('input[name="quiz4[]"]').on('change', function () {
     setTimeout(function () {
-        // ym(90200723, 'reachGoal', 'quiz_4')
-        // btnNext.click();
     }, 500);
 });
 $('input[name="quiz5[]"]').on('change', function () {
     setTimeout(function () {
-        // ym(90200723, 'reachGoal', 'quiz_5')
-        // ym(90200723, 'reachGoal', 'quiz_complete')
         btnNext.click();
     }, 500);
 });
 $('input[name="quiz6[]"]').on('change', function () {
     setTimeout(function () {
-        // ym(90200723, 'reachGoal', 'quiz_5')
-        // ym(90200723, 'reachGoal', 'quiz_complete')
         btnNext.click();
     }, 500);
 });
 $('input[name="quiz7[]"]').on('change', function () {
     setTimeout(function () {
-        // ym(90200723, 'reachGoal', 'quiz_5')
-        // ym(90200723, 'reachGoal', 'quiz_complete')
         btnNext.click();
     }, 500);
 });

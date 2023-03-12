@@ -153,56 +153,40 @@ btnMore.forEach(function (item) {
 	})
 });
 
-// select catalog
+// select
 customSelect(document.querySelectorAll('select'));
+
+// select catalog
 document.getElementById('select-catalog').addEventListener('change', function () {
 	document.querySelectorAll('.catalog__content-item').forEach((n, i) => {
 		n.classList.toggle('active', i === this.selectedIndex);
 	});
 });
 
-// select с соцсетями в форме заказать каталог
-// let selectSocial = document.querySelectorAll('.select-social');
-// selectSocial.forEach(function (selectWrap) {
-// 	let select = selectWrap.querySelector('.select');
-// 	let selectImg = selectWrap.querySelector('.select-social__img');
-// 	console.log(selectImg)
+// select с соцсетями
+let selectSocial = document.querySelectorAll('.select-social');
+selectSocial.forEach(function (selectWrap) {
+	let select = selectWrap.querySelector('select');
+	let selectImg = selectWrap.querySelector('.select-social__img');
 
-// 	select.addEventListener('click', function () {
-// 		selectImg.classList.toggle('active');
-// 	})
-
-// 	select.addEventListener('change', function () {
-// 		let socialItem = selectImg.querySelectorAll('.social__item');
-// 		socialItem.forEach((item) => {
-// 			item.classList.remove('active');
-// 		})
-// 		if (select.value == "whats app") {
-// 			selectImg.querySelector('.social__item-whatsapp').classList.add('active');
-// 		}
-// 		if (select.value == "telegram") {
-// 			selectImg.querySelector('.social__item-telegram').classList.add('active');
-// 		}
-// 	});
-// })
-
-let selectSocial = document.getElementById('select-social');
-let selectImg = document.querySelector('.select-social__img');
-selectSocial.addEventListener('click', function () {
-	selectImg.classList.toggle('active');
-})
-selectSocial.addEventListener('change', function () {
-	let socialItem = selectImg.querySelectorAll('.social__item');
-	socialItem.forEach((item) => {
-		item.classList.remove('active');
+	select.addEventListener('click', function () {
+		selectImg.classList.toggle('active');
 	})
-	if (selectSocial.value == "whats app") {
-		selectImg.querySelector('.social__item-whatsapp').classList.add('active');
-	}
-	if (selectSocial.value == "telegram") {
-		selectImg.querySelector('.social__item-telegram').classList.add('active');
-	}
-});
+
+	select.addEventListener('change', function () {
+		let socialItem = selectImg.querySelectorAll('.social__item');
+		socialItem.forEach((item) => {
+			item.classList.remove('active');
+		})
+		if (select.value == "whats app") {
+			selectImg.querySelector('.social__item-whatsapp').classList.add('active');
+		}
+		if (select.value == "telegram") {
+			selectImg.querySelector('.social__item-telegram').classList.add('active');
+		}
+	});
+})
+
 
 // checkbox 
 let checkbox = document.querySelectorAll('.agree__checkbox');
@@ -212,85 +196,35 @@ checkbox.forEach(function (item) {
 
 	item.addEventListener('click', function () {
 		item.classList.toggle('check');
-		mainBtn.classList.toggle('disabled');
+		if (!item.classList.contains('check')) {
+			mainBtn.setAttribute('disabled', 'disabled');
+		} else {
+			mainBtn.removeAttribute('disabled', 'disabled');
+		}
+		// mainBtn.classList.toggle('disabled');
 	})
 })
 
+// слайдеры
+let slidersAll = document.querySelectorAll('.swiper');
+slidersAll.forEach(function (item) {
+	let swiper = new Swiper(item, {
+		loop: false,
+		speed: 600,
+		centeredSlides: false,
+		touchRatio: 1,
+		slidesPerView: 'auto',
+		watchSlidesProgress: true,
 
+		navigation: {
+			nextEl: item.parentNode.querySelector('.slider-btn-next'),
+			prevEl: item.parentNode.querySelector('.slider-btn-prev'),
+		},
 
+		pagination: {
+			clickable: true,
+			el: item.closest('section').querySelector('.main-pagination'),
+		},
+	});
+})
 
-// слайдер в блоке работа
-window.addEventListener('resize', function () {
-	if (window.innerWidth > 767.98) {
-
-	}
-});
-
-const portfolioSwiper = new Swiper('.portfolio__swiper', {
-	loop: false,
-	speed: 600,
-	centeredSlides: false,
-	touchRatio: 1,
-	slidesPerView: "auto",
-
-	pagination: {
-		el: '.portfolio__pagination',
-	},
-
-	navigation: {
-		nextEl: '.portfolio__btn-next',
-		prevEl: '.portfolio__btn-prev',
-	},
-});
-
-const commentSwiper = new Swiper('.comment__swiper', {
-	loop: false,
-	speed: 600,
-	centeredSlides: false,
-	touchRatio: 1,
-	slidesPerView: "auto",
-	watchSlidesProgress: true,
-
-	pagination: {
-		el: '.comment__pagination',
-	},
-
-	navigation: {
-		nextEl: '.comment__btn-next',
-		prevEl: '.comment__btn-prev',
-	},
-});
-
-const aboutGallery = new Swiper('.about__gallery', {
-	loop: false,
-	speed: 600,
-	centeredSlides: false,
-	touchRatio: 1,
-	slidesPerView: "auto",
-
-	pagination: {
-		el: '.about__gall-pagination',
-	},
-
-	navigation: {
-		nextEl: '.about__btn-gall-next',
-		prevEl: '.about__btn-gall-prev',
-	},
-});
-
-const aboutCertificates = new Swiper('.about__certificates', {
-	loop: false,
-	speed: 600,
-	centeredSlides: false,
-	touchRatio: 1,
-	slidesPerView: 'auto',
-
-	pagination: {
-		el: '.about__cert-pagination',
-	},
-
-	navigation: {
-		nextEl: '.about__btn-cert-next',
-		prevEl: '.about__btn-cert-prev',
-	},
-});
