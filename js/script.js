@@ -16,19 +16,35 @@ openMapPopup.addEventListener('click', function () {
 });
 
 // закрытие popup
-let popup = document.querySelectorAll('.popup');
-popup.forEach(function (value) {
-	let close = value.querySelector(".popup__close");
-	let bg = value.querySelector(".popup__bg");
+let popups = document.querySelectorAll('.popup');
+popups.forEach(function (popup) {
+	let close = popup.querySelector(".popup__close");
+	let bg = popup.querySelector(".popup__bg");
 
 	close.addEventListener('click', function () {
-		value.classList.remove('active');
+		popup.classList.remove('active');
 		document.body.classList.remove('lock');
 	})
 	bg.addEventListener('click', function () {
-		value.classList.remove('active');
+		popup.classList.remove('active');
 		document.body.classList.remove('lock');
 	})
+
+	let title = popup.querySelector('.popup__title');
+	let descr = popup.querySelector('.popup__descr');
+	let form = popup.querySelector('.popup__form');
+	let btn = popup.querySelector('.popup__btn');
+
+	if (btn) {
+		btn.addEventListener('click', function () {
+			if (!btn.setAttribute('disabled', 'disabled')) {
+				title.classList.add('active');
+				title.innerHTML = "Спасибо!<br> Ваша заявка отправлена!";
+				form.classList.add('d-none');
+				descr.classList.add('d-none');
+			}
+		})
+	}
 })
 
 // маска на телефон
@@ -36,20 +52,6 @@ let phone = document.querySelectorAll("input[type='tel']");
 var im = new Inputmask("+ 7 (9 9 9) 9 9 9 - 9 9 - 9 9");
 im.mask(phone);
 
-// отправка формы
-let btnPopup = document.querySelector('.popup-request__btn');
-let titlePopup = document.querySelector('.popup-request__title');
-let formPopup = document.querySelector('.popup-request__form');
-let descrPopup = document.querySelector('.popup-request__descr');
-
-btnPopup.addEventListener('click', function () {
-	if (!btnPopup.classList.contains('disabled')) {
-		titlePopup.classList.add('active');
-		titlePopup.innerHTML = "Спасибо!<br> Ваша заявка отправлена!";
-		formPopup.classList.add('d-none');
-		descrPopup.classList.add('d-none');
-	}
-})
 
 // phone
 let phoneBtn = document.querySelector('.header__call-mobile');
@@ -83,6 +85,26 @@ burger.addEventListener('click', function () {
 	nav.classList.toggle('active');
 	header.classList.toggle('active');
 	document.body.classList.toggle('lock');
+
+	// закрытие меню при нажатии на ссылку
+	let links = nav.querySelectorAll('.nav__link');
+	links.forEach(function (link) {
+		link.addEventListener('click', function () {
+			burger.classList.remove('active');
+			nav.classList.remove('active');
+			header.classList.remove('active');
+			document.body.classList.remove('lock');
+		})
+	})
+
+	let download = header.querySelector('.header__catalog.mobile');
+	let downloadLink = download.querySelector('.header__catalog-link');
+	downloadLink.addEventListener('click', function () {
+		burger.classList.remove('active');
+		nav.classList.remove('active');
+		header.classList.remove('active');
+		document.body.classList.remove('lock');
+	})
 })
 
 // закрытие меню если размер окна стал больше мобилки
@@ -92,7 +114,6 @@ window.addEventListener('resize', function () {
 		nav.classList.remove('active');
 		header.classList.remove('active');
 		document.body.classList.remove("lock");
-
 	}
 });
 window.addEventListener('resize', function () {
@@ -106,11 +127,17 @@ window.addEventListener('resize', function () {
 
 // прилипание шапки
 window.addEventListener('scroll', function () {
-	burger.classList.add('fixed');
-	header.classList.add('fixed');
+	let headerRowHeight = header.querySelector('.header__row').offsetHeight;
 
-	if (this.window.pageYOffset < 10) {
-		burger.classList.remove('fixed');
+	if (window.innerWidth > 767.98 && window.pageYOffset > headerRowHeight) {
+		nav.classList.add('fixed');
+	} else {
+		nav.classList.remove('fixed');
+	}
+
+	if (window.innerWidth < 768 && window.pageYOffset > 10) {
+		header.classList.add('fixed');
+	} else {
 		header.classList.remove('fixed');
 	}
 });
@@ -157,11 +184,14 @@ btnMore.forEach(function (item) {
 customSelect(document.querySelectorAll('select'));
 
 // select catalog
-document.getElementById('select-catalog').addEventListener('change', function () {
-	document.querySelectorAll('.catalog__content-item').forEach((n, i) => {
-		n.classList.toggle('active', i === this.selectedIndex);
+let selectCatalog = document.getElementById('select-catalog');
+if (selectCatalog) {
+	selectCatalog.addEventListener('change', function () {
+		document.querySelectorAll('.catalog__content-item').forEach((n, i) => {
+			n.classList.toggle('active', i === this.selectedIndex);
+		});
 	});
-});
+}
 
 // select с соцсетями
 let selectSocial = document.querySelectorAll('.select-social');
@@ -186,7 +216,6 @@ selectSocial.forEach(function (selectWrap) {
 		}
 	});
 })
-
 
 // checkbox 
 let checkbox = document.querySelectorAll('.agree__checkbox');

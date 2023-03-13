@@ -240,6 +240,10 @@
 			}
 		}
 
+		&.fixed {
+			box-shadow: 0 0.42vw 1vw rgba(0, 0, 0, 0.1);
+		}
+
 		&__row {
 			position: relative;
 			z-index: 45;
@@ -310,10 +314,16 @@
 			.header__catalog-link {
 				text-align: center;
 				font-size: 1.5rem;
-				padding: 0 2rem 0 0;
+
+				svg {
+					width: 1.35rem;
+					height: 1.35rem;
+				}
 
 				span {
 					padding-bottom: 0.65rem;
+					align-items: center;
+					justify-content: space-between;
 				}
 			}
 		}
@@ -378,7 +388,7 @@
 				left: 50%;
 				display: block;
 				width: 1rem;
-				height: 0.2rem;
+				height: 0.15rem;
 				transform: translate(-50%, -50%);
 				background: #fff;
 				transition: background 0.3s ease-in-out;
@@ -401,10 +411,10 @@
 			&::after {
 				content: "";
 				position: absolute;
-				bottom: 33%;
+				bottom: 36%;
 				left: 50%;
 				width: 1rem;
-				height: 0.2rem;
+				height: 0.15rem;
 				transform: translateX(-50%);
 				background: #fff;
 				transition-property: transform;
@@ -427,17 +437,9 @@
 				}
 
 				&::after {
+					height: 0.2rem;
 					bottom: 50%;
 					transform: translate(-50%, 50%) rotate(-45deg);
-				}
-			}
-
-			&.fixed {
-
-				span,
-				&::before,
-				&::after {
-					background: var(--main-color);
 				}
 			}
 		}
@@ -508,6 +510,7 @@
 		justify-content: start;
 		padding: 8.6rem 2.2rem;
 		overflow-y: auto;
+		overflow-x: hidden;
 		background: url('../media/img/bg-mobile-2.png') 0 0 / cover no-repeat;
 		transition: left 0.4s ease-in-out;
 
@@ -544,6 +547,89 @@
 		background: none;
 		padding: 9.8rem 0 20.4rem;
 		background: url('../media/img/bg-mobile-2.png') 0 0 / cover no-repeat;
+
+		&__sub {
+			font-size: 1.2rem;
+		}
+
+		&-quiz {
+			padding: 9.8rem 0 20.4rem;
+
+			.hero__title {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+
+			.hero__sub {
+				margin-bottom: 1rem;
+			}
+
+			.hero__benefits {
+				margin-top: 2rem;
+				margin-bottom: 3rem;
+			}
+		}
+
+		&-lidmagnit {
+			padding: 9.8rem 0 20.4rem;
+
+			.hero__bg {
+				background: right bottom / 174% 30rem no-repeat;
+			}
+
+			.hero__title {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+
+			.hero__sub {
+				margin-bottom: 1rem;
+			}
+		}
+
+		&-404 {
+			padding: 9.8rem 0 20.4rem;
+
+			.hero__bg {
+				background: right calc(100% - 2rem) / 100% 12rem no-repeat;
+			}
+
+			.hero__title {
+				width: 100%;
+				margin-bottom: 2rem;
+			}
+
+			.hero__sub {
+				margin-bottom: 1rem;
+			}
+
+			.hero__btn span {
+				font-size: 1rem;
+			}
+		}
+
+		&-thanks {
+			padding: 9.8rem 0 24.4rem;
+			height: auto;
+
+			.hero__bg {
+				background: right bottom / 174% 30rem no-repeat;
+			}
+
+			.hero__title {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+
+			.hero__sub {
+				margin-bottom: 2rem;
+			}
+		}
+
+		.form-catalog {
+			width: 100%;
+			row-gap: 1rem;
+		}
 
 		&__mobile-bg {
 			position: absolute;
@@ -647,8 +733,15 @@
 			}
 
 			&.final {
-				// display: none;
 				background: none;
+
+				.quiz__form::before {
+					display: none;
+				}
+
+				.quiz__form {
+					height: 66rem;
+				}
 			}
 		}
 
@@ -746,8 +839,6 @@
 		}
 	}
 
-	.quiz-items {}
-
 	.quiz-item {
 
 		&__title {
@@ -761,8 +852,6 @@
 			font-size: 1rem;
 		}
 
-		&__form {}
-
 		&--semifinal {
 			flex-basis: 100%;
 
@@ -773,10 +862,9 @@
 				top: 0;
 				left: 0;
 				width: 100%;
-				height: 110%;
+				height: 100%;
 				background: url('../media/img/quiz-final-mobile.png') right 140% / 90% auto no-repeat,
 					url('../media/img/get-catalog-bg-mobile.png') 0 0 / 100% 100% no-repeat;
-				// background: red;
 			}
 
 			.quiz-item__title {
@@ -886,10 +974,6 @@
 		&__input {
 			margin-bottom: 1.4rem;
 		}
-
-		&__label {}
-
-		&__select {}
 
 		&__btn {
 			margin-bottom: 1.4rem;
@@ -2164,6 +2248,11 @@
 	.footer {
 		padding-top: 0.2rem;
 
+		&-fixed {
+			position: static;
+			margin-top: 2rem;
+		}
+
 		&__row {
 			flex-direction: column;
 			width: 100%;
@@ -2200,45 +2289,103 @@
 	}
 }
 
-
-
-
-
-
-
-
-// popup Заказать звонок
+// popup
 @media (max-width: 768px) {
-	.popup-request {
+	.popup {
+
+		&.active .popup__body {
+			transform: perspective(31rem) translate(-50%, -50%) rotateX(0deg);
+		}
+
 		&__body {
-			width: 28rem;
-			height: 30rem;
-			padding: 2rem 3rem;
+			transform: perspective(31rem) translate(-50%, -50%) rotateX(45deg);
+		}
+
+		&-request {
+			.popup__body {
+				width: 80%;
+				min-height: 50%;
+				padding: 3rem 2rem 23rem;
+				border-radius: 2rem;
+				background: url('../media/img/callback-mobile.png') center 78% / 100% auto no-repeat,
+					url('../media/img/popup.jpg') 0 0 / 100% 100% no-repeat;
+			}
+
+			.popup__plate {
+				top: auto;
+				right: 2rem;
+				width: 5rem;
+				font-size: 0.8rem;
+				bottom: 9rem;
+			}
+		}
+
+		&-wait {
+			.popup__body {
+				width: 80%;
+				min-height: 50%;
+				padding: 4rem 2rem 23rem;
+				border-radius: 2rem;
+				background: url('../media/img/lidmagnit.png') right 132% / 230% auto no-repeat,
+					url('../media/img/popup.jpg') 0 0 / 100% 100% no-repeat;
+			}
+
+			.popup__descr {
+				margin-bottom: 1.5rem;
+			}
+
+			.select {
+				.custom-select-opener {
+					padding: 1rem 1.7rem;
+				}
+			}
+
+			.select-social__img {
+				right: 0.9rem;
+			}
+
+			.social__item {
+				width: 3rem;
+				height: 3rem;
+				margin: 0;
+			}
+		}
+
+		&__content {
+			width: 100%;
 		}
 
 		&__title {
 			font-size: 1.6rem;
 			line-height: 2.3rem;
 			margin-bottom: 0.7rem;
+
+			&.active {
+				max-width: 100%;
+				text-align: center;
+				left: 2rem;
+				right: 2rem;
+				top: 26%;
+			}
 		}
 
 		&__descr {
 			margin-bottom: 1.73rem;
 			font-size: 1rem;
-			padding: 0 0.5rem;
+		}
+
+		&__row {
+			gap: 1rem;
 		}
 
 		&__label {
-			margin-bottom: 0.65rem;
-			font-size: 0.75rem;
+			font-size: 0.85rem;
 			line-height: 1.1rem;
-			padding-left: 2.4rem;
 		}
 
 		&__input {
-			height: 4.42rem;
+			height: 4.5rem;
 			border-radius: 4.4rem;
-			margin-bottom: 1.3rem;
 			padding: 0 2rem;
 			font-size: 1.3rem;
 
@@ -2248,27 +2395,12 @@
 		}
 
 		&__btn {
-			min-height: 4.42rem;
+			height: 4.5rem;
 			margin-bottom: 1.4rem;
-			border-radius: 4.4rem;
 		}
 
-		&__checkbox {
-			width: 1.5rem;
-			height: 1.5rem;
-			margin-right: 1rem;
-			border-radius: 0.2rem;
-			border-width: 0.01rem;
-
-			svg {
-				width: 0.8rem;
-				height: 0.8rem;
-			}
-		}
-
-		&__rights-descr {
-			font-size: 0.8rem;
-			padding-right: 0.9rem;
+		.agree__text {
+			padding-right: 0;
 		}
 	}
 }

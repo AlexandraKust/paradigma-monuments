@@ -11,6 +11,7 @@
 
 html {
 	font-size: 10px;
+	// scroll-behavior: smooth;
 }
 
 * {
@@ -71,6 +72,7 @@ body {
 	font-weight: 400;
 	color: var(--main-color);
 	background: #f7f7f7;
+	overflow-x: hidden;
 
 	&.lock {
 		overflow: hidden;
@@ -91,14 +93,6 @@ form {
 	30% {
 		opacity: 0.7;
 	}
-
-	// 50% {
-	// 	opacity: 0.7;
-	// }
-
-	// 70% {
-	// 	opacity: 0;
-	// }
 
 	100% {
 		left: 200%;
@@ -347,7 +341,7 @@ form {
 
 .slider-btn-prev {
 	position: absolute;
-	z-index: 5;
+	z-index: 4;
 	top: 43.2%;
 	transform: translate(-50%, -50%);
 	left: 0;
@@ -355,7 +349,7 @@ form {
 
 .slider-btn-next {
 	position: absolute;
-	z-index: 5;
+	z-index: 4;
 	top: 43.2%;
 	transform: translate(50%, -50%) rotate(180deg);
 	right: 0;
@@ -815,6 +809,23 @@ form {
 		}
 	}
 
+	&.fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		width: 100%;
+		box-shadow: 0 0.42vw 1vw rgba(0, 0, 0, 0.1);
+		border-radius: 0;
+
+		.nav__list {
+			max-width: 85.4166667vw;
+			margin: 0 auto;
+			padding-left: 2.8125vw;
+			padding-right: 2.23958vw;
+		}
+	}
+
 }
 
 // заглавный блок
@@ -824,6 +835,15 @@ form {
 	background-position: 0 0;
 	background-size: 100% auto;
 
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+	}
+
 	&__title {
 		width: 38.1770833vw;
 		margin-bottom: 1.1vw;
@@ -832,6 +852,16 @@ form {
 		font-size: 3.38541667vw;
 		line-height: 131%;
 		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: var(--main-black);
+	}
+
+	&__sub {
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1.66vw;
+		line-height: 125%;
+		letter-spacing: 0.03em;
 		text-transform: uppercase;
 		color: var(--main-black);
 	}
@@ -898,7 +928,6 @@ form {
 		}
 	}
 
-
 	&__btn {
 		padding: 1.45vw 2.395833vw;
 		width: 21.875vw;
@@ -909,6 +938,106 @@ form {
 			font-size: 0.88541666vw;
 		}
 	}
+
+	&-quiz {
+		padding: 14.925vw 0 19.1vw;
+
+		.hero__title {
+			width: 51vw;
+			line-height: 146%;
+			margin-bottom: 1.6vw;
+		}
+
+		.hero__sub {
+			margin-bottom: 2vw;
+		}
+
+		.hero__benefits {
+			margin-top: 2.9vw;
+			margin-bottom: 3vw;
+		}
+	}
+
+	&-lidmagnit {
+		padding: 17vw 0 16.7vw;
+		background-size: 100% 100%;
+
+		.container {
+			position: relative;
+			z-index: 2;
+		}
+
+		&__bg {
+			background: right top / 100% auto no-repeat;
+		}
+
+		.hero__sub {
+			margin-bottom: 1.4vw;
+		}
+
+		.hero__title {
+			width: 60vw;
+			line-height: 146%;
+			margin-bottom: 2.1vw;
+		}
+	}
+
+	&-404 {
+		padding: 17vw 0;
+		background-size: 100% 100%;
+
+		.container {
+			position: relative;
+			z-index: 2;
+		}
+
+		.hero__bg {
+			background: right 42% / 52.1875vw auto no-repeat;
+		}
+
+		.hero__sub {
+			margin-bottom: 1.9vw;
+		}
+
+		.hero__title {
+			width: 60vw;
+			line-height: 146%;
+			margin-bottom: 3.4vw;
+		}
+
+		.hero__btn span {
+			font-size: 0.78125vw;
+		}
+	}
+
+	&-thanks {
+		position: relative;
+		padding: 15vw 0 14.5vw;
+		background-size: 100% 100%;
+
+		.container {
+			position: relative;
+			z-index: 2;
+		}
+
+		.hero__bg {
+			background: right bottom / 100% auto no-repeat;
+		}
+
+		.hero__title {
+			line-height: 146%;
+			margin-bottom: 1.8vw;
+		}
+
+		.hero__sub {
+			margin-bottom: 2.85vw;
+		}
+	}
+
+	.form-catalog {
+		width: 67vw;
+		row-gap: 0.8vw;
+	}
 }
 
 // квиз
@@ -917,6 +1046,25 @@ form {
 	top: -13.22vw;
 	margin-bottom: -13.22vw;
 	padding-bottom: 3.1vw;
+
+	&-only {
+		top: -15.9vw;
+		padding-bottom: 0.5vw;
+
+		.quiz__content {
+			padding-top: 5vw;
+		}
+
+		.quiz__body::before {
+			padding-top: 58%;
+			clip-path: polygon(0% 0%, 100% 3%, 100% 100%, 0 100%);
+		}
+
+		.quiz__subtitle,
+		.quiz__title {
+			display: none;
+		}
+	}
 
 	&::after {
 		content: '';
@@ -2992,6 +3140,12 @@ form {
 	padding-top: 1.5vw;
 	padding-bottom: 2.55vw;
 
+	&-fixed {
+		position: relative;
+		z-index: 5;
+		margin-top: -8%;
+	}
+
 	&__row {
 		align-items: center;
 		justify-content: space-between;
@@ -3055,15 +3209,27 @@ form {
 }
 
 
-
-
-
-
-
+//popup
 .popup {
+	// display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 50;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.4s ease-in-out;
+
 	&.active {
 		opacity: 1;
 		visibility: visible;
+
+		.popup__body {
+			top: 50%;
+			transform: perspective(31.25vw) translate(-50%, -50%) rotateX(0deg);
+		}
 	}
 
 	&__bg {
@@ -3076,16 +3242,29 @@ form {
 		width: 100%;
 		height: 100%;
 		z-index: 50;
+		overflow-y: auto;
 
 		&:hover {
 			cursor: pointer;
 		}
 	}
 
+	&__body {
+		position: absolute;
+		top: -50%;
+		left: 50%;
+		z-index: 60;
+		cursor: default;
+		overflow: hidden;
+		color: var(--main-black);
+		transition: all 0.4s ease-in-out;
+		transform: perspective(31.25vw) translate(-50%, -50%) rotateX(45deg);
+	}
+
 	&__close {
 		position: absolute;
-		top: 1.75vw;
-		right: 1.9vw;
+		top: 1.85vw;
+		right: 2.1vw;
 		z-index: 60;
 
 		svg {
@@ -3094,7 +3273,7 @@ form {
 		}
 
 		path {
-			fill: #fff;
+			fill: var(--main-black);
 			transition: fill 0.3s ease-in-out;
 		}
 
@@ -3102,211 +3281,140 @@ form {
 			cursor: pointer;
 
 			path {
-				fill: var(--hover);
+				fill: var(--accent-color);
 			}
 		}
 	}
 
-}
-
-// popup Обратный звонок
-.popup-request {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 50;
-	opacity: 0;
-	visibility: hidden;
-
-	&.active {
-		opacity: 1;
-		visibility: visible;
-	}
-
-	&__body {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		z-index: 60;
-		width: 26vw;
-		height: 31.3vw;
-		padding: 2.3vw 3.6vw;
-		transform: translate(-50%, -50%);
-		background: #212222;
-		color: #fff;
-		cursor: default;
+	&__content {
+		width: 17.7vw;
 	}
 
 	&__title {
-		margin-bottom: 0.7vw;
-		font-weight: 500;
-		font-size: 1.667vw;
-		line-height: 2.3vw;
-		letter-spacing: 0.03em;
-		text-align: center;
+		margin-bottom: 0.3vw;
+		font-family: 'SangBleu Sunrise';
+		font-weight: 400;
+		font-size: 1.25vw;
+		line-height: 146%;
+		text-transform: uppercase;
 
 		&.active {
 			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
+			top: 45%;
+			transform: translate(0, -50%);
+			max-width: 17.7vw;
 		}
 	}
 
 	&__descr {
-		margin-bottom: 1.73vw;
+		margin-bottom: 1.37vw;
+		font-family: 'Euclid Flex';
 		font-weight: 400;
 		font-size: 0.9375vw;
 		line-height: 156%;
-		padding: 0 0.5vw;
-		letter-spacing: 0.04em;
-		text-align: center;
+
+		b {
+			font-weight: 600;
+		}
+	}
+
+	&__row {
+		flex-direction: column;
+		gap: 1vw;
+		margin-bottom: 1vw;
 	}
 
 	&__label {
-		display: inline-block;
-		margin-bottom: 0.65vw;
-		font-weight: 400;
-		font-size: .729vw;
-		line-height: .99vw;
-		padding-left: 2.4vw;
-		letter-spacing: 0.04em;
-
-		&.error {
-			color: var(--accent-color);
-		}
+		flex-basis: auto;
 	}
 
 	&__input {
-		width: 100%;
-		height: 4.42vw;
-		border-radius: 4.4vw;
-		margin-bottom: 1.3vw;
-		padding: 0 2.7vw;
-		border: none;
-		background: #fff;
-		font-weight: 400;
-		font-size: .9375vw;
-		line-height: 133%;
-		letter-spacing: 0.03em;
-		color: var(--main-color);
-
-		&::placeholder {
-			font-weight: 400;
-			font-size: .9375vw;
-			line-height: 133%;
-			letter-spacing: 0.03em;
-			color: #B0B0B1;
-		}
+		padding: 1.45vw 2.55vw;
 	}
 
 	&__btn {
-		width: 100%;
-		max-width: 100%;
-		min-height: 4.42vw;
-		justify-content: center;
-		margin-bottom: 1.4vw;
-		padding: 0;
-		border-radius: 4.4vw;
-		text-align: center;
+		height: 5.2vw;
 	}
 
-	&__rights {
-		align-items: center;
+	.agree__text {
+		flex: 1 1 auto;
 	}
 
-	&__checkbox {
-		position: relative;
-		width: 1vw;
-		height: 1vw;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		flex-grow: 0;
-		margin-right: 0.8vw;
-		border-radius: 0.2vw;
-		border: 0.01vw solid var(--accent-color);
-
-		svg {
-			width: 0.4vw;
-			height: 0.4vw;
-			display: none;
-
-			path {
-				fill: #fff;
-			}
+	&-request {
+		.popup__body {
+			width: 41.67vw;
+			min-height: 28.65vw;
+			padding: 3.8vw 4.323vw 3.7vw;
+			border-radius: 1.3vw;
+			background: url('../media/img/popup-men.png') right 0 / 100% 100% no-repeat,
+				url('../media/img/popup.jpg') 0 0 / 100% 100% no-repeat;
 		}
 
-		&.check {
-			background: var(--accent-color);
+		.popup__plate {
+			position: absolute;
+			top: 7.1vw;
+			right: 2.3vw;
+			width: 4.53vw;
+			font-family: 'Euclid Flex';
+			font-weight: 400;
+			font-size: 0.73vw;
+			line-height: 121%;
+			letter-spacing: 0.03em;
+		}
+	}
 
-			svg {
+	&-wait {
+		.popup__body {
+			width: 46.875vw;
+			min-height: 36.46vw;
+			padding: 3.8vw 4.323vw 3.1vw;
+			border-radius: 1.3vw;
+			background: url('../media/img/lidmagnit.png') 95% 62% / auto 114% no-repeat,
+				url('../media/img/popup.jpg') 0 0 / 100% 100% no-repeat;
+		}
+
+		.popup__title {
+			margin-bottom: 0.2vw;
+		}
+
+		.popup__descr {
+			margin-bottom: 1.2vw;
+
+			b {
 				display: block;
+				padding-top: 0.4vw;
 			}
 		}
 
-		&:hover {
-			cursor: pointer;
+		.select {
+			.custom-select-opener {
+				padding: 1.4vw 1.9vw;
+			}
+		}
+
+		.select-social__img {
+			right: 0.9vw;
 		}
 	}
 
-	&__rights-descr {
-		font-weight: 400;
-		font-size: .729vw;
-		line-height: 136%;
-		padding-right: 0.8vw;
-		letter-spacing: 0.04em;
-	}
-
-	&__link {
-		color: var(--accent-color);
-		transition: all 0.3s ease-in-out;
-
-		&:hover {
-			cursor: pointer;
-			text-decoration: underline;
+	&-map {
+		.popup__close {
+			top: 0.8vw;
+			right: 0.8vw;
 		}
-	}
-}
 
-// popup Карты
-.popup-map {
-	opacity: 0;
-	visibility: hidden;
-
-	&.active {
-		opacity: 1;
-		visibility: visible;
-	}
-
-	.popup__close {
-		top: 0.8vw;
-		right: 0.8vw;
-
-		path {
-			fill: var(--main-color);
+		.popup__body {
+			width: 80vw;
+			height: 31.3vw;
+			padding: 2.2vw;
+			border-radius: 0.5vw;
+			background: #fff;
 		}
-	}
 
-	&__body {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		z-index: 60;
-		width: 80vw;
-		height: 31.3vw;
-		padding: 2.2vw;
-		transform: translate(-50%, -50%);
-		background: #fff;
-		border-radius: 0.5vw;
-	}
-
-	&__map {
-		width: 100%;
-		height: 100%;
-		border: 0;
+		.popup__map {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
 	}
 }

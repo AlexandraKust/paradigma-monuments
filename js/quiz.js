@@ -237,33 +237,47 @@ $('input[name="quiz7[]"]').on('change', function () {
     }, 500);
 });
 
-function animateTop(eq) {
-    var elem = $('.quiz-inner');
-    var top = elem.offset().top - 70;
-    $('body,html').animate({ scrollTop: top }, 400);
-}
+// function animateTop(eq) {
+//     var elem = $('.quiz-inner');
+//     var top = elem.offset().top - 70;
+//     $('body,html').animate({ scrollTop: top }, 400);
+// }
 
-var toTop = $('.to_top');
+// var toTop = $('.to_top');
 
-toTop.on('click', topFunction);
+// toTop.on('click', topFunction);
 
-window.onscroll = function () { scrollFunction() };
+// window.onscroll = function () { scrollFunction() };
 
-function scrollFunction() {
-    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-        toTop.addClass('act');
-    } else {
-        toTop.removeClass('act');
-    }
-}
+// function scrollFunction() {
+//     if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+//         toTop.addClass('act');
+//     } else {
+//         toTop.removeClass('act');
+//     }
+// }
 
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
+// function topFunction() {
+//     document.body.scrollTop = 0;
+//     document.documentElement.scrollTop = 0;
+// }
 
-function topFunction() {
-    $('body,html').animate({ scrollTop: 0 }, 100);
-}
+// function topFunction() {
+//     $('body,html').animate({ scrollTop: 0 }, 100);
+// }
 
 
+$(document).ready(function () {
+    $(".nav__list").on("click", "a", function (event) {
+        event.preventDefault();
+        var id = $(this).attr('href'),
+            top = $(id).offset().top - 50;
+        $('body,html').animate({ scrollTop: top }, 1500);
+    });
+    $(".hero__btn").on("click", "a", function (event) {
+        event.preventDefault();
+        var id = $(this).attr('href'),
+            top = $(id).offset().top - 50;
+        $('body,html').animate({ scrollTop: top }, 1500);
+    });
+});

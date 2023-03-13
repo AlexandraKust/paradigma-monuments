@@ -119,17 +119,25 @@
 					</div>
 				</div>
 				<ul class="nav__list flex">
-					<li class="nav__item"><a href="#" class="nav__link">услуги</a></li>
-					<li class="nav__item"><a href="#" class="nav__link">Каталог</a></li>
-					<li class="nav__item"><a href="#" class="nav__link">Гарантии</a></li>
-					<li class="nav__item"><a href="#" class="nav__link">Портфолио</a></li>
-					<li class="nav__item"><a href="#" class="nav__link">Отзывы</a></li>
-					<li class="nav__item"><a href="#" class="nav__link">О компании</a></li>
-					<li class="nav__item"><a href="#" class="nav__link">Контроль качества</a></li>
-					<li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+					<li class="nav__item"><a href="#improvement" class="nav__link">услуги</a></li>
+					<li class="nav__item"><a href="#catalog" class="nav__link">Каталог</a></li>
+					<li class="nav__item"><a href="#warranty" class="nav__link">Гарантии</a></li>
+					<li class="nav__item"><a href="#portfolio" class="nav__link">Портфолио</a></li>
+					<li class="nav__item"><a href="#comment" class="nav__link">Отзывы</a></li>
+					<li class="nav__item"><a href="#about" class="nav__link">О компании</a></li>
+					<li class="nav__item"><a href="#control" class="nav__link">Контроль качества</a></li>
+					<li class="nav__item"><a href="#contacts" class="nav__link">Контакты</a></li>
 				</ul>
 				<div class="header__catalog mobile">
-					<a href="#" class="header__catalog-link text-dotted"><span>Скачать каталог с ценами</span></a>
+					<a href="#getcatalog" class="header__catalog-link text-dotted"><span class="flex">
+							Скачать каталог с ценами
+							<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.75203 13.1728L7.75781 0.678711L6.39976 0.679339L6.39398 13.1734L7.75203 13.1728Z" />
+								<path
+									d="M3.71183 10.7917L4.67257 9.83092L7.05301 12.2114L9.43565 9.82872L10.3955 10.7886L7.05212 14.132L3.71183 10.7917Z" />
+							</svg>
+						</span>
+					</a>
 				</div>
 				<div class="header__contacts flex mobile">
 					<p class="header__contacts-text">
@@ -170,10 +178,10 @@
 				<li class="hero__benefits-item">5% скидка пенсионерам</li>
 				<li class="hero__benefits-item">Без предоплаты</li>
 			</ul>
-			<button class="hero__btn main-btn">
+			<a href="#quiz" class="hero__btn main-btn">
 				<span class="btn-blick"></span>
 				<span>подобрать памятник и&nbsp;рассчитать стоимость</span>
-			</button>
+			</a>
 		</div>
 	</section>
 
@@ -935,7 +943,7 @@
 		</section>
 
 		<!-- услуги по благоустройству -->
-		<section class="improvement">
+		<section class="improvement" id="improvement">
 			<h2 class="improvement__title section-title">Оказываем все виды услуг по благоустройству мест захоронения</h2>
 			<div class="improvement__hint hint-hand mobile">
 				<p class="hint-hand__text">Листайте влево/вправо</p>
@@ -1067,7 +1075,7 @@
 		</section>
 
 		<!-- каталог -->
-		<section class="catalog">
+		<section class="catalog" id="catalog">
 			<div class="container">
 				<h2 class="catalog__title section-title">Производим все виды памятников любой сложности</h2>
 				<div class="catalog__row flex">
@@ -1497,7 +1505,7 @@
 		</section>
 
 		<!-- портфолио -->
-		<section class="portfolio">
+		<section class="portfolio" id="portfolio">
 			<img class="portfolio__decor" src="media/svg/portfolio-word.svg" alt="Портфолио">
 			<h2 class="portfolio__title section-title">Наши бригады работают в любое время года</h2>
 			<p class="portfolio__subtitle">Посмотрите на их работу</p>
@@ -1678,7 +1686,7 @@
 		</section>
 
 		<!-- разработка индивид. дизайна -->
-		<section class="design">
+		<section class="design" id="design">
 			<div class="container">
 				<div class="design__row flex">
 					<div class="design__col-left">
@@ -1763,7 +1771,7 @@
 		</section>
 
 		<!-- форма обратного звонка -->
-		<section class="callback">
+		<section class="callback" id="callback">
 			<div class="container">
 				<div class="callback__bg"></div>
 				<div class="callback__content">
@@ -1799,7 +1807,7 @@
 		</section>
 
 		<!-- отзывы -->
-		<section class="comment">
+		<section class="comment" id="comment">
 			<img class="comment__decor desktop" src="media/svg/comment-word.svg" alt="Отзывы">
 			<h2 class="comment__title section-title">Посмотрите, что думают о нас наши клиенты</h2>
 			<div class="comment__hint hint-hand mobile">
@@ -1863,7 +1871,7 @@
 		</section>
 
 		<!-- о производстве -->
-		<section class="about">
+		<section class="about" id="about">
 			<div class="container">
 				<div class="about__content flex">
 					<div class="about__text">
@@ -2013,7 +2021,7 @@
 		</section>
 
 		<!-- контроль качества -->
-		<section class="control">
+		<section class="control" id="control">
 			<div class="container">
 				<div class="content__bg"></div>
 				<div class="control__content">
@@ -2063,7 +2071,7 @@
 		</section>
 
 		<!-- гарантии -->
-		<section class="warranty">
+		<section class="warranty" id="warranty">
 			<h2 class="warranty__title section-title">Гарантируем земля не просядет
 				и&nbsp;памятник не&nbsp;наклонится</h2>
 			<p class="warranty__subtitle">Устанавливаем памятники по современной технологии и даем гарантию 5 лет</p>
@@ -2102,7 +2110,7 @@
 		</section>
 
 		<!-- преимущества -->
-		<section class="benefits">
+		<section class="benefits" id="benefits">
 			<div class="container">
 				<div class="benefits__row flex">
 					<div class="benefits__col-left">
@@ -2199,7 +2207,7 @@
 		</section>
 
 		<!-- форма обратного звонка консультация -->
-		<section class="consultation">
+		<section class="consultation" id="consultation">
 			<div class="container">
 				<div class="consultation__bg"></div>
 				<div class="consultation__content">
@@ -2254,7 +2262,7 @@
 		</section>
 
 		<!-- контакты -->
-		<section class="contacts">
+		<section class="contacts" id="contacts">
 			<div class="container">
 				<div class="contacts__row flex">
 					<address class="contacts__address address flex">
@@ -2357,6 +2365,13 @@
 			</div>
 		</section>
 	</main>
+	<a href="quiz.html">quiz</a>
+	<br>
+	<a href="lidmagnit.html">lidmagnit</a>
+	<br>
+	<a href="404.html">404</a>
+	<br>
+	<a href="thanks.html">thanks</a>
 
 	<footer class="footer">
 		<div class="container">
@@ -2387,55 +2402,125 @@
 	<!-- popup Оставить заявку -->
 	<div class="popup popup-request">
 		<div class="popup__bg"></div>
-		<div class="popup-request__body">
+		<div class="popup__body">
 			<div class="popup__close">
 				<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd" clip-rule="evenodd"
 						d="M9.99992 12.2528L2.481 19.9998L0 17.4436L7.51892 9.69651L0.589098 2.55644L3.07009 0.000175111L9.99992 7.14025L16.9299 0L19.4109 2.55627L12.4809 9.69651L20 17.4437L17.519 20L9.99992 12.2528Z" />
 				</svg>
 			</div>
-			<h3 class="popup-request__title">Быстро оставить заявку</h3>
-			<p class="popup-request__descr">Введите номер&nbsp;&mdash; позвоним вам
-				в течение 5-10 минут в&nbsp;рабочее время
-			</p>
-			<form action="#" class="popup-request__form">
-				<label class="popup-request__label">
-					Введите ваш номер телефона
-				</label>
-				<input class="popup-request__input" type="tel" placeholder="+ 7 (_ _ _) _ _ _ - _ _ - _ _"
-					data-validate-field="phone" name="phone" required>
-				<button type="button" class="popup-request__btn main-btn main-btn-red disabled">
-					<span class="btn-blick"></span>
-					<span>Перезвоните мне</span>
-				</button>
-
-				<div class="popup-request__rights flex">
-					<div class="popup-request__checkbox">
-						<svg viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M10.99 1.32713L10.004 0.223256C9.87105 0.0744186 9.70487 0 9.51653 0C9.3282 0 9.16202 0.0744186 9.02907 0.223256L4.28743 5.53178L2.17141 3.15039C2.03847 3.00155 1.87229 2.92713 1.68395 2.92713C1.49561 2.92713 1.32943 3.00155 1.19649 3.15039L0.210494 4.25426C0.0664717 4.4031 0 4.58915 0 4.8C0 5.01085 0.0664717 5.1969 0.199415 5.34574L2.81397 8.27287L3.79997 9.37674C3.93291 9.52558 4.09909 9.6 4.28743 9.6C4.47576 9.6 4.64194 9.52558 4.77488 9.37674L5.76088 8.27287L10.99 2.4186C11.1229 2.26977 11.1894 2.08372 11.1894 1.87287C11.1894 1.66202 11.1229 1.47597 10.99 1.32713Z" />
-						</svg>
+			<div class="popup__content">
+				<h3 class="popup__title">перезвоните мне</h3>
+				<p class="popup__descr">Введите ваш номер телефона и мы
+					Вам перезвоним в течении 5 минут
+				</p>
+				<p class="popup__plate">Вам
+					перезвонит
+					главный
+					менеджер</p>
+				<form action="#" class="popup__form">
+					<div class="popup__row flex">
+						<label class="popup__label label">
+							Введите номер Вашего телефона
+							<input class="popup__input input" type="tel" placeholder="+ 7 (_ _ _) _ _ _ - _ _ - _ _"
+								data-validate-field="phone" name="phone" required>
+						</label>
+						<button class="popup__btn main-btn">
+							<span class="btn-blick"></span>
+							<span>перезвоните мне</span>
+						</button>
 					</div>
-					<p class="popup-request__rights-descr">
-						Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="popup-request__link">Политики
-							конфиденциальности</a>
-					</p>
-				</div>
-			</form>
+					<div class="popup__agree agree flex">
+						<div class="agree__checkbox"></div>
+						<div class="agree__text">
+							Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link">Политики
+								конфиденциальности</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- popup Стойте -->
+	<div class="popup popup-wait">
+		<div class="popup__bg"></div>
+		<div class="popup__body">
+			<div class="popup__close">
+				<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd"
+						d="M9.99992 12.2528L2.481 19.9998L0 17.4436L7.51892 9.69651L0.589098 2.55644L3.07009 0.000175111L9.99992 7.14025L16.9299 0L19.4109 2.55627L12.4809 9.69651L20 17.4437L17.519 20L9.99992 12.2528Z" />
+				</svg>
+			</div>
+			<div class="popup__content">
+				<h3 class="popup__title">Стойте! Подождите!</h3>
+				<p class="popup__descr">Бесплатно получите:
+					<b>Как правильно выбрать памятник,<br class="mobile"> чтобы он не развалился через 5 лет</b>
+				</p>
+				<form action="#" class="popup__form">
+					<div class="popup__row flex">
+						<label class="popup__label label">
+							Куда удобнее отправить?
+							<div class="select-social">
+								<div class="popup__select select">
+									<select id="select-social-popup">
+										<option value="whats app">
+											whats app
+										</option>
+										<option value="telegram">
+											telegram
+										</option>
+									</select>
+								</div>
+								<div class="select-social__img social">
+									<div class="social__item social__item-telegram">
+										<svg viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M5.20148 7.81348L4.98922 10.7108C5.29137 10.7108 5.42372 10.5843 5.58104 10.4311L6.99941 9.11012L9.93852 11.2071C10.4779 11.499 10.8575 11.3458 11.0023 10.723L12.9326 1.91417C13.1049 1.14057 12.6454 0.836486 12.121 1.02867L0.779073 5.25914C0.00496463 5.55107 0.0174502 5.97193 0.646725 6.16168L3.54589 7.03988L10.2806 2.93348C10.5978 2.72913 10.8849 2.84104 10.6477 3.04782L5.20148 7.81348Z" />
+										</svg>
+									</div>
+									<div class="social__item social__item-whatsapp active">
+										<svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M7.17844 0.376953C3.42917 0.376953 0.387085 3.41622 0.387085 7.16203C0.387085 8.66193 0.873029 10.0434 1.69479 11.1683L0.82957 13.7261L3.52794 12.8853C4.58279 13.5563 5.83519 13.9471 7.17844 13.9471C10.9277 13.9471 13.9698 10.9078 13.9698 7.16203C13.9698 3.41622 10.9277 0.376953 7.17844 0.376953ZM10.2877 10.8013C9.05506 11.2946 7.58537 10.817 5.97741 9.59739C4.36945 8.37774 3.31065 6.66075 3.23953 5.38583C3.16842 4.11092 4.20747 3.46754 4.77243 3.47148C5.33739 3.47543 5.95766 5.27926 5.96556 5.55556C5.97346 5.8358 5.27418 6.33314 5.24652 6.56996C5.21887 6.80679 6.19866 7.97513 6.61349 8.2909C7.02436 8.60272 7.87378 9.20268 8.31231 9.14742C8.7469 9.08822 9.0353 8.21591 9.31186 8.16065C9.58841 8.10539 11.0976 8.85534 11.2477 9.04875C11.3979 9.2461 11.3821 10.3671 10.2877 10.8013Z" />
+										</svg>
+									</div>
+								</div>
+							</div>
+						</label>
+						<label class="popup__label label">
+							Введите номер Вашего телефона
+							<input class="popup__input input" type="tel" placeholder="+ 7 (_ _ _) _ _ _ - _ _ - _ _"
+								data-validate-field="phone" name="phone" required>
+						</label>
+						<button class="popup__btn main-btn">
+							<span class="btn-blick"></span>
+							<span>перезвоните мне</span>
+						</button>
+					</div>
+					<div class="popup__agree agree flex">
+						<div class="agree__checkbox"></div>
+						<div class="agree__text">
+							Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link">Политики
+								конфиденциальности</a>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 
 	<!-- popup Карта -->
 	<div class="popup popup-map">
 		<div class="popup__bg"></div>
-		<div class="popup-map__body">
+		<div class="popup__body">
 			<div class="popup__close">
 				<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd" clip-rule="evenodd"
 						d="M9.99992 12.2528L2.481 19.9998L0 17.4436L7.51892 9.69651L0.589098 2.55644L3.07009 0.000175111L9.99992 7.14025L16.9299 0L19.4109 2.55627L12.4809 9.69651L20 17.4437L17.519 20L9.99992 12.2528Z" />
 				</svg>
 			</div>
-			<iframe class="popup-map__map"
+			<iframe class="popup__map"
 				src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa01ba7f323e26e3450c79d9ea6279b3109d15e9f245a6889369071aa93ec7c68&amp;source=constructor"></iframe>
 		</div>
 	</div>
