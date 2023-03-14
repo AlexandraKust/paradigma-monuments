@@ -209,6 +209,71 @@
 			}
 		}
 	}
+
+	// sidebar
+	.sidebar {
+		width: 6rem;
+
+		&.close {
+			right: -7rem;
+		}
+
+		&__close {
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-bottom: 1rem;
+
+			svg {
+				width: 0.7rem;
+				height: 0.7rem;
+			}
+		}
+
+		&__link {
+			height: 6rem;
+			padding: 0.5rem 0.5rem 0.7rem;
+			border-radius: 1rem 0.05rem 0.05rem 1rem;
+
+			&:first-child svg {
+				width: 1.8rem;
+				height: 1rem;
+			}
+
+			&:nth-child(2) svg {
+				width: 0.9rem;
+				height: 1.8rem;
+				margin-bottom: 0.26rem;
+			}
+
+			&:last-child svg {
+				width: 1.8rem;
+				height: 1.35rem;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 0.3125rem;
+			}
+		}
+
+		&__text {
+			font-size: 0.8rem;
+			line-height: 110%;
+		}
+	}
+
+	// кнопка наверх
+	.btn-top {
+		bottom: -4rem;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 0.5rem;
+
+		svg {
+			width: 1rem;
+			height: 0.7rem;
+			bottom: 0.1rem;
+		}
+	}
 }
 
 // шапка
@@ -546,7 +611,7 @@
 		overflow: hidden;
 		background: none;
 		padding: 9.8rem 0 20.4rem;
-		background: url('../media/img/bg-mobile-2.png') 0 0 / cover no-repeat;
+		background: url('../media/img/bg-mobile-2.png') 0 0 / cover no-repeat !important;
 
 		&__sub {
 			font-size: 1.2rem;
@@ -719,6 +784,7 @@
 		margin: 0;
 		padding-top: 1.8rem;
 		padding-bottom: 6.35rem;
+		background: #f7f7f7;
 
 		&::after {
 			display: none;
@@ -2292,15 +2358,6 @@
 // popup
 @media (max-width: 768px) {
 	.popup {
-
-		&.active .popup__body {
-			transform: perspective(31rem) translate(-50%, -50%) rotateX(0deg);
-		}
-
-		&__body {
-			transform: perspective(31rem) translate(-50%, -50%) rotateX(45deg);
-		}
-
 		&-request {
 			.popup__body {
 				width: 80%;
@@ -2348,6 +2405,18 @@
 				width: 3rem;
 				height: 3rem;
 				margin: 0;
+			}
+		}
+
+		&-conf {
+			.popup__container {
+				padding: 1rem 0;
+			}
+
+			.popup__body {
+				width: 80%;
+				padding: 4rem 2rem;
+				border-radius: 2rem;
 			}
 		}
 

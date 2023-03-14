@@ -2,6 +2,8 @@ let requestPopup = document.querySelector('.popup-request');
 let openRequestPopup = document.querySelector('.header__call-btn');
 let mapPopup = document.querySelector('.popup-map');
 let openMapPopup = document.querySelector('.header__map-btn');
+let confPopup = document.querySelector('.popup-conf');
+let openConfPopup = document.querySelector('.conf');
 
 // открытие формы звонка
 openRequestPopup.addEventListener('click', function () {
@@ -12,6 +14,12 @@ openRequestPopup.addEventListener('click', function () {
 // открытие popup-карты
 openMapPopup.addEventListener('click', function () {
 	mapPopup.classList.add('active');
+	document.body.classList.add('lock');
+});
+
+// открытие popup-карты
+openConfPopup.addEventListener('click', function () {
+	confPopup.classList.add('active');
 	document.body.classList.add('lock');
 });
 
@@ -230,7 +238,7 @@ checkbox.forEach(function (item) {
 		} else {
 			mainBtn.removeAttribute('disabled', 'disabled');
 		}
-		// mainBtn.classList.toggle('disabled');
+		mainBtn.classList.toggle('disabled');
 	})
 })
 
@@ -257,3 +265,50 @@ slidersAll.forEach(function (item) {
 	});
 })
 
+
+// кнопка наверх
+let heightOfHero = document.querySelector('.hero').offsetHeight;
+let btnUp = document.querySelector('.btn-top');
+window.addEventListener('scroll', function () {
+	if (window.pageYOffset > heightOfHero - 400) {
+		btnUp.classList.add('active')
+	} else {
+		btnUp.classList.remove('active')
+	}
+});
+if (btnUp) {
+	btnUp.addEventListener('click', function () {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	})
+}
+
+
+// sidebar и плашка с видео
+let widget = document.querySelectorAll('.widget');
+widget.forEach(function (item) {
+	item.querySelector('button').addEventListener('click', function () {
+		item.classList.add('close');
+	})
+})
+
+// popup lidmagnit
+let leave = 1;
+document.body.onmousemove = function (event) {
+	event = event || window.event; // кроссбраузерность
+	let popupWait = document.querySelector('.popup-wait');
+	if (event.clientY < 10 && leave == 1) {
+		popupWait.classList.add('active');
+
+		popupWait.querySelector('.popup__close').addEventListener('click', function () {
+			popupWait.classList.remove('active');
+			--leave;
+		});
+		popupWait.querySelector('.popup__bg').addEventListener('click', function () {
+			popupWait.classList.remove('active');
+			--leave;
+		})
+	}
+}

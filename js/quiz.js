@@ -237,36 +237,6 @@ $('input[name="quiz7[]"]').on('change', function () {
     }, 500);
 });
 
-// function animateTop(eq) {
-//     var elem = $('.quiz-inner');
-//     var top = elem.offset().top - 70;
-//     $('body,html').animate({ scrollTop: top }, 400);
-// }
-
-// var toTop = $('.to_top');
-
-// toTop.on('click', topFunction);
-
-// window.onscroll = function () { scrollFunction() };
-
-// function scrollFunction() {
-//     if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-//         toTop.addClass('act');
-//     } else {
-//         toTop.removeClass('act');
-//     }
-// }
-
-// function topFunction() {
-//     document.body.scrollTop = 0;
-//     document.documentElement.scrollTop = 0;
-// }
-
-// function topFunction() {
-//     $('body,html').animate({ scrollTop: 0 }, 100);
-// }
-
-
 $(document).ready(function () {
     $(".nav__list").on("click", "a", function (event) {
         event.preventDefault();
@@ -280,4 +250,11 @@ $(document).ready(function () {
             top = $(id).offset().top - 50;
         $('body,html').animate({ scrollTop: top }, 1500);
     });
+    $(".sidebar__link").on("click", "a", function (event) {
+        event.preventDefault();
+        var id = $(this).attr('href'),
+            top = $(id).offset().top - 50;
+        $('body,html').animate({ scrollTop: top }, 1500);
+    });
 });
+
