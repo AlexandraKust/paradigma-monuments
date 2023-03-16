@@ -2791,6 +2791,9 @@ form {
   color: var(--main-black);
   text-decoration: underline;
 }
+.agree__link:hover {
+  cursor: pointer;
+}
 
 .design {
   padding-top: 3.33vw;

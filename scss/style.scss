@@ -2610,6 +2610,10 @@ form {
 		line-height: 131%;
 		color: var(--main-black);
 		text-decoration: underline;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 
