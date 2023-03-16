@@ -108,6 +108,7 @@ function btnClick() {
 
     btnNext.on('click', function (event) {
         event.preventDefault();
+        let quizScroll = $(".quiz__inner").offset().top - 100;
 
         activeSlide[number] = true;
         ++number;
@@ -124,6 +125,10 @@ function btnClick() {
         if (number > 0) {
             btnPrev.show();
         }
+
+        $('html, body').animate({
+            scrollTop: quizScroll
+        }, 1000);
 
         progress(number);
 
@@ -214,6 +219,8 @@ $(document).mouseleave(function () {
     }
 });
 
+// маска на телефон
+$("input[type='tel']").mask('+7 (9 9 9) 9 9 9 - 9 9 - 9 9');
 
 $('[data-form-validate-js]').each(function () {
     var form = $(this);
@@ -223,7 +230,7 @@ $('[data-form-validate-js]').each(function () {
         rules: {
             phone: {
                 required: true,
-                minlength: 29
+                minlength: 28
             }
         },
         errorPlacement: function (error, element) { },
@@ -246,3 +253,36 @@ $('[data-form-validate-js]').each(function () {
         },
     });
 });
+
+$("[data-anchor-btn-js]").on("click", function (event) {
+    event.preventDefault();
+    var headerHeight = $('header').height();
+
+    var target = $(this).attr('href');
+
+    if ($(target).length) {
+        if (window.innerWidth > 768) {
+            var offset = ($(target).offset().top) - 50;
+        } else {
+            var offset = ($(target).offset().top) - headerHeight - 10;
+        }
+
+        let scroll = $(window).scrollTop();
+        let windowHeight = $(window).height();
+
+        if (offset > scroll) {
+            var time = Math.round(offset / windowHeight) * 300;
+        } else {
+            var time = Math.round((scroll - offset) / windowHeight) * 300;
+        }
+
+        $('body,html').animate({
+            scrollTop: offset
+        }, time);
+    } else {
+        window.location.href = "index.html";
+    }
+});
+
+
+

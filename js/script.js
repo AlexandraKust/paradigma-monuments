@@ -51,13 +51,6 @@ window.addEventListener("load", (event) => {
 
 });
 
-
-// маска на телефон
-let phone = document.querySelectorAll("input[type='tel']");
-var im = new Inputmask("+ 7 (9 9 9) 9 9 9 - 9 9 - 9 9");
-im.mask(phone);
-
-
 // phone
 let phoneBtn = document.querySelector('.header__call-mobile');
 let phoneBody = document.querySelector('.header__call');
@@ -186,8 +179,13 @@ btnMore.forEach(function (item) {
 });
 
 // select
-customSelect(document.querySelectorAll('select'));
-const cstSel = document.querySelectorAll('select').customSelect
+let select = document.querySelectorAll('select');
+select.forEach(function (item) {
+	if (item) {
+		customSelect(item);
+		const cstSel = item.customSelect
+	}
+})
 
 // select catalog
 let selectCatalog = document.getElementById('select-catalog');
@@ -301,25 +299,6 @@ sidebarClose.addEventListener('click', function () {
 })
 
 
-// popup lidmagnit
-// let leave = 1;
-// document.body.onmousemove = function (event) {
-// 	event = event || window.event; // кроссбраузерность
-// 	let popupWait = document.querySelector('.popup-wait');
-// 	if (event.clientY < 10 && leave == 1) {
-// 		popupWait.classList.add('active');
-
-// 		popupWait.querySelector('.popup__close').addEventListener('click', function () {
-// 			popupWait.classList.remove('active');
-// 			--leave;
-// 		});
-// 		popupWait.querySelector('.popup__bg').addEventListener('click', function () {
-// 			popupWait.classList.remove('active');
-// 			--leave;
-// 		})
-// 	}
-// }
-
 // скачивание файлов
 let forms = document.querySelectorAll('form');
 forms.forEach(function (form) {
@@ -327,7 +306,7 @@ forms.forEach(function (form) {
 	if (material) {
 		form.querySelector('.main-btn').addEventListener('click', function () {
 			var link = document.createElement('a');
-			link.setAttribute('download', 'catalog');
+			link.setAttribute('download', '');
 			if (material.value === 'Памятники из гранита') {
 				link.setAttribute('href', 'pdf/graniteCatalog.pdf');
 			} else if (material.value === 'Памятники из мрамора') {
@@ -337,7 +316,17 @@ forms.forEach(function (form) {
 			}
 			link.click();
 		})
+	}
 
+	if (form.closest('.hero-lidmagnit')) {
+		form.querySelector('.main-btn').addEventListener('click', function () {
+			var link = document.createElement('a');
+			var file = form.getAttribute('data-download-form-js');
+
+			link.setAttribute('href', file);
+			link.setAttribute('download', '');
+			link.click();
+		})
 	}
 })
 

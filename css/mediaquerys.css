@@ -800,6 +800,7 @@
     bottom: 0.4rem;
     top: 0.2rem;
     border-radius: 50rem;
+    background: var(--accent-color) url(../media/svg/load.svg) 0 0/1.4rem 100%;
   }
   .quiz__progress-text {
     font-size: 0.8rem;
@@ -891,6 +892,9 @@
   .quiz-options--checkbox .quiz-option__input:checked ~ .quiz-option__wrapper {
     border-color: var(--accent-color);
     border-width: 0.1rem;
+  }
+  .quiz-options--circle .quiz-option__checkbox {
+    border-radius: 50%;
   }
   .quiz-options--img, .quiz-options--img-inline {
     -webkit-column-gap: 2.6rem;
