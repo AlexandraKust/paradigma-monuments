@@ -1,59 +1,56 @@
-let requestPopup = document.querySelector('.popup-request');
-let openRequestPopup = document.querySelector('.header__call-btn');
-let mapPopup = document.querySelector('.popup-map');
-let openMapPopup = document.querySelector('.header__map-btn');
-let confPopup = document.querySelector('.popup-conf');
-let openConfPopup = document.querySelector('.conf');
+window.addEventListener("load", (event) => {
+	let requestPopup = document.querySelector('.popup-request');
+	let openRequestPopup = document.querySelectorAll('.callback-popup');
+	let mapPopup = document.querySelector('.popup-map');
+	let openMapPopup = document.querySelector('.header__map-btn');
+	let confPopup = document.querySelector('.popup-conf');
+	let openConfPopup = document.querySelectorAll('.conf');
 
-// открытие формы звонка
-openRequestPopup.addEventListener('click', function () {
-	requestPopup.classList.add('active');
-	document.body.classList.add('lock');
-});
-
-// открытие popup-карты
-openMapPopup.addEventListener('click', function () {
-	mapPopup.classList.add('active');
-	document.body.classList.add('lock');
-});
-
-// открытие popup-карты
-openConfPopup.addEventListener('click', function () {
-	confPopup.classList.add('active');
-	document.body.classList.add('lock');
-});
-
-// закрытие popup
-let popups = document.querySelectorAll('.popup');
-popups.forEach(function (popup) {
-	let close = popup.querySelector(".popup__close");
-	let bg = popup.querySelector(".popup__bg");
-
-	close.addEventListener('click', function () {
-		popup.classList.remove('active');
-		document.body.classList.remove('lock');
-	})
-	bg.addEventListener('click', function () {
-		popup.classList.remove('active');
-		document.body.classList.remove('lock');
+	// открытие формы звонка
+	openRequestPopup.forEach(function (item) {
+		item.addEventListener('click', function () {
+			requestPopup.classList.add('active');
+			document.body.classList.add('lock');
+		});
 	})
 
-	let title = popup.querySelector('.popup__title');
-	let descr = popup.querySelector('.popup__descr');
-	let form = popup.querySelector('.popup__form');
-	let btn = popup.querySelector('.popup__btn');
+	// открытие popup-карты
+	openMapPopup.addEventListener('click', function () {
+		mapPopup.classList.add('active');
+		document.body.classList.add('lock');
+	});
 
-	if (btn) {
-		btn.addEventListener('click', function () {
-			if (!btn.setAttribute('disabled', 'disabled')) {
-				title.classList.add('active');
-				title.innerHTML = "Спасибо!<br> Ваша заявка отправлена!";
-				form.classList.add('d-none');
-				descr.classList.add('d-none');
-			}
+	// открытие popup-политики конф
+	openConfPopup.forEach(function (item) {
+		item.addEventListener('click', function () {
+			confPopup.classList.add('active');
+			document.body.classList.add('lock');
+		});
+	})
+
+	// закрытие popup
+	let popups = document.querySelectorAll('.popup');
+	popups.forEach(function (popup) {
+		let close = popup.querySelector(".popup__close");
+		let bg = popup.querySelector(".popup__bg");
+
+		close.addEventListener('click', function () {
+			popup.classList.remove('active');
+			document.body.classList.remove('lock');
 		})
-	}
-})
+		bg.addEventListener('click', function () {
+			popup.classList.remove('active');
+			document.body.classList.remove('lock');
+		})
+
+		let title = popup.querySelector('.popup__title');
+		let descr = popup.querySelector('.popup__descr');
+		let form = popup.querySelector('.popup__form');
+		let btn = popup.querySelector('.popup__btn');
+	})
+
+});
+
 
 // маска на телефон
 let phone = document.querySelectorAll("input[type='tel']");
@@ -190,6 +187,7 @@ btnMore.forEach(function (item) {
 
 // select
 customSelect(document.querySelectorAll('select'));
+const cstSel = document.querySelectorAll('select').customSelect
 
 // select catalog
 let selectCatalog = document.getElementById('select-catalog');
@@ -287,28 +285,59 @@ if (btnUp) {
 
 
 // sidebar и плашка с видео
-let widget = document.querySelectorAll('.widget');
-widget.forEach(function (item) {
-	item.querySelector('button').addEventListener('click', function () {
-		item.classList.add('close');
+let video = document.querySelector('.video');
+if (video) {
+	video.querySelector('.video__close').addEventListener('click', function () {
+		video.classList.add('close');
 	})
+}
+
+let sidebar = document.querySelector('.sidebar');
+let sidebarClose = sidebar.querySelector('.sidebar__close');
+let sidebarBody = sidebar.querySelector('.sidebar__body');
+sidebarClose.addEventListener('click', function () {
+	sidebarBody.classList.toggle('close');
+	sidebarClose.classList.toggle('active');
 })
 
-// popup lidmagnit
-let leave = 1;
-document.body.onmousemove = function (event) {
-	event = event || window.event; // кроссбраузерность
-	let popupWait = document.querySelector('.popup-wait');
-	if (event.clientY < 10 && leave == 1) {
-		popupWait.classList.add('active');
 
-		popupWait.querySelector('.popup__close').addEventListener('click', function () {
-			popupWait.classList.remove('active');
-			--leave;
-		});
-		popupWait.querySelector('.popup__bg').addEventListener('click', function () {
-			popupWait.classList.remove('active');
-			--leave;
+// popup lidmagnit
+// let leave = 1;
+// document.body.onmousemove = function (event) {
+// 	event = event || window.event; // кроссбраузерность
+// 	let popupWait = document.querySelector('.popup-wait');
+// 	if (event.clientY < 10 && leave == 1) {
+// 		popupWait.classList.add('active');
+
+// 		popupWait.querySelector('.popup__close').addEventListener('click', function () {
+// 			popupWait.classList.remove('active');
+// 			--leave;
+// 		});
+// 		popupWait.querySelector('.popup__bg').addEventListener('click', function () {
+// 			popupWait.classList.remove('active');
+// 			--leave;
+// 		})
+// 	}
+// }
+
+// скачивание файлов
+let forms = document.querySelectorAll('form');
+forms.forEach(function (form) {
+	let material = form.querySelector('#monuments');
+	if (material) {
+		form.querySelector('.main-btn').addEventListener('click', function () {
+			var link = document.createElement('a');
+			link.setAttribute('download', 'catalog');
+			if (material.value === 'Памятники из гранита') {
+				link.setAttribute('href', 'pdf/graniteCatalog.pdf');
+			} else if (material.value === 'Памятники из мрамора') {
+				link.setAttribute('href', 'pdf/marbleCatalog.pdf');
+			} else if (material.value == 'Ограды') {
+				link.setAttribute('href', 'pdf/fences.pdf');
+			}
+			link.click();
 		})
+
 	}
-}
+})
+

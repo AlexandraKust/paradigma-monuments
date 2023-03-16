@@ -14,7 +14,6 @@
                 .animate({
                     scrollTop: $anchor.offset().top - fixedElementHeight
                 }, 200);
-
         }
 
     };
@@ -27,66 +26,7 @@
 
 })(jQuery, window);
 
-function fixedHeader() {
-    var scrollTop = $(window).scrollTop();
-    var headerTopHeight = $('.header__inner').outerHeight();
 
-    if (scrollTop > headerTopHeight) {
-        $('.header').addClass('is-fixed');
-        $('.main').addClass('header-fixed');
-    } else {
-        $('.header').removeClass('is-fixed');
-        $('.main').removeClass('header-fixed');
-    }
-} // fixedHeader();
-
-
-$(window).on('scroll', function () {
-    if ($('.index-main').length && !$('.quiz-main').length) {
-        fixedHeader();
-    }
-}); // open\close menu
-
-var toTop = $('.to--top');
-
-toTop.on('click', topFunction);
-
-window.onscroll = function () { scrollFunction() };
-
-function scrollFunction() {
-    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-        toTop.addClass('act');
-    } else {
-        toTop.removeClass('act');
-    }
-}
-
-function topFunction() {
-    $('body,html').animate({ scrollTop: 0 }, 100);
-}
-
-
-
-/* Range */
-
-var toTop = $('.to_top');
-
-toTop.on('click', topFunction);
-
-window.onscroll = function () { scrollFunction() };
-
-function scrollFunction() {
-    if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-        toTop.addClass('act');
-    } else {
-        toTop.removeClass('act');
-    }
-}
-
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
 
 function topFunction() {
     $('body,html').animate({ scrollTop: 0 }, 100);
@@ -237,24 +177,72 @@ $('input[name="quiz7[]"]').on('change', function () {
     }, 500);
 });
 
+
 $(document).ready(function () {
-    $(".nav__list").on("click", "a", function (event) {
-        event.preventDefault();
-        var id = $(this).attr('href'),
-            top = $(id).offset().top - 50;
-        $('body,html').animate({ scrollTop: top }, 1500);
-    });
-    $(".hero__btn").on("click", "a", function (event) {
-        event.preventDefault();
-        var id = $(this).attr('href'),
-            top = $(id).offset().top - 50;
-        $('body,html').animate({ scrollTop: top }, 1500);
-    });
-    $(".sidebar__link").on("click", "a", function (event) {
-        event.preventDefault();
-        var id = $(this).attr('href'),
-            top = $(id).offset().top - 50;
-        $('body,html').animate({ scrollTop: top }, 1500);
+    $('a[href^="#"').on("click", function (event) {
+        var hash = event.target.hash;
+        var headerHeight = $('header').height();
+
+        if (hash) {
+            event.preventDefault();
+            var tag = $(hash);
+
+            if ($(hash).length) {
+                if (window.innerWidth > 768) {
+                    var offset = tag.offset().top - 70;
+                } else {
+                    var offset = tag.offset().top - headerHeight - 10;
+                }
+                $('html, body').stop().animate({ scrollTop: offset }, 2000);
+            }
+        }
     });
 });
 
+
+$(document).mouseleave(function () {
+    if (event.clientY < 0 || event.clientY < 3) {
+        let leave = 1;
+        if (+$.cookie('leave-popup')) {
+            leave = 0;
+        }
+        if (leave) {
+            $('.popup-wait').addClass('active');
+            // $('body, html').css({ 'overflow': 'hidden', 'max-height': '100%' })
+            $.cookie('leave-popup', 1, { expires: 7 });
+        }
+    }
+});
+
+
+$('[data-form-validate-js]').each(function () {
+    var form = $(this);
+
+    form.validate({
+        errorClass: "validate_error",
+        rules: {
+            phone: {
+                required: true,
+                minlength: 29
+            }
+        },
+        errorPlacement: function (error, element) { },
+        submitHandler: function () {
+            var data = form.serialize();
+            var action = form.attr('action');
+            var method = form.attr('method');
+
+            $.ajax({
+                type: method,
+                url: action,
+                data: data,
+                success: function (response) {
+                    window.location.href = "thanks.html";
+                },
+                error: function (response) {
+                    window.location.href = "404.html";
+                },
+            });
+        },
+    });
+});

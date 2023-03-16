@@ -51,14 +51,14 @@
 					</div>
 				</div>
 				<div class="header__catalog">
-					<a href="#getcatalog" class="header__catalog-link text-dotted"><span class="flex">
+					<a href="#getcatalog" class="header__catalog-link text-dotted">
+						<span class="flex">
 							Скачать каталог с ценами
 							<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M7.75203 13.1728L7.75781 0.678711L6.39976 0.679339L6.39398 13.1734L7.75203 13.1728Z" />
 								<path
 									d="M3.71183 10.7917L4.67257 9.83092L7.05301 12.2114L9.43565 9.82872L10.3955 10.7886L7.05212 14.132L3.71183 10.7917Z" />
 							</svg>
-
 						</span>
 					</a>
 				</div>
@@ -85,7 +85,7 @@
 				<div class="header__call flex">
 					<p class="header__call-text">Звоните, ежедневно 10:00 - 18:00</p>
 					<a href="tel:+79286247616" class="header__number">+7 (928) 624-76-16</a>
-					<button class="header__call-btn text-dotted flex">
+					<button class="header__call-btn text-dotted flex callback-popup">
 						<span>Заказать обратный звонок</span>
 					</button>
 				</div>
@@ -179,8 +179,10 @@
 				<li class="hero__benefits-item">Без предоплаты</li>
 			</ul>
 			<a href="#quiz" class="hero__btn main-btn">
-				<span class="btn-blick"></span>
-				<span>подобрать памятник и&nbsp;рассчитать стоимость</span>
+				<span class="main-btn__container">
+					<span class="btn-blick"></span>
+					<span>подобрать памятник и&nbsp;рассчитать стоимость</span>
+				</span>
 			</a>
 		</div>
 	</section>
@@ -214,7 +216,7 @@
 						<p class="quiz__subtitle">и 1 из 3х подарков на выбор</p>
 
 						<div class="quiz__inner flex">
-							<form class="quiz__form">
+							<form action="PHP/quiz.php" method="POST" class="quiz__form" data-form-validate-js>
 								<div class="quiz__progress">
 									<div class="quiz__progress-bar">
 										<div class="quiz__progress-inner" style="width: 14%;"></div>
@@ -896,14 +898,16 @@
 													name="phone" required>
 											</label>
 											<button class="quiz-catalog__btn main-btn">
-												<span class="btn-blick"></span>
-												<span>Получить расчет + подарок</span>
+												<span class="main-btn__container">
+													<span class="btn-blick"></span>
+													<span>Получить расчет + подарок</span>
+												</span>
 											</button>
 											<div class="quiz-catalog__agree agree flex">
 												<div class="agree__checkbox"></div>
 												<div class="agree__text">
 													Нажимая кнопку вы соглашаетесь с условиями <a href="#"
-														class="agree__link">Политики
+														class="agree__link conf">Политики
 														конфиденциальности</a>
 												</div>
 											</div>
@@ -920,8 +924,10 @@
 											<span>Назад</span>
 										</button>
 										<button class="quiz__btn main-btn quiz-btn--next" disabled="">
-											<span class="btn-blick"></span>
-											<span>Далее</span>
+											<span class="main-btn__container">
+												<span class="btn-blick"></span>
+												<span>Далее</span>
+											</span>
 											<span class="quiz-btn__hint">Ответьте на вопрос выше</span>
 										</button>
 									</div>
@@ -1112,10 +1118,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1135,10 +1141,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1158,10 +1164,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1181,10 +1187,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1204,10 +1210,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1227,10 +1233,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1250,10 +1256,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1273,10 +1279,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1296,10 +1302,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1319,10 +1325,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1342,10 +1348,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1365,10 +1371,10 @@
 										<p class="catalog-card__price-old">70 000 руб</p>
 									</div>
 									<div class="catalog-card__btns flex">
-										<button class="catalog-card__btn-basket main-btn">
+										<button class="catalog-card__btn-basket main-btn callback-popup">
 											<span>заказать</span>
 										</button>
-										<button class="catalog-card__btn-calc">в калькулятор</button>
+										<a href="#quiz" class="catalog-card__btn-calc">в калькулятор</a>
 									</div>
 								</div>
 							</li>
@@ -1435,11 +1441,10 @@
 			<div class="container">
 				<div class="get-catalog__content">
 					<h2 class="get-catalog__title section-title"><span>Не нашли подходящий памятник? </span>Уверены, он
-						есть
-						в
-						новом каталоге
+						есть в новом каталоге
 					</h2>
-					<form action="PHP/get-catalog.php" method="POST" class="get-catalog__form form-catalog flex">
+					<form action="PHP/get-catalog.php" method="POST" class="get-catalog__form form-catalog flex"
+						data-form-validate-js>
 						<div class="form-catalog__label label">
 							Выберите категорию памятника
 							<div class="form-catalog__select select">
@@ -1485,15 +1490,17 @@
 								data-validate-field="phone" name="phone" required>
 						</label>
 						<button class="form-catalog__btn main-btn">
-							<span class="btn-blick"></span>
-							<span>получить каталог сейчас</span>
+							<span class="main-btn__container">
+								<span class="btn-blick"></span>
+								<span>получить каталог сейчас</span>
+							</span>
 						</button>
 						<div class="form-catalog__agree agree flex">
 							<div class="agree__checkbox">
 
 							</div>
 							<div class="agree__text">
-								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link">Политики
+								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link conf">Политики
 									конфиденциальности</a>
 							</div>
 						</div>
@@ -1780,7 +1787,7 @@
 						номер телефона для
 						бесплатной консультации.
 					</h2>
-					<form action="PHP/call-back.php" method="POST" class="callback__form">
+					<form action="PHP/call-back.php" method="POST" class="callback__form" data-form-validate-js>
 						<div class="callback__row flex">
 							<label class="callback__label label">
 								Введите номер Вашего телефона
@@ -1788,14 +1795,16 @@
 									data-validate-field="phone" name="phone" required>
 							</label>
 							<button class="callback__btn main-btn">
-								<span class="btn-blick"></span>
-								<span>перезвоните мне</span>
+								<span class="main-btn__container">
+									<span class="btn-blick"></span>
+									<span>перезвоните мне</span>
+								</span>
 							</button>
 						</div>
 						<div class="callback__agree agree flex">
 							<div class="agree__checkbox"></div>
 							<div class="agree__text">
-								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link">Политики
+								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link conf">Политики
 									конфиденциальности</a>
 							</div>
 						</div>
@@ -1869,9 +1878,9 @@
 		</section>
 
 		<!-- о производстве -->
-		<section class="about" id="about">
+		<section class="about">
 			<div class="container">
-				<div class="about__content flex">
+				<div class="about__content flex" id="about">
 					<div class="about__text">
 						<h2 class="about__title section-title">Собственное
 							производство
@@ -2235,7 +2244,7 @@
 							Это ни к чему Вас не обязывает, введите лишь номер телефона:
 						</p>
 					</div>
-					<form action="PHP/consultation.php" method="POST" class="consultation__form">
+					<form action="PHP/call-back.php" method="POST" class="consultation__form" data-form-validate-js>
 						<div class="consultation__row flex">
 							<label class="consultation__label label">
 								Введите номер Вашего телефона
@@ -2243,14 +2252,16 @@
 									data-validate-field="phone" name="phone" required>
 							</label>
 							<button class="consultation__btn main-btn">
-								<span class="btn-blick"></span>
-								<span>перезвоните мне</span>
+								<span class="main-btn__container">
+									<span class="btn-blick"></span>
+									<span>перезвоните мне</span>
+								</span>
 							</button>
 						</div>
 						<div class="consultation__agree agree flex">
 							<div class="agree__checkbox"></div>
 							<div class="agree__text">
-								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link">Политики
+								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link conf">Политики
 									конфиденциальности</a>
 							</div>
 						</div>
@@ -2391,7 +2402,7 @@
 	</footer>
 
 	<!-- плашка с видео -->
-	<div class="video widget desktop">
+	<div class="video desktop">
 		<div class="video__content">
 			<button class="video__close" aria-label="закрыть видео">
 				<svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2410,7 +2421,7 @@
 				</svg>
 			</div>
 			<div class="video__play">
-				<a href="https://youtu.be/L6GzIUDdwRA" data-fancybox="video"></a>
+				<a href="#" data-fancybox="video"></a>
 				<svg viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M1.95374 0.839343C0.892063 0.22545 0.0253906 0.731009 0.0253906 1.9588V11.03C0.0253906 12.2578 0.892063 12.7633 1.96096 12.1494L9.89101 7.59939C10.9599 6.9855 10.9599 5.99605 9.89101 5.38215L1.95374 0.839343Z" />
@@ -2420,15 +2431,19 @@
 	</div>
 
 	<!-- sidebar -->
-	<div class="sidebar widget flex">
+	<div class="sidebar flex">
 		<button class="sidebar__close" aria-label="закрыть сайдбар">
 			<svg viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M8.72591 1.54357L5.76948 4.5L8.72591 7.45643C8.81166 7.53925 8.88006 7.63832 8.92711 7.74785C8.97416 7.85739 8.99893 7.9752 8.99997 8.09441C9.001 8.21361 8.97829 8.33183 8.93314 8.44217C8.888 8.5525 8.82134 8.65275 8.73704 8.73704C8.65275 8.82134 8.5525 8.888 8.44217 8.93314C8.33183 8.97829 8.21361 9.001 8.09441 8.99997C7.9752 8.99893 7.85739 8.97416 7.74785 8.92711C7.63832 8.88006 7.53925 8.81166 7.45643 8.72591L4.5 5.76948L1.54357 8.72591C1.46075 8.81166 1.36168 8.88006 1.25215 8.92711C1.14261 8.97416 1.0248 8.99893 0.905595 8.99997C0.786386 9.001 0.668165 8.97829 0.55783 8.93314C0.447494 8.888 0.347254 8.82134 0.262957 8.73704C0.178661 8.65275 0.111997 8.5525 0.0668554 8.44217C0.0217135 8.33183 -0.00100199 8.21361 3.3898e-05 8.09441C0.00106979 7.9752 0.0258366 7.85739 0.072889 7.74785C0.119941 7.63832 0.188338 7.53925 0.274086 7.45643L3.23052 4.5L0.274086 1.54357C0.188338 1.46075 0.119941 1.36168 0.072889 1.25215C0.0258366 1.14261 0.00106979 1.0248 3.3898e-05 0.905595C-0.00100199 0.786386 0.0217135 0.668165 0.0668554 0.55783C0.111997 0.447494 0.178661 0.347254 0.262957 0.262957C0.347254 0.178661 0.447494 0.111997 0.55783 0.0668554C0.668165 0.0217135 0.786386 -0.00100199 0.905595 3.3898e-05C1.0248 0.00106979 1.14261 0.0258366 1.25215 0.072889C1.36168 0.119941 1.46075 0.188338 1.54357 0.274086L4.5 3.23052L7.45643 0.274086C7.53925 0.188338 7.63832 0.119941 7.74785 0.072889C7.85739 0.0258366 7.9752 0.00106979 8.09441 3.3898e-05C8.21361 -0.00100199 8.33183 0.0217135 8.44217 0.0668554C8.5525 0.111997 8.65275 0.178661 8.73704 0.262957C8.82134 0.347254 8.888 0.447494 8.93314 0.55783C8.97829 0.668165 9.001 0.786386 8.99997 0.905595C8.99893 1.0248 8.97416 1.14261 8.92711 1.25215C8.88006 1.36168 8.81166 1.46075 8.72591 1.54357Z" />
 			</svg>
+			<svg viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd"
+					d="M7.05 0.6525L13.4927 7.31996C13.7762 7.61339 13.7779 8.07822 13.4965 8.3737C13.1983 8.68679 12.6995 8.6889 12.3987 8.37835L7.72134 3.54967C7.32723 3.14282 6.67421 3.14421 6.28184 3.55273L1.60097 8.42634C1.30073 8.73894 0.800371 8.73789 0.50145 8.42402C0.220916 8.12946 0.221746 7.66633 0.503332 7.37278L6.94981 0.65232C6.97716 0.623815 7.02276 0.623897 7.05 0.6525Z" />
+			</svg>
 		</button>
-		<div>
-			<a href="pdf/catalog.pdf" download class="sidebar__link">
+		<div class="sidebar__body">
+			<a href="#getcatalog" class="sidebar__link">
 				<svg viewBox="0 0 26 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M0 0.176391H4.9495C6.13001 0.176391 7.11761 0.57327 7.91229 1.36703C8.71274 2.15491 9.11296 3.11624 9.11296 4.25102C9.11296 5.37992 8.71274 6.33831 7.91229 7.12619C7.11761 7.91407 6.13001 8.30801 4.9495 8.30801H1.94352V12.8236H0V0.176391ZM4.9495 1.9844H1.94352V6.5H4.9495C5.55991 6.5 6.08106 6.28539 6.51296 5.85617C6.94485 5.42108 7.1608 4.88602 7.1608 4.25102C7.1608 3.61013 6.94485 3.07214 6.51296 2.63704C6.08106 2.20194 5.55991 1.9844 4.9495 1.9844Z" />
@@ -2441,7 +2456,7 @@
 					Скачать каталог
 				</p>
 			</a>
-			<a href="#getcatalog" class="sidebar__link">
+			<a href="#quiz" class="sidebar__link">
 				<svg viewBox="0 0 17 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M13.374 3.34019C12.5858 1.38952 10.694 0 8.48686 0C6.27975 0 4.41422 1.38952 3.62597 3.34019H1.83926L0 5.21069V8.65776C1.49768 10.074 2.41731 12.0781 2.41731 14.3227C2.41731 16.5673 1.49768 18.5714 0 19.9877V26H17V19.9877C15.5023 18.5714 14.5827 16.5673 14.5827 14.3227C14.5827 12.0781 15.5023 10.074 17 8.65776V5.21069L15.1607 3.34019H13.374Z" />
@@ -2492,7 +2507,7 @@
 						перезвонит
 						главный
 						менеджер</p>
-					<form action="PHP/call-back.php" method="POST" class="popup__form">
+					<form action="PHP/call-back.php" method="POST" class="popup__form" data-form-validate-js>
 						<div class="popup__row flex">
 							<label class="popup__label label">
 								Введите номер Вашего телефона
@@ -2500,14 +2515,16 @@
 									data-validate-field="phone" name="phone" required>
 							</label>
 							<button class="popup__btn main-btn">
-								<span class="btn-blick"></span>
-								<span>перезвоните мне</span>
+								<span class="main-btn__container">
+									<span class="btn-blick"></span>
+									<span>перезвоните мне</span>
+								</span>
 							</button>
 						</div>
 						<div class="popup__agree agree flex">
 							<div class="agree__checkbox"></div>
 							<div class="agree__text">
-								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link">Политики
+								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link conf">Политики
 									конфиденциальности</a>
 							</div>
 						</div>
@@ -2533,7 +2550,7 @@
 					<p class="popup__descr">Бесплатно получите:
 						<b>Как правильно выбрать памятник,<br class="mobile"> чтобы он не развалился через 5 лет</b>
 					</p>
-					<form action="POST/get-catalog.php" method="POST" class="popup__form">
+					<form action="PHP/call-social.php" method="POST" class="popup__form" data-form-validate-js>
 						<div class="popup__row flex">
 							<label class="popup__label label">
 								Куда удобнее отправить?
@@ -2570,14 +2587,16 @@
 									data-validate-field="phone" name="phone" required>
 							</label>
 							<button class="popup__btn main-btn">
-								<span class="btn-blick"></span>
-								<span>перезвоните мне</span>
+								<span class="main-btn__container">
+									<span class="btn-blick"></span>
+									<span>перезвоните мне</span>
+								</span>
 							</button>
 						</div>
 						<div class="popup__agree agree flex">
 							<div class="agree__checkbox"></div>
 							<div class="agree__text">
-								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link">Политики
+								Нажимая кнопку вы соглашаетесь с условиями <a href="#" class="agree__link conf">Политики
 									конфиденциальности</a>
 							</div>
 						</div>
@@ -2843,6 +2862,8 @@
 	<script src="libs/jquery-3.3.1.min.js"></script>
 	<script src="libs/jquery.fancybox.min.js"></script>
 	<script src="libs/jquery.cookie.js"></script>
+	<script src="libs/jquery.validate.min.js"></script>
+
 	<script src="js/quiz.js"></script>
 	<script src="js/script.js"></script>
 </body>

@@ -34,3 +34,5 @@ if (!$result) {
 } else {
     header('location: ../thanks.html');
 }
+
+?>

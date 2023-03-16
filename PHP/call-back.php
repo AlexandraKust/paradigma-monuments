@@ -20,3 +20,11 @@ $mail->Subject = 'Обратный звонок';
 $mail->msgHTML('Пользователь с номером ' . $phone . ' хочет чтобы ему перезвонили.');
 
 $result = $mail->send();
+
+if (!$result) {
+	header('location: ../404.html');
+} else {
+	header('location: ../thanks.html');
+}
+
+?>

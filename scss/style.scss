@@ -84,18 +84,30 @@ form {
 	font-weight: 400;
 }
 
+.popup {
+	display: none;
+}
+
 @keyframes blick {
 	0% {
-		left: -100%;
+		left: -50%;
 		opacity: 0;
 	}
 
-	30% {
-		opacity: 0.7;
+	32% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0.6;
+	}
+
+	78% {
+		opacity: 0;
 	}
 
 	100% {
-		left: 200%;
+		left: 100%;
 		opacity: 0;
 	}
 }
@@ -195,13 +207,13 @@ form {
 		content: "";
 		position: absolute;
 		left: -100%;
-		top: -100%;
+		top: 0;
 		width: 3vw;
-		height: 20vw;
+		height: 100%;
 		background: #fff;
-		opacity: 0.7;
-		animation: blick 5s ease-in-out 2s infinite;
-		transform: rotate(45deg);
+		opacity: 0.6;
+		animation: blick 5.5s ease-in-out 2s infinite;
+		transform: skewX(-20deg);
 		transition: opacity 0.3s ease-in-out;
 	}
 }
@@ -213,11 +225,9 @@ form {
 	align-items: center;
 	justify-content: center;
 	min-height: 3.90625vw;
-	// overflow: hidden;
 	background: url('../media/img/btn.png') 0 0 / 100% 100% no-repeat;
 	transition-property: transform;
 	transition: 0.3s ease-in-out;
-	// box-shadow: inset 0 0 1.09375vw rgba(255, 255, 255, 0.45);
 
 	span {
 		font-family: 'SangBleu Sunrise';
@@ -229,6 +239,19 @@ form {
 		letter-spacing: 0.05em;
 		color: #fff;
 		transition: text-decoration 0.3s ease-in-out;
+		flex: 0 0 100%;
+	}
+
+	&__container {
+		position: absolute;
+		overflow: hidden;
+		width: 99%;
+		height: 100%;
+		border-radius: 2vw;
+		padding: 1.45vw 2.395833vw;
+		display: flex;
+		align-items: center;
+		text-align: center;
 	}
 
 	&:hover:not(:disabled),
@@ -661,11 +684,6 @@ form {
 	z-index: 15;
 	width: 5.2vw;
 	flex-direction: column;
-	transition: right 0.5s ease-in-out;
-
-	&.close {
-		right: -6vw;
-	}
 
 	path {
 		fill: #fff;
@@ -687,14 +705,43 @@ form {
 		transition: 0.3s ease-in-out;
 
 		svg {
-			width: 0.47vw;
-			height: 0.47vw;
+			&:first-child {
+				width: 0.47vw;
+				height: 0.47vw;
+			}
+
+			&:last-child {
+				width: 0.73vw;
+				height: 0.47vw;
+				transform: rotate(-90deg);
+				display: none;
+			}
 		}
 
 		&:hover {
 			cursor: pointer;
 			box-shadow: 0 0 1.2vw rgba(0, 0, 0, 0.3);
 			transform: translateX(-50%) scale(1.03);
+		}
+
+		&.active {
+			svg {
+				&:first-child {
+					display: none;
+				}
+
+				&:last-child {
+					display: block;
+				}
+			}
+		}
+	}
+
+	&__body {
+		transition: transform 0.5s ease-in-out;
+
+		&.close {
+			transform: translateX(6vw);
 		}
 	}
 
@@ -1572,6 +1619,10 @@ form {
 .quiz-btn--next {
 	width: 7.86vw;
 	height: 3.9vw;
+
+	.main-btn__container {
+		border-radius: 1vw;
+	}
 }
 
 .quiz-item {
@@ -2582,7 +2633,7 @@ form {
 
 	&__title {
 		position: sticky;
-		top: 1.5vw;
+		top: 5.5vw;
 		left: 0;
 		text-align: left;
 		line-height: 156%;
@@ -2711,6 +2762,7 @@ form {
 // отзывы
 .comment {
 	position: relative;
+	z-index: 2;
 	padding-top: 4.6vw;
 	padding-bottom: 3.88vw;
 
@@ -2779,19 +2831,10 @@ form {
 // о производстве
 .about {
 	position: relative;
-	padding-top: 3.58vw;
+	padding-top: 26.6vw;
 	padding-bottom: 3.64vw;
-
-	&::after {
-		content: '';
-		position: absolute;
-		top: -19.245vw;
-		left: 0;
-		z-index: -1;
-		width: 100%;
-		height: 100%;
-		background: url('../media/img/about.jpg') 0 0 / 100% auto no-repeat;
-	}
+	margin-top: -23.125vw;
+	background: url('../media/img/about.jpg') 0 3.83vw / 100% auto no-repeat;
 
 	&__content {
 		margin-bottom: 2.5vw;
@@ -3137,7 +3180,7 @@ form {
 
 	&__title {
 		position: sticky;
-		top: 1.5vw;
+		top: 5.5vw;
 		left: 0;
 		text-align: left;
 		line-height: 156%;
@@ -3491,8 +3534,7 @@ form {
 
 //popup
 .popup {
-	// display: none;
-	// position: absolute;
+	display: block;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -3508,10 +3550,6 @@ form {
 	&.active {
 		opacity: 1;
 		visibility: visible;
-
-		.popup__body {
-			transform: translateY(0);
-		}
 	}
 
 	&__container {
@@ -3543,7 +3581,7 @@ form {
 		overflow: hidden;
 		color: var(--main-black);
 		transition: all 0.4s ease-in-out;
-		transform: translateY(-100%);
+		// transform: translateY(-100%);
 		overflow: hidden;
 	}
 
@@ -3583,13 +3621,6 @@ form {
 		font-size: 1.25vw;
 		line-height: 146%;
 		text-transform: uppercase;
-
-		&.active {
-			position: absolute;
-			top: 45%;
-			transform: translate(0, -50%);
-			max-width: 17.7vw;
-		}
 	}
 
 	&__descr {

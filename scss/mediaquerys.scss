@@ -214,19 +214,32 @@
 	.sidebar {
 		width: 6rem;
 
-		&.close {
-			right: -7rem;
-		}
-
 		&__close {
 			width: 2.5rem;
 			height: 2.5rem;
 			margin-bottom: 1rem;
 
 			svg {
-				width: 0.7rem;
-				height: 0.7rem;
+				&:first-child {
+					width: 0.7rem;
+					height: 0.7rem;
+				}
+
+				&:last-child {
+					position: relative;
+					width: 0.8rem;
+					height: 0.6rem;
+					left: -0.05rem;
+				}
 			}
+
+			&.active {
+				transform: translateX(0.2rem);
+			}
+		}
+
+		&__body.close {
+			transform: translateX(7rem);
 		}
 
 		&__link {
@@ -778,6 +791,7 @@
 	}
 }
 
+// quiz
 @media (max-width: 768px) {
 	.quiz {
 		top: 0;
@@ -1440,6 +1454,10 @@
 		&__hint {
 			width: 17.4rem;
 			margin-bottom: 1.4rem;
+
+			&::before {
+				background: url('../media/svg/hand-2.svg') 0 0 / 100% 100% no-repeat;
+			}
 		}
 
 		&__btn {
@@ -1736,16 +1754,11 @@
 // о производстве
 @media (max-width: 768px) {
 	.about {
-		padding-top: 2.1rem;
+		padding-top: 53.3rem;
 		padding-bottom: 2rem;
-
-		&::after {
-			top: -45rem;
-			bottom: 14rem;
-			height: auto;
-			background-position: 69.7% 0;
-			background-size: auto 100%;
-		}
+		margin-top: -50.9rem;
+		background-position: 69.7% 2.6rem;
+		background-size: auto 87.7%;
 
 		&__content {
 			flex-direction: column;
