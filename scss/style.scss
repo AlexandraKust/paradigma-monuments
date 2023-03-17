@@ -140,6 +140,28 @@ form {
 	animation-name: slide-up-in;
 }
 
+[data-on-scroll-display-js] {
+	transition: 1s;
+	opacity: 0 !important;
+}
+
+[data-on-scroll-display-js].visible {
+	opacity: 1 !important;
+}
+
+[data-on-scroll-display-js=fade-bottom] {
+	transform: translateY(5.2083333333vw) !important;
+}
+
+[data-on-scroll-display-js=fade-bottom].visible {
+	transform: translateY(0) !important;
+}
+
+.validate_error {
+	border: 0.05vw solid #E51618 !important;
+	color: #E51618 !important;
+}
+
 .container {
 	max-width: 85.4166667vw;
 	margin: 0 auto;

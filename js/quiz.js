@@ -217,6 +217,7 @@ $(document).mouseleave(function () {
 // маска на телефон
 $("input[type='tel']").mask('+7 (9 9 9) 9 9 9 - 9 9 - 9 9');
 
+
 $('[data-form-validate-js]').each(function () {
     var form = $(this);
 
@@ -274,7 +275,6 @@ $('[data-download-form-js]').each(function () {
                 var file = form.attr('data-download-form-js');
             }
 
-
             link.setAttribute('href', file);
             link.setAttribute('download', '');
 
@@ -326,3 +326,18 @@ $("[data-anchor-btn-js]").on("click", function (event) {
 
 
 
+$(window).on('scroll', function () {
+    $('[data-on-scroll-display-js]').each(function () {
+        var element = $(this);
+
+        if (!(element.hasClass('visible'))) {
+            var scroll = $(window).scrollTop(),
+                position = element.offset().top,
+                windowHeight = $(window).height();
+
+            if ((scroll + windowHeight) > position) {
+                element.addClass('visible');
+            };
+        };
+    });
+});
