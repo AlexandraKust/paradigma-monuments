@@ -1116,6 +1116,9 @@
   .catalog__hint {
     margin: 0;
   }
+  .catalog .hint-hand::before {
+    background: url(../media/svg/hand-2.svg) 0 0/cover no-repeat;
+  }
   .catalog__tab {
     display: none;
   }
@@ -2173,6 +2176,10 @@
     width: 3rem;
     height: 3rem;
     margin: 0;
+  }
+  .popup-conf .popup__close {
+    top: 1.5rem;
+    right: 1.5rem;
   }
   .popup-conf .popup__container {
     padding: 1rem 0;

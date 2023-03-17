@@ -220,7 +220,7 @@
 						<p class="quiz__subtitle">и 1 из 3х подарков на выбор</p>
 
 						<div class="quiz__inner flex">
-							<form action="PHP/quiz.php" method="POST" class="quiz__form" data-form-validate-js>
+							<form action="mailer/send.php" method="POST" name="quiz" class="quiz__form" data-form-validate-js>
 								<div class="quiz__progress">
 									<div class="quiz__progress-bar">
 										<div class="quiz__progress-inner" style="width: 14%;"></div>
@@ -231,6 +231,7 @@
 								</div>
 								<div class="quiz-items">
 									<div class="quiz-item">
+										<input type="hidden" name="title-1" value="Какой тип памятника вам нужен?">
 										<h3 class="quiz-item__title fade-in">
 											Какой тип памятника вам нужен?
 										</h3>
@@ -301,6 +302,7 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
+										<input type="hidden" name="title-2" value="Выберите материал памятника">
 										<h3 class="quiz-item__title fade-in">
 											Выберите материал памятника
 										</h3>
@@ -350,6 +352,7 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
+										<input type="hidden" name="title-3" value="Выберите вид художественного оформления">
 										<h3 class="quiz-item__title fade-in">
 											Выберите вид художественного оформления
 										</h3>
@@ -471,6 +474,7 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
+										<input type="hidden" name="title-4" value="Выберите вид благоустройства">
 										<h3 class="quiz-item__title fade-in">
 											Выберите вид благоустройства
 										</h3>
@@ -592,6 +596,7 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
+										<input type="hidden" name="title-5" value="Выберите ограду для участка">
 										<h3 class="quiz-item__title fade-in">
 											Выберите ограду для участка
 										</h3>
@@ -686,6 +691,7 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
+										<input type="hidden" name="title-6" value="Какой ваш бюджет?">
 										<h3 class="quiz-item__title fade-in">
 											Какой ваш бюджет?
 										</h3>
@@ -788,6 +794,7 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
+										<input type="hidden" name="title-7" value="Выберите подарок">
 										<h3 class="quiz-item__title fade-in">
 											Выберите подарок
 										</h3>
@@ -870,7 +877,7 @@
 												Куда прислать каталог?
 												<div class="select-social">
 													<div class="quiz-catalog__select select">
-														<select id="select-social-quiz">
+														<select id="select-social-quiz" name="social">
 															<option value="whats app">
 																whats app
 															</option>
@@ -908,9 +915,7 @@
 												</span>
 											</button>
 											<div class="quiz-catalog__agree agree flex">
-												<div class="agree__checkbox">
-
-												</div>
+												<div class="agree__checkbox"></div>
 												<div class="agree__text">
 													Нажимая кнопку вы соглашаетесь с условиями <span
 														class="agree__link conf">Политики
@@ -1056,7 +1061,7 @@
 						перезвонит
 						главный
 						менеджер</p>
-					<form action="PHP/call-back.php" method="POST" class="popup__form" data-form-validate-js>
+					<form action="mailer/send.php" method="POST" name="callback" class="popup__form" data-form-validate-js>
 						<div class="popup__row flex">
 							<label class="popup__label label">
 								Введите номер Вашего телефона

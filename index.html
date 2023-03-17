@@ -194,14 +194,14 @@
 				version="1.1">
 				<defs>
 					<filter id="round">
-						<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" />
-						<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-						<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+						<fegaussianblur in="SourceGraphic" stdDeviation="20" result="blur" />
+						<fecolormatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+						<fecomposite in="SourceGraphic" in2="goo" operator="atop" />
 					</filter>
 					<filter id="round-mobile">
-						<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-						<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-						<feComposite in="SourceGraphic" in2="goo" operator="atop" />
+						<fegaussianblur in="SourceGraphic" stdDeviation="10" result="blur" />
+						<fecolormatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+						<fecomposite in="SourceGraphic" in2="goo" operator="atop" />
 					</filter>
 				</defs>
 			</svg>
@@ -216,7 +216,7 @@
 						<p class="quiz__subtitle">и 1 из 3х подарков на выбор</p>
 
 						<div class="quiz__inner flex">
-							<form action="PHP/quiz.php" method="POST" class="quiz__form" data-form-validate-js>
+							<form action="mailer/send.php" method="POST" name="quiz" class="quiz__form" data-form-validate-js>
 								<div class="quiz__progress">
 									<div class="quiz__progress-bar">
 										<div class="quiz__progress-inner" style="width: 14%;"></div>
@@ -227,7 +227,8 @@
 								</div>
 								<div class="quiz-items">
 									<div class="quiz-item">
-										<h3 class="quiz-item__title fade-in" name="title-1">
+										<input type="hidden" name="title-1" value="Какой тип памятника вам нужен?">
+										<h3 class="quiz-item__title fade-in">
 											Какой тип памятника вам нужен?
 										</h3>
 										<div class="quiz-options flex quiz-options--img">
@@ -297,7 +298,8 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
-										<h3 class="quiz-item__title fade-in" name="title-2">
+										<input type="hidden" name="title-2" value="Выберите материал памятника">
+										<h3 class="quiz-item__title fade-in">
 											Выберите материал памятника
 										</h3>
 										<div class="quiz-options flex quiz-options--img">
@@ -346,6 +348,7 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
+										<input type="hidden" name="title-3" value="Выберите вид художественного оформления">
 										<h3 class="quiz-item__title fade-in">
 											Выберите вид художественного оформления
 										</h3>
@@ -467,7 +470,8 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
-										<h3 class="quiz-item__title fade-in" name="title-4">
+										<input type="hidden" name="title-4" value="Выберите вид благоустройства">
+										<h3 class="quiz-item__title fade-in">
 											Выберите вид благоустройства
 										</h3>
 										<div class="quiz-options flex quiz-options--checkbox">
@@ -588,7 +592,8 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
-										<h3 class="quiz-item__title fade-in" name="title-5">
+										<input type="hidden" name="title-5" value="Выберите ограду для участка">
+										<h3 class="quiz-item__title fade-in">
 											Выберите ограду для участка
 										</h3>
 										<div class="quiz-options flex quiz-options--img-inline">
@@ -682,7 +687,8 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
-										<h3 class="quiz-item__title fade-in" name="title-6">
+										<input type="hidden" name="title-6" value="Какой ваш бюджет?">
+										<h3 class="quiz-item__title fade-in">
 											Какой ваш бюджет?
 										</h3>
 										<div class="quiz-options flex quiz-options--checkbox quiz-options--circle">
@@ -784,7 +790,8 @@
 										</div>
 									</div>
 									<div class="quiz-item" style="display:none;">
-										<h3 class="quiz-item__title fade-in" name="title-7">
+										<input type="hidden" name="title-7" value="Выберите подарок">
+										<h3 class="quiz-item__title fade-in">
 											Выберите подарок
 										</h3>
 										<div class="quiz-options flex quiz-options--img">
@@ -1436,22 +1443,22 @@
 		</section>
 
 		<!-- форма получить каталог -->
-		<section class="get-catalog" id="getcatalog">
+		<section class="get-catalog">
 			<div class="get-catalog__bg"></div>
-			<div class="container">
+			<div class="container" id="getcatalog">
 				<div class="get-catalog__content">
 					<h2 class="get-catalog__title section-title"><span>Не нашли подходящий памятник? </span>Уверены, он
 						есть в новом каталоге
 					</h2>
-					<form action="PHP/get-catalog.php" method="POST" class="get-catalog__form form-catalog flex"
-						data-form-validate-js>
+					<form action="mailer/send.php" name="getcatalog" method="POST"
+						class="get-catalog__form form-catalog flex" data-download-form-js>
 						<div class="form-catalog__label label">
 							Выберите категорию памятника
 							<div class="form-catalog__select select">
 								<select id="monuments" name="material">
-									<option value="Памятники из гранита">Памятники из гранита</option>
-									<option value="Памятники из мрамора">Памятники из мрамора</option>
-									<option value="Ограды">Ограды</option>
+									<option value="pdf/graniteCatalog.pdf">Памятники из гранита</option>
+									<option value="pdf/marbleCatalog.pdf">Памятники из мрамора</option>
+									<option value="pdf/fences.pdf">Ограды</option>
 								</select>
 							</div>
 						</div>
@@ -1787,7 +1794,8 @@
 						номер телефона для
 						бесплатной консультации.
 					</h2>
-					<form action="PHP/call-back.php" method="POST" class="callback__form" data-form-validate-js>
+					<form action="mailer/send.php" method="POST" name="callback" class="callback__form"
+						data-form-validate-js>
 						<div class="callback__row flex">
 							<label class="callback__label label">
 								Введите номер Вашего телефона
@@ -2244,7 +2252,8 @@
 							Это ни к чему Вас не обязывает, введите лишь номер телефона:
 						</p>
 					</div>
-					<form action="PHP/call-back.php" method="POST" class="consultation__form" data-form-validate-js>
+					<form action="mailer/send.php" method="POST" name="callback" class="consultation__form"
+						data-form-validate-js>
 						<div class="consultation__row flex">
 							<label class="consultation__label label">
 								Введите номер Вашего телефона
@@ -2507,7 +2516,7 @@
 						перезвонит
 						главный
 						менеджер</p>
-					<form action="PHP/call-back.php" method="POST" class="popup__form" data-form-validate-js>
+					<form action="mailer/send.php" method="POST" name="callback" class="popup__form" data-form-validate-js>
 						<div class="popup__row flex">
 							<label class="popup__label label">
 								Введите номер Вашего телефона
@@ -2550,7 +2559,7 @@
 					<p class="popup__descr">Бесплатно получите:
 						<b>Как правильно выбрать памятник,<br class="mobile"> чтобы он не развалился через 5 лет</b>
 					</p>
-					<form action="PHP/call-social.php" method="POST" class="popup__form" data-form-validate-js>
+					<form action="mailer/send.php" name="how" method="POST" class="popup__form" data-form-validate-js>
 						<div class="popup__row flex">
 							<label class="popup__label label">
 								Куда удобнее отправить?

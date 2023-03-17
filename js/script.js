@@ -297,36 +297,3 @@ sidebarClose.addEventListener('click', function () {
 	sidebarBody.classList.toggle('close');
 	sidebarClose.classList.toggle('active');
 })
-
-
-// скачивание файлов
-let forms = document.querySelectorAll('form');
-forms.forEach(function (form) {
-	let material = form.querySelector('#monuments');
-	if (material) {
-		form.querySelector('.main-btn').addEventListener('click', function () {
-			var link = document.createElement('a');
-			link.setAttribute('download', '');
-			if (material.value === 'Памятники из гранита') {
-				link.setAttribute('href', 'pdf/graniteCatalog.pdf');
-			} else if (material.value === 'Памятники из мрамора') {
-				link.setAttribute('href', 'pdf/marbleCatalog.pdf');
-			} else if (material.value == 'Ограды') {
-				link.setAttribute('href', 'pdf/fences.pdf');
-			}
-			link.click();
-		})
-	}
-
-	if (form.closest('.hero-lidmagnit')) {
-		form.querySelector('.main-btn').addEventListener('click', function () {
-			var link = document.createElement('a');
-			var file = form.getAttribute('data-download-form-js');
-
-			link.setAttribute('href', file);
-			link.setAttribute('download', '');
-			link.click();
-		})
-	}
-})
-

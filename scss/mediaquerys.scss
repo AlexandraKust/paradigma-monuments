@@ -1236,6 +1236,10 @@
 			margin: 0;
 		}
 
+		.hint-hand::before {
+			background: url(../media/svg/hand-2.svg) 0 0/cover no-repeat;
+		}
+
 		&__tab {
 			display: none;
 		}
@@ -2429,6 +2433,11 @@
 		}
 
 		&-conf {
+			.popup__close {
+				top: 1.5rem;
+				right: 1.5rem;
+			}
+
 			.popup__container {
 				padding: 1rem 0;
 			}

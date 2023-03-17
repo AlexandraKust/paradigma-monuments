@@ -1149,6 +1149,9 @@ form {
 }
 .header__catalog {
   padding-bottom: 0.6vw;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .header__catalog-link {
   font-weight: 600;
@@ -1471,7 +1474,7 @@ form {
   z-index: 2;
 }
 .hero-404 .hero__bg {
-  background: right 42%/52.1875vw auto no-repeat;
+  background: right 18vw/52.1875vw auto no-repeat;
 }
 .hero-404 .hero__sub {
   margin-bottom: 1.9vw;
@@ -3724,9 +3727,6 @@ form {
   cursor: default;
   overflow: hidden;
   color: var(--main-black);
-  -webkit-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
   overflow: hidden;
 }
 .popup__close {
@@ -3845,7 +3845,9 @@ form {
 }
 .popup-conf .popup__body {
   width: 80vw;
-  height: auto;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 2.2vw;
   border-radius: 0.5vw;
   background: #fff;

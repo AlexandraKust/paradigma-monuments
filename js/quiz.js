@@ -2,13 +2,9 @@
     var adjustAnchor = function () {
 
         var $anchor = $(':target'),
-            fixedElementHeight = 100;
+            fixedElementHeight = 120;
 
         if ($anchor.length > 0) {
-            if ($anchor[0].id === 'about') {
-                fixedElementHeight = 400;
-            }
-
             $('html, body')
                 .stop()
                 .animate({
@@ -25,7 +21,6 @@
     });
 
 })(jQuery, window);
-
 
 
 function topFunction() {
@@ -206,7 +201,7 @@ $(document).ready(function () {
 
 
 $(document).mouseleave(function () {
-    if (event.clientY < 0 || event.clientY < 3) {
+    if (event.clientY < 3) {
         let leave = 1;
         if (+$.cookie('leave-popup')) {
             leave = 0;
@@ -245,6 +240,51 @@ $('[data-form-validate-js]').each(function () {
                 data: data,
                 success: function (response) {
                     window.location.href = "thanks.html";
+                },
+                error: function (response) {
+                    window.location.href = "404.html";
+                },
+            });
+        },
+    });
+});
+
+$('[data-download-form-js]').each(function () {
+    var form = $(this);
+    let material = $('#monuments');
+
+    form.validate({
+        errorClass: "validate_error",
+        rules: {
+            phone: {
+                required: true,
+                minlength: 28
+            }
+        },
+        errorPlacement: function (error, element) { },
+        submitHandler: function () {
+            var data = form.serialize();
+            var action = form.attr('action');
+            var method = form.attr('method');
+            var link = document.createElement('a');
+
+            if (material.length > 0) {
+                var file = material.val()
+            } else {
+                var file = form.attr('data-download-form-js');
+            }
+
+
+            link.setAttribute('href', file);
+            link.setAttribute('download', '');
+
+            $.ajax({
+                type: method,
+                url: action,
+                data: data,
+                success: function (response) {
+                    window.location.href = "thanks.html";
+                    link.click();
                 },
                 error: function (response) {
                     window.location.href = "404.html";

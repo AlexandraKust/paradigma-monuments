@@ -974,6 +974,7 @@ form {
 
 	&__catalog {
 		padding-bottom: 0.6vw;
+		width: fit-content;
 	}
 
 	&__catalog-link {
@@ -1315,7 +1316,7 @@ form {
 		}
 
 		.hero__bg {
-			background: right 42% / 52.1875vw auto no-repeat;
+			background: right 18vw / 52.1875vw auto no-repeat;
 		}
 
 		.hero__sub {
@@ -3584,8 +3585,6 @@ form {
 		cursor: default;
 		overflow: hidden;
 		color: var(--main-black);
-		transition: all 0.4s ease-in-out;
-		// transform: translateY(-100%);
 		overflow: hidden;
 	}
 
@@ -3730,7 +3729,7 @@ form {
 
 		.popup__body {
 			width: 80vw;
-			height: auto;
+			height: fit-content;
 			padding: 2.2vw;
 			border-radius: 0.5vw;
 			background: #fff;

@@ -173,7 +173,7 @@
 			<h1 class="hero__title">Как правильно выбрать памятник, чтобы он
 				не&nbsp;развалился через 5 лет
 			</h1>
-			<form action="PHP/call-social.php" class="hero__form form-catalog flex" data-form-validate-js
+			<form action="mailer/send.php" method="POST" name="how" class="hero__form form-catalog flex"
 				data-download-form-js="pdf/catalog.pdf">
 				<label class="form-catalog__label label">
 					Введите номер Вашего телефона
@@ -184,7 +184,7 @@
 					Куда прислать каталог?
 					<div class="select-social">
 						<div class="form-catalog__select select">
-							<select id="select-social">
+							<select id="select-social" name="social">
 								<option value="whats app">
 									whats app
 								</option>
@@ -330,7 +330,7 @@
 						перезвонит
 						главный
 						менеджер</p>
-					<form action="PHP/call-back.php" method="POST" class="popup__form" data-form-validate-js>
+					<form action="mailer/send.php" method="POST" name="callback" class="popup__form" data-form-validate-js>
 						<div class="popup__row flex">
 							<label class="popup__label label">
 								Введите номер Вашего телефона
