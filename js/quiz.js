@@ -60,7 +60,40 @@ $element.on('change input', function (e) {
     var value = $(this).val().trim();
     isValid = value !== "";
     btnActive(!isValid);
+    // $(this).attr('checked', true)
 });
+
+let quizSingle = document.querySelectorAll('[data-quiz-single-answer]');
+quizSingle.forEach(function (item) {
+    let inputs = item.querySelectorAll('input[type="radio"]');
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("click", function () {
+            for (let j = 0; j < inputs.length; j++) {
+                if (inputs[j].getAttribute('checked') == 'checked') {
+                    inputs[j].removeAttribute('checked')
+                }
+            };
+            inputs[i].setAttribute('checked', 'checked')
+        });
+    }
+})
+
+let quizMulti = document.querySelectorAll('[data-quiz-multi-answer]');
+quizMulti.forEach(function (item) {
+    let inputs = item.querySelectorAll('input[type="checkbox"]');
+
+    inputs.forEach(function (input) {
+        input.addEventListener('click', function () {
+            if (input.getAttribute('checked') == 'checked') {
+                input.removeAttribute('checked');
+            } else {
+                input.setAttribute('checked', 'checked')
+            }
+        })
+    })
+})
+
 
 function btnActive(isValid) {
     if (number === 0) {
@@ -143,12 +176,12 @@ function btnClick() {
 }
 btnClick();
 
-$('input[name="quiz1[]"]').on('change', function () {
+$('input[name="quiz1"]').on('change', function () {
     setTimeout(function () {
         btnNext.click();
     }, 500);
 });
-$('input[name="quiz2[]"]').on('change', function () {
+$('input[name="quiz2"]').on('change', function () {
     setTimeout(function () {
         btnNext.click();
     }, 500);
@@ -157,21 +190,21 @@ $('input[name="quiz3"]').on('change', function () {
     setTimeout(function () {
     }, 500);
 });
-$('input[name="quiz4[]"]').on('change', function () {
+$('input[name="quiz4"]').on('change', function () {
     setTimeout(function () {
     }, 500);
 });
-$('input[name="quiz5[]"]').on('change', function () {
-    setTimeout(function () {
-        btnNext.click();
-    }, 500);
-});
-$('input[name="quiz6[]"]').on('change', function () {
+$('input[name="quiz5"]').on('change', function () {
     setTimeout(function () {
         btnNext.click();
     }, 500);
 });
-$('input[name="quiz7[]"]').on('change', function () {
+$('input[name="quiz6"]').on('change', function () {
+    setTimeout(function () {
+        btnNext.click();
+    }, 500);
+});
+$('input[name="quiz7"]').on('change', function () {
     setTimeout(function () {
         btnNext.click();
     }, 500);
@@ -323,8 +356,6 @@ $("[data-anchor-btn-js]").on("click", function (event) {
         window.location.href = "index.html";
     }
 });
-
-
 
 $(window).on('scroll', function () {
     $('[data-on-scroll-display-js]').each(function () {

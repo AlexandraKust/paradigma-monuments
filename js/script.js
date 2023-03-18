@@ -1,3 +1,8 @@
+var myScroll;
+function loaded() {
+	myScroll = new IScroll('#wrapper');
+}
+
 window.addEventListener("load", (event) => {
 	let requestPopup = document.querySelector('.popup-request');
 	let openRequestPopup = document.querySelectorAll('.callback-popup');

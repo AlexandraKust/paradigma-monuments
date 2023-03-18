@@ -1,35 +1,69 @@
 <?php
+require 'class.phpmailer.php';
+require 'class.smtp.php';
+
 // данные
 $phone = $_POST['phone'];
 $social = $_POST['social'];
 $material = $_POST['material'];
 
 $question_1 = $_POST['title-1'];
-$answer_1 = $_POST['quiz1[]'];
+$answer_1 = $_POST["quiz1"];
 
 $question_2 = $_POST['title-2'];
-$answer_2 = $_POST['quiz2[]'];
+$answer_2 = $_POST['quiz2'];
 
 $question_3 = $_POST['title-3'];
-$answer_3 = $_POST['quiz3[]'];
-$answer_3_all = implode(", ", $answer_3);
-
+$answer_3all = $_POST['quiz3'];
+for($a = 0; $a<count($answer_3all); $a++) {
+$answer_3 .= $answer_3all[$a].', ';
+}
 $question_4 = $_POST['title-4'];
-$answer_4 = $_POST['quiz4[]'];
-$answer_4_all = implode(", ", $answer_4);
-
+$answer_4all = $_POST['quiz4'];
+for($a = 0; $a<count($answer_4all); $a++) {
+$answer_4 .= $answer_4all[$a].', ';
+}
 $question_5 = $_POST['title-5'];
-$answer_5 = $_POST['quiz5[]'];
+$answer_5 = $_POST['quiz5'];
 
 $question_6 = $_POST['title-6'];
-$answer_6 = $_POST['quiz6[]'];
+$answer_6 = $_POST['quiz6'];
 
 $question_7 = $_POST['title-7'];
-$answer_7 = $_POST['quiz7[]'];
+$answer_7 = $_POST['quiz7'];
 
-// Файлы phpmailer
-require 'class.phpmailer.php';
-require 'class.smtp.php';
+if ($_POST['formname'] == 'callback') {
+$msg = '
+Пользователь заказал обратный звонок. <br>
+Телефон: <b>' . $phone .' </b><br>
+';
+} else if ($_POST['formname'] == 'getcatalog') {
+$msg = '
+Пользователь просит прислать каталог <b> ' . $material .' </b>.<br>
+Телефон: <b> ' . $phone .' </b><br>
+Способ связи: <b> ' . $social . ' </b>
+';
+} else if ($_POST['formname'] == 'how') {
+$msg = '
+Пользователь просит прислать каталог "Как правильно выбрать памятник" <br>
+Телефон: <b> ' . $phone .' </b><br>
+Способ связи: <b> ' . $social . ' </b>
+';
+} else if ($_POST['formname'] == 'quiz') {
+$msg = '
+Пользователь прошёл тест: <br>
+1. ' . $question_1 . ' Ответ: <b>' . $answer_1 . ' </b><br>
+2. ' . $question_2 . ' Ответ: <b>' . $answer_2 . ' </b><br>
+3. ' . $question_3 . ' Ответ: <b>' . $answer_3 . ' </b><br>
+4. ' . $question_4 . ' Ответ: <b>' . $answer_4 . ' </b><br>
+5. ' . $question_5 . ' Ответ: <b>' . $answer_5 . ' </b><br>
+6. ' . $question_6 . ' Ответ: <b>' . $answer_6 . ' </b><br>
+7. ' . $question_7 . ' Ответ: <b>' . $answer_7 . ' </b><br>
+<br>
+Телефон: <b> ' . $phone .' </b><br>
+Способ связи: <b> ' . $social . ' </b>
+';
+}
 
 // Настройки
 $mail = new PHPMailer;
@@ -42,57 +76,21 @@ $mail->Password = '473-Ghd-%sasd121'; // Ваш пароль
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 $mail->setFrom('formsajt987@gmail.com', 'Форма с сайта'); // Ваш Email
-$mail->addAddress('apkby@tut.by'); // Email получателя
-//$mail->addAddress('dlemeshko04@gmail.com'); // Email получателя
-//$mail->addAddress('example@gmail.com'); // Еще один email, если нужно.
-
+//$mail->addAddress('apkby@tut.by'); // Email получателя
+$mail->addAddress('akust0912@gmail.com'); // Email получателя
+//ВСЁ РАБОТАЕТ! :)
 
 // Письмо
 $mail->isHTML(true);
 $mail->Subject = 'Форма с сайта '; // Заголовок письма
-if ($_POST['formname'] == 'quiz') {
-	$mail->Body    = '
-	Пользователь прошёл тест: <br>
-	1. ' . $question_1 . ':  ' . $answer_1 . ' <br>
-	2. ' . $question_2 . ':  ' . $answer_2 . ' <br>
-	3. ' . $question_3 . ':  ' . $answer_3_all . ' <br>
-	4. ' . $question_4 . ':  ' . $answer_4_all . ' <br>
-	5. ' . $question_5 . ':  ' . $answer_5 . ' <br>
-	6. ' . $question_6 . ':  ' . $answer_6 . ' <br>
-	7. ' . $question_7 . ':  ' . $answer_7 . ' <br>
-	
-	Телефон: ' . $phone .' <br>
-	Способ связи: ' . $social . ' 
-	';
+$mail->Body = $msg;
 
-} else if ($_POST['formname'] == 'getcatalog') {
-	$mail->Body    = '
-	Пользователь просит прислать каталог с ' . $material .'. <br>
-	Телефон: ' . $phone .' <br>
-	Способ связи: ' . $social . '
-	';
+// Проверяем отравленность сообщения
+if ($mail->send()) {$result = "success"; header('Location: ../thanks.html');} 
+else {$result = "error"; header('Location: ../404.html');}
 
-} else if ($_POST['formname'] == 'callback') {
-	$mail->Body    = '
-	Пользователь заказал обратный звонок. <br>
-	Телефон: ' . $phone .' <br>
-	';
 
-} else if ($_POST['formname'] == 'how') {
-	$mail->Body    = '
-	Пользователь просит прислать каталог "Как правильно выбрать памятник" <br>
-	Телефон: ' . $phone .' <br>
-	Способ связи: ' . $social . '
-	';
-} 
+// Отображение результата
+echo json_encode(["result" => $result, "resultfile" => $rfile, "status" => $status]);
 
-// Результат
-if(!$mail->send()) {
-	echo 'Message could not be sent.';
-	echo 'Mailer Error: ' . $mail->ErrorInfo;
-	header('Location: ../404.html');
-} else {
-	echo 'ok';
-	header('Location: ../thanks.html');
-}
 ?>
