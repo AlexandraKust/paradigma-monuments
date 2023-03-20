@@ -1442,6 +1442,9 @@
   .design {
     padding-top: 2rem;
     padding-bottom: 2.4rem;
+    position: relative;
+    z-index: 3;
+    background: none;
   }
   .design__row {
     -webkit-box-orient: vertical;
@@ -1505,8 +1508,8 @@
     top: -7.6rem;
     left: 0;
     width: 100%;
-    height: 141%;
-    background-image: url("../media/img/default-bg-mobile.jpg");
+    height: 100%;
+    background: url(../media/img/default-bg-mobile.jpg) 0 0/100% 100% no-repeat;
   }
   .callback__content {
     padding: 4rem 1.5rem 31rem;
@@ -1822,6 +1825,7 @@
 @media (max-width: 768px) {
   .benefits {
     padding: 2.3rem 0;
+    z-index: 2;
   }
   .benefits::after {
     display: none;
@@ -1889,6 +1893,7 @@
 }
 @media (max-width: 768px) {
   .consultation {
+    position: static;
     padding: 2.15rem 0;
   }
   .consultation__bg {

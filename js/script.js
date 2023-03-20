@@ -3,58 +3,56 @@ function loaded() {
 	myScroll = new IScroll('#wrapper');
 }
 
-window.addEventListener("load", (event) => {
-	let requestPopup = document.querySelector('.popup-request');
-	let openRequestPopup = document.querySelectorAll('.callback-popup');
-	let mapPopup = document.querySelector('.popup-map');
-	let openMapPopup = document.querySelector('.header__map-btn');
-	let confPopup = document.querySelector('.popup-conf');
-	let openConfPopup = document.querySelectorAll('.conf');
+let requestPopup = document.querySelector('.popup-request');
+let openRequestPopup = document.querySelectorAll('.callback-popup');
+let mapPopup = document.querySelector('.popup-map');
+let openMapPopup = document.querySelector('.header__map-btn');
+let confPopup = document.querySelector('.popup-conf');
+let openConfPopup = document.querySelectorAll('.conf');
 
-	// открытие формы звонка
-	openRequestPopup.forEach(function (item) {
-		item.addEventListener('click', function () {
-			requestPopup.classList.add('active');
-			document.body.classList.add('lock');
-		});
-	})
-
-	// открытие popup-карты
-	openMapPopup.addEventListener('click', function () {
-		mapPopup.classList.add('active');
+// открытие формы звонка
+openRequestPopup.forEach(function (item) {
+	item.addEventListener('click', function () {
+		requestPopup.classList.add('active');
 		document.body.classList.add('lock');
 	});
+})
 
-	// открытие popup-политики конф
-	openConfPopup.forEach(function (item) {
-		item.addEventListener('click', function () {
-			confPopup.classList.add('active');
-			document.body.classList.add('lock');
-		});
-	})
-
-	// закрытие popup
-	let popups = document.querySelectorAll('.popup');
-	popups.forEach(function (popup) {
-		let close = popup.querySelector(".popup__close");
-		let bg = popup.querySelector(".popup__bg");
-
-		close.addEventListener('click', function () {
-			popup.classList.remove('active');
-			document.body.classList.remove('lock');
-		})
-		bg.addEventListener('click', function () {
-			popup.classList.remove('active');
-			document.body.classList.remove('lock');
-		})
-
-		let title = popup.querySelector('.popup__title');
-		let descr = popup.querySelector('.popup__descr');
-		let form = popup.querySelector('.popup__form');
-		let btn = popup.querySelector('.popup__btn');
-	})
-
+// открытие popup-карты
+openMapPopup.addEventListener('click', function () {
+	mapPopup.classList.add('active');
+	document.body.classList.add('lock');
 });
+
+// открытие popup-политики конф
+openConfPopup.forEach(function (item) {
+	item.addEventListener('click', function () {
+		confPopup.classList.add('active');
+		document.body.classList.add('lock');
+	});
+})
+
+// закрытие popup
+let popups = document.querySelectorAll('.popup');
+popups.forEach(function (popup) {
+	let close = popup.querySelector(".popup__close");
+	let bg = popup.querySelector(".popup__bg");
+
+	close.addEventListener('click', function () {
+		popup.classList.remove('active');
+		document.body.classList.remove('lock');
+	})
+	bg.addEventListener('click', function () {
+		popup.classList.remove('active');
+		document.body.classList.remove('lock');
+	})
+
+	let title = popup.querySelector('.popup__title');
+	let descr = popup.querySelector('.popup__descr');
+	let form = popup.querySelector('.popup__form');
+	let btn = popup.querySelector('.popup__btn');
+})
+
 
 // phone
 let phoneBtn = document.querySelector('.header__call-mobile');

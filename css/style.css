@@ -210,15 +210,11 @@ form {
     -webkit-transform: translate(0, 100%) rotate(1deg);
             transform: translate(0, 100%) rotate(1deg);
     opacity: 0;
-    -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
   }
   100% {
     opacity: 1;
     -webkit-transform: translate(0, 0) rotate(0);
             transform: translate(0, 0) rotate(0);
-    -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
   }
 }
 @keyframes slide-up-in {
@@ -226,15 +222,11 @@ form {
     -webkit-transform: translate(0, 100%) rotate(1deg);
             transform: translate(0, 100%) rotate(1deg);
     opacity: 0;
-    -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
   }
   100% {
     opacity: 1;
     -webkit-transform: translate(0, 0) rotate(0);
             transform: translate(0, 0) rotate(0);
-    -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
   }
 }
 .fade-in {
@@ -247,6 +239,23 @@ form {
           animation-fill-mode: both;
   -webkit-animation-name: slide-up-in;
           animation-name: slide-up-in;
+}
+
+.animation {
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  opacity: 0 !important;
+  -webkit-transform: translateY(5.2083333333vw) !important;
+      -ms-transform: translateY(5.2083333333vw) !important;
+          transform: translateY(5.2083333333vw) !important;
+}
+
+.animation.visible {
+  opacity: 1 !important;
+  -webkit-transform: translateY(0) !important;
+      -ms-transform: translateY(0) !important;
+          transform: translateY(0) !important;
 }
 
 [data-on-scroll-display-js] {
@@ -1029,6 +1038,10 @@ form {
 }
 .btn-top.active {
   bottom: 1.3vw;
+}
+
+.main {
+  background: #f7f7f7;
 }
 
 .header {
@@ -2268,6 +2281,10 @@ form {
   list-style-type: disc;
 }
 
+.catalog {
+  position: relative;
+  z-index: 2;
+}
 .catalog__title {
   width: 63.6458333vw;
   margin: 0 auto 3vw;
@@ -2624,7 +2641,6 @@ form {
   top: 2.23vw;
   left: 0;
   right: 0;
-  z-index: -1;
   width: 100%;
 }
 .portfolio__title {
@@ -2917,9 +2933,9 @@ form {
   padding-top: 4.8vw;
   padding-bottom: 4.375vw;
   position: relative;
+  z-index: 2;
 }
 .callback::after {
-  content: "";
   position: absolute;
   top: -9.6vw;
   bottom: -11.35vw;
@@ -3435,6 +3451,8 @@ form {
   padding-top: 4.5vw;
   padding-bottom: 2.7vw;
   color: #fff;
+  position: relative;
+  z-index: 2;
 }
 .consultation__content {
   position: relative;

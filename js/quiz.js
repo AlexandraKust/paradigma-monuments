@@ -43,6 +43,21 @@ function anime(anim) {
         }
     });
 }
+// $(".animation").each(section);
+function section(anim) {
+    var thisTitle = $(this);
+    var offsetTop = thisTitle.offset().top - $(window).height() - 50;
+    if ($(document).scrollTop() > offsetTop) {
+        thisTitle.addClass('fade-in');
+    }
+    $(window).scroll(function (event) {
+        offsetTop = thisTitle.offset().top - $(window).height() - 50;
+        if ($(document).scrollTop() > offsetTop) {
+            thisTitle.addClass('fade-in');
+        }
+    });
+}
+
 
 
 /* Quiz */
@@ -212,7 +227,7 @@ $('input[name="quiz7"]').on('change', function () {
 
 
 $(document).ready(function () {
-    $('a[href^="#"').on("click", function (event) {
+    $('a[href^="#"]').on("click", function (event) {
         var hash = event.target.hash;
         var headerHeight = $('header').height();
 
@@ -248,7 +263,11 @@ $(document).mouseleave(function () {
 });
 
 // маска на телефон
-$("input[type='tel']").mask('+7 (9 9 9) 9 9 9 - 9 9 - 9 9');
+$("input[type='tel']").mask('+7 (999) 999 - 99 - 99');
+jQuery.validator.addMethod("checkMaskPhone", function (value, element) {
+    return /\+\d{1} \(\d{3}\) \d{3} - \d{2} - \d{2}/g.test(value);
+});
+
 
 
 $('[data-form-validate-js]').each(function () {
@@ -259,7 +278,8 @@ $('[data-form-validate-js]').each(function () {
         rules: {
             phone: {
                 required: true,
-                minlength: 28
+                checkMaskPhone: true,
+                // minlength: 26
             }
         },
         errorPlacement: function (error, element) { },
@@ -292,7 +312,8 @@ $('[data-download-form-js]').each(function () {
         rules: {
             phone: {
                 required: true,
-                minlength: 28
+                checkMaskPhone: true
+                // minlength: 28
             }
         },
         errorPlacement: function (error, element) { },
@@ -342,6 +363,9 @@ $("[data-anchor-btn-js]").on("click", function (event) {
 
         let scroll = $(window).scrollTop();
         let windowHeight = $(window).height();
+        console.log(scroll)
+        console.log(windowHeight)
+        console.log(offset)
 
         if (offset > scroll) {
             var time = Math.round(offset / windowHeight) * 300;
@@ -358,7 +382,7 @@ $("[data-anchor-btn-js]").on("click", function (event) {
 });
 
 $(window).on('scroll', function () {
-    $('[data-on-scroll-display-js]').each(function () {
+    $('.animation').each(function () {
         var element = $(this);
 
         if (!(element.hasClass('visible'))) {

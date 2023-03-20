@@ -1611,6 +1611,9 @@
 	.design {
 		padding-top: 2rem;
 		padding-bottom: 2.4rem;
+		position: relative;
+		z-index: 3;
+		background: none;
 
 		&__row {
 			flex-direction: column;
@@ -1681,8 +1684,8 @@
 			top: -7.6rem;
 			left: 0;
 			width: 100%;
-			height: 141%;
-			background-image: url('../media/img/default-bg-mobile.jpg');
+			height: 100%;
+			background: url(../media/img/default-bg-mobile.jpg) 0 0 / 100% 100% no-repeat;
 		}
 
 		&__content {
@@ -2053,6 +2056,7 @@
 @media (max-width: 768px) {
 	.benefits {
 		padding: 2.3rem 0;
+		z-index: 2;
 
 		&::after {
 			display: none;
@@ -2126,6 +2130,7 @@
 // консультация
 @media (max-width: 768px) {
 	.consultation {
+		position: static;
 		padding: 2.15rem 0;
 
 		&__bg {

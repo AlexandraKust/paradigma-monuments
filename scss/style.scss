@@ -122,13 +122,13 @@ form {
 	0% {
 		transform: translate(0, 100%) rotate(1deg);
 		opacity: 0;
-		transform-origin: 0 0;
+		// transform-origin: 0 0;
 	}
 
 	100% {
 		opacity: 1;
 		transform: translate(0, 0) rotate(0);
-		transform-origin: 0 0;
+		// transform-origin: 0 0;
 	}
 }
 
@@ -138,6 +138,17 @@ form {
 	animation-duration: 1.5s;
 	animation-fill-mode: both;
 	animation-name: slide-up-in;
+}
+
+.animation {
+	transition: 1s;
+	opacity: 0 !important;
+	transform: translateY(5.2083333333vw) !important;
+}
+
+.animation.visible {
+	opacity: 1 !important;
+	transform: translateY(0) !important;
 }
 
 [data-on-scroll-display-js] {
@@ -854,6 +865,9 @@ form {
 	}
 }
 
+.main {
+	background: #f7f7f7;
+}
 
 // шапка
 .header {
@@ -2102,6 +2116,8 @@ form {
 
 // каталог
 .catalog {
+	position: relative;
+	z-index: 2;
 
 	&__title {
 		width: 63.6458333vw;
@@ -2440,7 +2456,7 @@ form {
 		top: 2.23vw;
 		left: 0;
 		right: 0;
-		z-index: -1;
+		// z-index: -1;
 		width: 100%;
 	}
 
@@ -2732,9 +2748,10 @@ form {
 	padding-top: 4.8vw;
 	padding-bottom: 4.375vw;
 	position: relative;
+	z-index: 2;
 
 	&::after {
-		content: '';
+		// content: '';
 		position: absolute;
 		top: -9.6vw;
 		bottom: -11.35vw;
@@ -3272,6 +3289,8 @@ form {
 	padding-top: 4.5vw;
 	padding-bottom: 2.7vw;
 	color: #fff;
+	position: relative;
+	z-index: 2;
 
 	&__content {
 		position: relative;
