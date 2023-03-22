@@ -71,14 +71,12 @@ $mail->CharSet = 'utf-8';
 //$mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username = 'formsajt987@gmail.com'; // Ваш логин в Яндексе. Именно логин, без @yandex.ru
-$mail->Password = '473-Ghd-%sasd121'; // Ваш пароль
+$mail->Username = 'example@gmail.com'; //  логин
+$mail->Password = 'password'; //  пароль
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 $mail->setFrom('formsajt987@gmail.com', 'Форма с сайта'); // Ваш Email
-//$mail->addAddress('apkby@tut.by'); // Email получателя
 $mail->addAddress('akust0912@gmail.com'); // Email получателя
-//ВСЁ РАБОТАЕТ! :)
 
 // Письмо
 $mail->isHTML(true);
