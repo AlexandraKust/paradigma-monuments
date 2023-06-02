@@ -14,7 +14,4 @@
 + оптимизация изображений;
 + использование jquery и библиотек.
 
-Посмотреть результат по ссылке:
-https://paradigma.website/site/pa/
-
-или в githubPages по ссылке в описании
+Посмотреть результат по <a href="https://master-granit161.ru/" target="_blank" >ссылке</a> или в githubPages по ссылке в описании
